@@ -1,0 +1,1196 @@
+/* Audrius */
+
+
+/***** General css start *****/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Oswald', Arial, sans-serif;
+}
+
+p,
+a {
+    font-weight: 300;
+    color: #555;
+    letter-spacing: 2px;
+    font-family: 'Calibri', Arial, sans-serif;
+}
+
+a:focus,
+a:hover {
+    color: #23527c;
+    text-decoration: none;
+}
+
+.buttonas {
+    text-transform: uppercase;
+    color: #fff;
+    background: #b887b3;
+    opacity: 0.8;
+    border: 0;
+    height: 40px;
+    width: 100%;
+    font-family: 'Calibri', Arial, sans-serif;
+    /* background-color: white; */
+    letter-spacing: 2px;
+    font-weight: 300;
+    vertical-align: middle;
+    text-align: center;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+}
+
+.buttonaspilkas {
+    text-transform: uppercase;
+    color: #999;
+    background: #ededed;
+    opacity: 1;
+    border: 0;
+    height: 40px;
+    width: 100%;
+    font-family: 'Calibri', Arial, sans-serif;
+    /* background-color: white; */
+    letter-spacing: 2px;
+    font-weight: 300;
+    vertical-align: middle;
+    text-align: center;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+}
+
+.buttonas2 {
+    text-transform: uppercase;
+    color: #fff;
+    background: #b887b3;
+    opacity: 0.8;
+    border: 0;
+    height: 40px;
+    width: 80%;
+    font-family: 'Calibri', Arial, sans-serif;
+    /* background-color: white; */
+    letter-spacing: 2px;
+    font-weight: 300;
+    vertical-align: middle;
+    text-align: center;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+    margin-left: 10%;
+}
+
+.buttonas2fb {
+    margin-top: 5px;
+    text-transform: uppercase;
+    color: #666;
+    background: none;
+    opacity: 0.8;
+    border: 0;
+    height: 40px;
+    width: 80%;
+    font-family: 'Calibri', Arial, sans-serif;
+    /* background-color: white; */
+    letter-spacing: 2px;
+    font-weight: 300;
+    vertical-align: middle;
+    text-align: center;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+    margin-left: 10%;
+    font-size: 11px;
+}
+
+.buttonas:hover {
+    opacity: 1;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+}
+
+.buttonaspilkas:hover {
+    background: #ddd;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+}
+
+.buttonas2:hover {
+    opacity: 1;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+}
+
+.buttonas2fb:hover {
+    opacity: 1;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+}
+
+.ieskoti {
+    position: relative;
+    z-index: 999;
+}
+
+
+/***** General css end *****/
+
+
+/***** Header start *****/
+
+.navbar-text {
+    margin-top: 25px;
+}
+
+.navigation {}
+
+.navigation ul {
+    margin-bottom: 0;
+}
+
+.navigation ul li {
+    display: inline-block;
+}
+
+.navigation ul li a {
+    padding: 20px 20px 20px 20px;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+
+/***** Header end *****/
+
+
+/***** Login view start *****/
+
+#loginView {
+    height: 100vh;
+    width: 100%;
+    background: url("../img/home/homeimageblurred.jpg") no-repeat 0% 0%;
+    background-size: 100%;
+}
+
+.theLogin {
+    width: 100%;
+    /* margin-left: 25%; */
+    height: 45%;
+    margin-top: 10%;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.theLogininputai {
+    height: 100%;
+    width: 40%;
+    margin: 0 auto;
+    padding-top: 3%;
+}
+
+
+/***** Login view end *****/
+
+
+/***** Register view start *****/
+
+#registerView {
+    height: 100vh;
+    width: 100%;
+    background: #fff;
+}
+
+.theRegister h1 {
+    margin-left: 5%;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #555;
+}
+
+#registerView .buttonas {
+    position: absolute;
+    width: 220px;
+    right: 15%;
+    bottom: 10%;
+}
+
+#registerView .buttonas2fb {
+    position: absolute;
+    width: 220px;
+    left: 0%;
+    bottom: 10%;
+}
+
+.theRegister {
+    padding-top: 2%;
+}
+
+.theRegister input {
+    margin: 0;
+}
+
+.theRegisterinputai {
+    width: 100%;
+    height: 100%;
+    margin-top: 2%;
+}
+
+
+/***** Register view end *****/
+
+
+/***** Register Service view start *****/
+
+#registerServiceView {}
+
+.theRegisterService {}
+
+.coverPhotoInput {
+    height: 200px;
+    overflow: hidden;
+    background-color: #ededed;
+}
+
+.coverPhotoInput img {
+    width: 100%;
+}
+
+.addphoto {
+    margin-top: 25%;
+    margin-left: 10%;
+    height: 30px;
+    width: 250px;
+    display: inline-block;
+}
+
+.addphotoprofile {
+    /* margin-top: 25%; */
+    /* margin-left: 10%; */
+    height: 200px;
+    width: 200px;
+    display: block;
+}
+
+label {
+    cursor: pointer;
+}
+
+.addphotoprofile p {
+    font-size: 0px;
+    text-align: center;
+    /* margin-left: 40px; */
+    /* margin-top: 2px; */
+    /* vertical-align: middle; */
+    /* line-height: 30px; */
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.addphoto p {
+    margin-left: 40px;
+    /* margin-top: 2px; */
+    /* vertical-align: middle; */
+    line-height: 30px;
+    font-size: 0px;
+}
+
+.pliusassvg {
+    opacity: 0.8;
+    float: left;
+    width: 30px;
+    pointer-events: none;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.pliusassvgprofile {
+    margin-top: 85px;
+    margin-left: 85px;
+    /* margin: 0 auto; */
+    opacity: 0.8;
+    width: 30px;
+    pointer-events: none;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.coverlabel:hover .pliusassvg {
+    opacity: 1;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.proflabel {
+    position: relative;
+    z-index: 100;
+}
+
+.proflabel:hover .pliusassvgprofile {
+    opacity: 1;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.proflabel:hover .addphotoprofile p {
+    font-size: 11px;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.coverlabel:hover .addphoto p {
+    font-size: 11px;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.inputButton {
+    background-color: aqua
+}
+
+.timesvg {
+    margin-right: 5px;
+    width: 25px;
+    vertical-align: middle;
+}
+
+.profilePhotoInput {
+    top: 25%;
+    left: 50%;
+    /* margin: -100px auto; */
+    height: 200px;
+    width: 200px;
+    /* border-style: solid; */
+    /* border-width: 5px; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    /* margin-top: -100px; */
+    position: absolute;
+    vertical-align: middle;
+    /* font-size: 55px; */
+    overflow: hidden;
+    background: #ededed;
+    border: 4px solid #fff;
+    border-radius: 200px;
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 200px;
+    margin-left: -100px;
+}
+
+.profilePhotoInput img {
+    width: 100%;
+    position: absolute;
+    z-index: 110;
+}
+
+.flright {
+    float: right;
+    margin-right: 15px;
+}
+
+.borderleft {
+    border-left: 1px solid #999;
+}
+
+.theRegisterService h2 {
+    color: #555;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.fltextright {
+    text-align: right;
+}
+
+.profilePhotoInput input {
+    display: none;
+}
+
+.coverPhotoInput input {
+    display: none;
+}
+
+.linijaverslauk {
+    height: 140px;
+}
+
+.linijaverslauk .name {
+    text-align: center;
+}
+
+.linijaverslauk .name p {
+    font-weight: 400;
+    padding-top: 30%;
+    font-family: 'Oswald', Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+.service {
+    display: block;
+    width: 100%;
+    height: 60px;
+}
+
+.servicephoto {}
+
+.servicephoto img {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+.servicename {
+    line-height: 50px;
+}
+
+.servicetime {
+    line-height: 50px;
+}
+
+.serviceprice {
+    line-height: 50px;
+    text-align: center;
+}
+
+
+/***** Register Service view end *****/
+
+
+/***** Home page start *****/
+
+#home {
+    height: 100vh;
+    width: 100%;
+    background: url("../img/home/homeimage2.jpg") no-repeat 0% 0%;
+    background-size: 100%;
+}
+
+.theHeader {
+    padding-left: 5%;
+    background: none;
+    border: none;
+    padding-right: 5%;
+}
+
+.logo {
+    height: 28px;
+}
+
+.fblogo {
+    height: 14px;
+}
+
+.theHeader .logo {
+    pointer-events: none;
+}
+
+.theMiddle {
+    width: 100%;
+    height: 40%;
+    position: absolute;
+    top: 30%;
+    left: 0;
+}
+
+.theMiddleSearch {
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.theMiddleText {
+    margin-bottom: 3%;
+}
+
+.paslauga {}
+
+.vieta {}
+
+.data {}
+
+.laiksa {}
+
+.pasirinkimas {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.pasirinkimas p {}
+
+.paslauga p {
+    text-align: left;
+    font-family: 'Oswald', Arial, sans-serif;
+    color: #777;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 500;
+    padding-bottom: 12px;
+    padding-left: 20%;
+}
+
+.vieta p {
+    text-align: left;
+    font-family: 'Oswald', Arial, sans-serif;
+    color: #777;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 500;
+    padding-bottom: 12px;
+    padding-left: 20%;
+}
+
+.theMiddleText h1 {
+    padding-top: 4%;
+    /* vertical-align: middle; */
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+.searchotext1 {
+    padding-left: 3%;
+}
+
+.searchotext2 {
+    border-left: 1px solid #999;
+    text-align: center;
+}
+
+.searchotext3 {
+    border-left: 1px solid #999;
+    text-align: center;
+}
+
+.theMiddleplotas {
+    background: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    height: 100%;
+}
+
+.theMiddlelinijaup {
+    width: 100%;
+    height: 10px;
+    border-top: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.theMiddlelinijabottom {
+    width: 100%;
+    height: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.theSlider {}
+
+.theSlider div {
+    background: url("../img/home/homeimage1.jpg");
+}
+
+#sekantis {}
+
+.green {
+    float: left;
+    background: green;
+}
+
+.blue {
+    background: blue;
+}
+
+
+/***** Home page end *****/
+
+
+/* Lukas */
+
+.tesstas {
+    background-image: url(../images/landing_2.png);
+}
+
+.landing-image-first {
+    background-image: url(../images/Untitled-1.png);
+    height: 80px;
+    background-size: 100%;
+}
+
+.loginForm {
+    text-align: center;
+    border: #757575;
+    border-style: solid;
+    margin-bottom: 7px;
+    border-radius: 9px;
+}
+
+.loginButton {
+    background-color: green;
+    margin-left: auto;
+    margin-right: auto;
+    width: 48%;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 33px;
+    margin-top: 10px;
+}
+
+.registerButton {
+    background-color: green;
+    margin-left: auto;
+    margin-right: auto;
+    width: 48%;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 33px;
+    margin-top: 10px;
+}
+
+.main-menu-footer {
+    background-color: white;
+    height: 250px;
+    padding: 0px
+}
+
+.main-row {
+    height: 100px;
+    width: 100%;
+}
+
+.main-section {
+    width: 33.33333333%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e1dfdf;
+    float: left;
+    height: 100px;
+    background-color: white;
+}
+
+.main-background {
+    background-image: url(../images/landing_2.png);
+    background-size: 100%;
+    background-position: 0px -200px;
+}
+
+.main-section-low {
+    height: 50%;
+    background-color: white;
+    width: 50%;
+    float: left;
+    border-width: 1px;
+}
+
+.main-welcome {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.main-welcome p {
+    text-align: center;
+    font-weight: 100;
+    padding: 23px;
+}
+
+.upper {
+    border-bottom-style: none;
+}
+
+.map-icon {
+    background-image: url(../images/map.png);
+    width: 60%;
+    height: 56px;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    margin-left: 26%;
+}
+
+.main-icon {
+    width: 60%;
+    height: 56px;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    margin-left: 26%;
+}
+
+.no-right-border {
+    border-right-style: none;
+}
+
+.settings-icon {
+    background-image: url(../images/settings.png);
+}
+
+.tools-icon {
+    background-image: url(../images/tools.png);
+}
+
+.history-icon {
+    background-image: url(../images/history.png);
+}
+
+.events-icon {
+    background-image: url(../images/events.png);
+}
+
+.objects-icon {
+    background-image: url(../images/objects.png);
+}
+
+.account-icon {
+    background-image: url(../images/account.png);
+    float: left;
+    height: 24px;
+    width: 19%;
+    background-repeat: no-repeat;
+    background-size: 72%;
+    margin-left: 24px;
+}
+
+.support-icon {
+    background-image: url(../images/support.png);
+    float: left;
+    height: 24px;
+    width: 19%;
+    background-repeat: no-repeat;
+    background-size: 72%;
+    margin-left: 24px;
+}
+
+.objectProps {
+    width: 100%;
+    height: 200px;
+    background-color: white;
+}
+
+.objectItem i {
+    visibility: hidden;
+}
+
+.objectLabel label {
+    padding-left: 10px;
+}
+
+.objectShowData {
+    padding-top: 6px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #F1F1F1;
+    background-color: #F3F3F3;
+    width: 89%;
+    height: 93%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.objectItem {
+    width: 45%;
+    float: left;
+    color: black;
+    height: 75px;
+}
+
+.objectItem p {
+    color: black;
+    margin-left: 0px;
+    font-size: 10px;
+}
+
+.objectItem h2 {
+    color: black;
+    padding-left: 15px;
+}
+
+.objectOnline {
+    width: 15%;
+    float: left;
+    height: 75px;
+}
+
+.objectSett {
+    width: 40%;
+    background-color: white;
+    height: 75px;
+}
+
+.showSpeed {
+    height: 100%;
+    float: left;
+    padding: 9px;
+    background-color: #E8E8E8;
+    margin-left: -14px;
+    border-radius: 11%;
+    color: #737373;
+}
+
+.objectSettIcon {
+    height: 100%;
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    margin-left: 4px;
+    width: 41px;
+    color: #8B8B8B;
+    border-radius: 11%;
+    font-size: 31px;
+    padding-top: 4px;
+    padding-left: 8px;
+}
+
+.objOnline {
+    height: 10px;
+    width: 10px;
+    background-color: green;
+    position: absolute;
+    margin-top: 7px;
+    border-radius: 50%;
+}
+
+.objOffline {
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    position: absolute;
+    margin-top: 7px;
+    border-radius: 50%;
+}
+
+.objDetailData p {
+    float: right;
+}
+
+.objDetailData {
+    width: 100%;
+    height: 18px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: #E6E6E6;
+    margin-bottom: 12px;
+}
+
+.addDevice {
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    background-color: white;
+    color: green;
+}
+
+.footeris {
+    border-top-style: solid;
+    border-width: 1px;
+    border-color: #CECECE;
+}
+
+.objSettButt {
+    height: 40px;
+    width: 40px;
+    font-size: 22px;
+    color: #848484;
+    margin-right: 10px;
+}
+
+.floater {
+    float: right;
+}
+
+.padder {
+    padding: 10px
+}
+
+.user {
+    width: 40%;
+    height: 300px;
+    float: left;
+    border-style: solid;
+    border-width: 1px;
+    margin: 5%
+}
+
+.user img {
+    height: 300px;
+}
+
+.userImage {
+    float: left;
+}
+
+.mainSlider {
+    height: 500px;
+    width: 100%;
+    background-color: black;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.theFooter {
+    height: 300px;
+    background-color: fuchsia;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.homeTopService {
+    height: 400px;
+    background-color: white;
+    padding: 50px;
+}
+
+.underline {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: grey;
+}
+
+.theTopService {
+    height: 200px;
+    width: 30%;
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin: 1.6666666666%;
+}
+
+.serviceModal {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.serviceModalSelect {
+    background-color: white;
+    height: 80%;
+}
+
+.selectYourService {
+    width: 100%;
+}
+
+.selectServiceTitle {
+    width: 100%;
+    height: 50px;
+    color: grey;
+    text-align: center;
+}
+
+.subcategorieService {
+    height: 75px;
+}
+
+.subcategorieService .item-checkbox {
+    width: 20px;
+    float: left;
+    border: none;
+}
+
+.subcategorieService input {
+    width: 20%;
+    float: right;
+}
+
+.subcategorieService .item-select {
+    width: 20%;
+    float: right;
+}
+
+.workingDays .item-checkbox {
+    width: 100%;
+    float: left;
+    text-align: left;
+}
+
+.registerForm {
+    height: 300px;
+}
+
+.ui-datepicker {
+    width: 100%;
+    height: 300px;
+    margin: 5px auto 0;
+    font: 9pt Arial, sans-serif;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+}
+
+.ui-datepicker a {
+    text-decoration: none;
+}
+
+ui-datepicker table {
+    width: 100%;
+}
+
+.ui-datepicker-header {
+    background: white;
+    color: #e0e0e0;
+    font-weight: bold;
+    -webkit-box-shadow: inset 0px 1px 1px 0px rgba(250, 250, 250, 2);
+    -moz-box-shadow: inset 0px 1px 1px 0px rgba(250, 250, 250, .2);
+    box-shadow: inset 0px 1px 1px 0px rgba(250, 250, 250, .2);
+    filter: dropshadow(color=#000, offx=1, offy=-1);
+    line-height: 30px;
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: #111;
+}
+
+.ui-datepicker-title {
+    text-align: center;
+    color: black;
+}
+
+.ui-datepicker-prev,
+.ui-datepicker-next {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    background-image: url('../img/arrow.png');
+    background-repeat: no-repeat;
+    line-height: 600%;
+    overflow: hidden;
+}
+
+.ui-datepicker-prev {
+    float: left;
+    background-position: center -30px;
+}
+
+.ui-datepicker-next {
+    float: right;
+    background-position: center 0px;
+}
+
+.ui-datepicker thead {
+    background-color: #f7f7f7;
+    background-image: -moz-linear-gradient(top, #f7f7f7 0%, #f1f1f1 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(100%, #f1f1f1));
+    background-image: -webkit-linear-gradient(top, #f7f7f7 0%, #f1f1f1 100%);
+    background-image: -o-linear-gradient(top, #f7f7f7 0%, #f1f1f1 100%);
+    background-image: -ms-linear-gradient(top, #f7f7f7 0%, #f1f1f1 100%);
+    background-image: linear-gradient(top, #f7f7f7 0%, #f1f1f1 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#f1f1f1', GradientType=0);
+    border-bottom: 1px solid #bbb;
+}
+
+.ui-datepicker th {
+    text-transform: uppercase;
+    font-size: 6pt;
+    padding: 5px 0;
+    color: #666666;
+    text-shadow: 1px 0px 0px #fff;
+    filter: dropshadow(color=#fff, offx=1, offy=0);
+}
+
+.ui-datepicker tbody td {
+    padding: 0;
+    border-right: 1px solid #bbb;
+}
+
+.ui-datepicker tbody td:last-child {
+    border-right: 0px;
+}
+
+.ui-datepicker tbody tr {
+    border-bottom: 1px solid #bbb;
+}
+
+.ui-datepicker tbody tr:last-child {
+    border-bottom: 0px;
+}
+
+.ui-datepicker td span,
+.ui-datepicker td a {
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: #666666;
+    text-shadow: 1px 1px 0px #fff;
+    filter: dropshadow(color=#fff, offx=1, offy=1);
+}
+
+.ui-datepicker-calendar {
+    width: 100%;
+    height: 90%;
+}
+
+.ui-datepicker-calendar .ui-state-default {
+    background: #ededed;
+    background: -moz-linear-gradient(top, #ededed 0%, #dedede 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ededed), color-stop(100%, #dedede));
+    background: -webkit-linear-gradient(top, #ededed 0%, #dedede 100%);
+    background: -o-linear-gradient(top, #ededed 0%, #dedede 100%);
+    background: -ms-linear-gradient(top, #ededed 0%, #dedede 100%);
+    background: linear-gradient(top, #ededed 0%, #dedede 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#dedede', GradientType=0);
+    -webkit-box-shadow: inset 1px 1px 0px 0px rgba(250, 250, 250, .5);
+    -moz-box-shadow: inset 1px 1px 0px 0px rgba(250, 250, 250, .5);
+    box-shadow: inset 1px 1px 0px 0px rgba(250, 250, 250, .5);
+}
+
+.ui-datepicker-unselectable .ui-state-default {
+    background: #f4f4f4;
+    color: #b4b3b3;
+}
+
+.ui-datepicker-calendar .ui-state-hover {
+    background: #f7f7f7;
+}
+
+.ui-datepicker-calendar .ui-state-active {
+    background: #6eafbf;
+    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, .1);
+    -moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, .1);
+    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, .1);
+    color: #e0e0e0;
+    text-shadow: 0px 1px 0px #4d7a85;
+    filter: dropshadow(color=#4d7a85, offx=0, offy=1);
+    border: 1px solid #55838f;
+    position: relative;
+    margin: -1px;
+}
+
+.ui-datepicker-calendar td:first-child .ui-state-active {
+    width: 100%;
+    margin-left: 0;
+}
+
+.ui-datepicker-calendar td:last-child .ui-state-active {
+    width: 100%;
+    margin-right: 0;
+}
+
+.ui-datepicker-calendar tr:last-child .ui-state-active {
+    height: 100%;
+    margin-bottom: 0;
+}
+
+.registerTime {
+    height: 300px;
+    overflow: hidden;
+}

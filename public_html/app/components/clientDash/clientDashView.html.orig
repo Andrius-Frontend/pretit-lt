@@ -1,0 +1,252 @@
+<ion-view title="" hide-back-button="true" hide-nav-bar="true">
+
+
+    <ion-content overflow-scroll="true">
+
+        <section id="clientDash">
+            <div class="gapasdashui"></div>
+            <div header></div>
+            <!--
+            <div id="dashboardMenu">
+                <div class="container">
+                    <div class="dMenu">
+
+                        <div class="">
+                            <a href="index.html" class="dMenuItem logoItem">
+                                <object class="logoIcon" type="image/svg+xml" data="img/icons/pr.svg">Your browser does not support SVG</object>
+                                <object class="logoIconNone" type="image/svg+xml" data="img/icons/prwhite.svg">Your browser does not support SVG</object>
+
+                            </a>
+                            <a href="#" class="dMenuItemCurrent dMenuItem">
+                                <object class="myaccountIcon" type="image/svg+xml" data="img/icons/myaccounticonwhite.svg">Your browser does not support SVG</object>
+
+                                <p>Profilis</p>
+                            </a>
+                            <a href="#/app/messages" class="dMenuItem messagesItem">
+                                <object class="messagesIcon" type="image/svg+xml" data="img/icons/messagesicon.svg">Your browser does not support SVG</object>
+                                <object class="messagesIconNone" type="image/svg+xml" data="img/icons/messagesiconwhite.svg">Your browser does not support SVG</object>
+                                <p>Žinutės</p>
+                            </a>
+
+                            <a id="allBookings" ng-click="getAllBookings()" class="dMenuItem listItem">
+                                <object class="listIcon" type="image/svg+xml" data="img/icons/listicon.svg">Your browser does not support SVG</object>
+                                <object class="listIconNone" type="image/svg+xml" data="img/icons/listiconwhite.svg">Your browser does not support SVG</object>
+                                <p>Užsakymų istorija</p>
+                            </a>
+
+                            <a ng-click="showFavorites()" class="dMenuItem favorItem">
+                                <object class="favorIcon" type="image/svg+xml" data="img/icons/favoricon.svg">Your browser does not support SVG</object>
+                                <object class="favorIconNone" type="image/svg+xml" data="img/icons/favoriconwhite.svg">Your browser does not support SVG</object>
+                                <p class="dashsmallp">Mėgstamiausi specialistai</p>
+                            </a>
+
+
+
+                            <a ng-click='logOut()' class="dMenuItem logoutItem dMenuItemRight">
+                                <object class="logoutIcon" type="image/svg+xml" data="img/icons/logouticon.svg">Your browser does not support SVG</object>
+                                <object class="logoutIconNone" type="image/svg+xml" data="img/icons/logouticonwhite.svg">Your browser does not support SVG</object>
+                                <p>Log out</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+-->
+
+
+            <div class="clientDash">
+                <div class="container">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                        <div class="row">
+
+                            <div class="clientDashLeft col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+
+
+                                <div class="clientPhotoInput">
+
+                                    <div id="profilePic" class="coverbg" style="background: url('{{profilePic._url}}') no-repeat 50% 50%; background-size: cover;"></div>
+                                    <div ng-if="!profilePic" class="jeinera">
+                                        <label class="proflabel" for="file-input">
+                                            <div class="addphotoprofile" id="addphotoprofile">
+
+                                                <object class="pliusassvgprofile" type="image/svg+xml" data="img/pliusas.svg">Your browser does not support SVG</object>
+                                                <p> Pridėti profilio nuotrauką
+                                                </p>
+
+                                            </div>
+
+                                            <input type="file" accept="image/*" id="file-input" onchange="loadProfilePic(event)">
+                                        </label>
+                                    </div>
+                                    <div ng-if="profilePic" class="jeiyra">
+                                        <label class="proflabel" for="file-input">
+                                            <div class="addphotoprofile" id="addphotoprofile">
+
+                                                <object class="pliusassvgprofile" type="image/svg+xml" data="img/pliusas.svg">Your browser does not support SVG</object>
+                                                <p> Pridėti profilio nuotrauką
+                                                </p>
+
+                                            </div>
+
+                                            <input type="file" accept="image/*" id="file-input" onchange="loadProfilePic(event)">
+                                        </label>
+                                    </div>
+
+                                </div>
+                                <!--
+                               <div ng-if="profilePic" class="testt">yra</div>
+<div ng-if="!profilePic" class="testt">nera</div>
+-->
+                                <div class="clientInfo">
+
+                                    <h1>{{theUser.data.name}} {{theUser.data.surname}}</h1>
+
+                                    <!--                                   <inpu type='tel' value="+370{{theUser.data.telNumber}}"></inpu>-->
+                                    <h2>{{theUser.data.telNumber}}</h2>
+                                    <h3>{{theUser.email}}</h3>
+<<<<<<< HEAD
+                                    <h4 ng-click="changePass()">Change your password</h4>
+=======
+                                    <button class="changepass buttonasnew">Keisti slaptažodį</button>
+>>>>>>> 08c6d5ad1f87b3569aa0a9af54318d9fa201823c
+
+
+                                </div>
+
+
+                                <div class="clientSettings">
+                                    <label class="item filtro">
+                                        <div class="input-label">
+                                            Priminimai dėl paslaugų užsakymų:
+                                        </div>
+
+                                    </label>
+                                    <div class="checkboxai filtrocheckboxai">
+                                        <ion-list>
+
+                                            <ion-checkbox>
+                                                <p class="taip">Gauti priminimus el. paštu</p>
+
+                                            </ion-checkbox>
+                                            <!--
+                                            <ion-checkbox>
+    <p class="taip">Gauti priminimus sms žinute</p>
+
+</ion-checkbox>
+-->
+
+
+
+                                        </ion-list>
+                                    </div>
+
+                                </div>
+
+
+
+
+                                <div class="clientButtonai">
+
+                                    <button class="buttonasnew greenbutton buttontarpas" ng-click="updateProfile()">Išsaugoti pakeitimus</button>
+                                    <button class="buttonasnew orangebutton" ng-if="!currentUser.attributes.hasService">Tapk grožio specialistu !</button>
+                                    <button class="buttonasnew orangebutton" ng-click="linkFb()">Susieti facebook paskyrą</button>
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="clientDashRight col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                                <h2 class="textcenter">Mano užsakymai</h2>
+                                <div class="clientDashChange">
+                                    <div class="nopadding nomargin row">
+                                        <button style="margin-left: 0%;" id="futureBookings" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 clbutton buttonasnew " ng-click="getFutureBookings()">Ateinantys užsakymai</button>
+                                        <button class="sonaibut col-lg-4 col-md-4 col-sm-4 col-xs-4 clbuttonactive buttonasnew " id="allBookings" ng-click="getAllBookings()">Visi užsakymai</button>
+                                        <button class="netelpa col-lg-4 col-md-4 col-sm-4 col-xs-4 clbutton buttonasnew " id="favorites" ng-click="showFavorites()">Mėgstamiausi specialistai</button>
+                                    </div>
+                                </div>
+                                <div class="clientBook" ng-if="!favorites">
+                                    <div ng-repeat="booking in myBookings " class="item dashboardBottomUser " ng-class="{clientBookingAccepted: booking.attributes.Status === 'Patvirtintas', clientBookingDenied: booking.attributes.Status === 'denied'}">
+                                        <div class="dashboardBottomCategoryPhoto">
+                                            <div class="coverbg2 " style="background: url('{{booking.attributes.ReceiverPic}}') no-repeat 50% 50%; background-size: cover; "></div>
+                                        </div>
+                                        <div class="dashboardBottomUserInfo ">
+                                            <h2> </h2>
+                                            <h3> {{booking.attributes.ReceiverEmail}}</h3>
+                                        </div>
+                                        <div class="dashboardBottomUserInfo2 ">
+                                            <h2>{{returnDate(booking.attributes.DateUTC)}}</h2>
+                                            <h3>{{booking.attributes.TimeObject.time.time}}</h3>
+                                        </div>
+
+
+
+                                        <div class="dashboardBottomUserButtons aff">
+                                            <button class="dashboardButtonGrey buttonas " ng-click="openBooking(booking) ">
+                                                Informacija
+                                            </button>
+                                            <button ng-click='cancelReservBook(booking)' class="dashboardButton buttonas ">
+                                                Atšaukti
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clientBook " ng-if="favorites">
+                                    <div ng-repeat="user in favoriteUsers " class="item dashboardBottomUser ">
+                                        <div class="dashboardBottomCategoryPhoto ">
+                                            <div class="coverbg2 " style="background: url( '{{user.attributes.profilePhoto._url}}') no-repeat 50% 50%; background-size: cover; "></div>
+                                        </div>
+                                        <div class="dashboardBottomUserInfo ">
+                                            <h2> </h2>
+                                            <h3> {{user.attributes.data.name}} {{user.attributes.data.surname}}</h3>
+                                        </div>
+                                        <!--
+                                        <div class="dashboardBottomUserInfo2 ">
+
+</div>
+-->
+
+
+
+                                        <div class="dashboardBottomUserButtons ">
+                                            <button class="dashboardButton buttonas" ng-click="goToUser(user.id)">
+                                                Peržiūrėti
+                                            </button>
+                                            <button ng-click='unfollow(user)' class="dashboardButtonGrey buttonas ">
+                                                Nebesekti
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+        </section>
+
+
+
+
+    </ion-content>
+
+</ion-view>

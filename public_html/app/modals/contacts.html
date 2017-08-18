@@ -1,0 +1,58 @@
+<ion-content class='serviceModal serviceModalSelect selservices'>
+    <div class="modalheader">
+        <div class="modaltitle">
+            <!--			<p>Pasirinkite atliekamas paslaugas</p>-->
+            <h6 class="modaloneh6">Susisiekite</h6>
+        </div>
+        <button class="absclose greybutton" ng-click="contactsModal.hide()">Uždaryti</button>
+    </div>
+
+
+
+    <div class="modalcontent">
+        <div class="kontpay">
+            <div class="kontpayblock">
+                <h2>Tel.:</h2>
+                <p>+370 686 98670
+                </p>
+            </div>
+            <div class="kontpayblock">
+                <h2>El.paštas:</h2>
+                <p>pretit@pretit.lt
+                </p>
+            </div>
+
+
+        </div>
+        <div class="susisiek">
+
+            <div class="susiinput">
+                <label>Vardas</label>
+                <input type="text" ng-model="dataContact.name" placeholder="Tavo vardas">
+            </div>
+            <div class="susiinput">
+                <label>Telefono nr.</label>
+                <input type="number" ng-model="dataContact.tel" placeholder="Tavo telefono nr.">
+            </div>
+            <div class="susiinput">
+                <label>El. paštas</label>
+                <input type="email" ng-model="dataContact.email" placeholder="Tavo el. paštas">
+            </div>
+            <div class="susiinput">
+                <label>Žinutė</label>
+                <textarea ng-model="dataContact.message" placeholder="Tavo klausimai ar žinutė"></textarea>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modalfooter">
+        <div class="modbutnew">
+            <input type="submit" value="Siųsti" ng-click="sendContact()">
+        </div>
+
+
+    </div>
+
+
+</ion-content>

@@ -1,0 +1,65 @@
+<ion-content class='serviceModal3 serviceModalSelect'>
+    <div class="modalheader">
+        <div class="modaltitle">
+            <p>Nori siūlyti grožio paslaugas ?</p>
+
+            <h6>Tapk grožio specialistu</h6>
+        </div>
+        <button class="absclose greybutton" ng-click="specModal.hide()">Uždaryti</button>
+    </div>
+
+    <div class="modalcontent">
+
+        <div class="becSpec">
+
+            <p>Tapk žinomu ir dar lengviau pasiekiamu grožio specialistu. Specialisto profilis, išmanusis kalendorius, internetinės klientų registracijos – viskas vienoje vietoje.
+            </p>
+            <img src="../../img/becspec2.png" class="becimg">
+        </div>
+        <div class="becSpec2">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="becspecblock">
+                        <h2>Klientų rezervacijos internetu</h2>
+                        <p>Kiekviena kliento registracija – Tavo išmaniajame kalendoriuje. Visi užsakymai vyksta net ir Tavo darbo metu! Tau lieka tik patvirtinti užsakymo laiką ir laukti kliento vizito.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="becspecblock">
+                        <h2>Priminimai klientams</h2>
+                        <p>Galite jaustis užtikrintai, jog klientas bus informuotas apie susitikimą. Artėjant grožio procedūrai bus išsiųstas priminimas tiesiai į jų Pretit paskyrą bei elektroninį paštą.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="becspecblock">
+                        <h2>Išmanusis darbo kalendorius</h2>
+                        <p>Prisijunk prie internetinio puslapio, mobiliosios programėlės ar planšetinio kompiuterio, kad ir kur bebūtum ir planuok savo dienotvarkę.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="becspecinput">
+            <h2>Įrašykite savo telefono numerį</h2>
+            <input type="number" ng-model="theUser.data.telNumber" placeholder="Telefono numeris">
+        </div>
+
+        <!--
+        <button ng-click="becomeSpecFinal()">pativritini</button>
+        <button ng-click="specModal.hide()">Uzdaryti</button>
+-->
+
+
+
+    </div>
+    <div class="modalfooter">
+        <div class="modbutnew">
+            <button ng-click="becomeSpecFinal()" class="">Patvirtinti</button>
+        </div>
+
+
+    </div>
+</ion-content>

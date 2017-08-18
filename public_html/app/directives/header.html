@@ -1,0 +1,250 @@
+<div>
+    <div class="neprisijunges" ng-if="!currentUser">
+        <nav class="theHeaderis navbar navbar-default navbar-static-top">
+
+            <div class="container">
+                <div class="theHeaderisLogo">
+                    <a href="index.html">
+                        <object type="image/svg+xml" data="img/logo/pretitlogopilnasorange.svg">Your browser does not support SVG</object>
+                    </a>
+
+                </div>
+
+                <div class="theHeaderisMenu">
+                    <ul>
+                        <li ng-click="goToCat('Kirpimas')"><a>Kirpimas</a></li>
+                        <li ng-click="goToCat('Manikiūras')"><a>Manikiūras</a></li>
+                        <li ng-click="goToCat('Kosmetologija')"><a>Kosmetologija</a></li>
+                        <li ng-click="goToCat('Vizažas')"><a>Vizažas</a></li>
+                        <!-- <li><a href="">Masažas</a></li>
+									<li><a href="">Depiliacija</a></li> -->
+                    </ul>
+                </div>
+                <div class="theHeaderisRight">
+                    <a ng-click='goToLogin()' class="loginbuttonas orangebutton"> Prisijungti</a>
+                </div>
+
+            </div>
+
+        </nav>
+    </div>
+
+    <div ng-if="currentUser">
+
+
+        <div id="dashboardMenu" ng-if="currentUser.attributes.type != '1'">
+            <div class="container">
+                <div class="dMenu">
+
+                    <div class="">
+
+                        <a href="index.html" class="dMenuItem logoItem">
+                            <object class="logoIcon" type="image/svg+xml" data="img/icons/pr.svg">Your browser does not support SVG</object>
+                            <object class="logoIconNone" type="image/svg+xml" data="img/icons/prwhite.svg">Your browser does not support SVG</object>
+
+
+                        </a>
+                        <a ng-click='goToBookings()' class="dMenuItem dashboardItem " ng-if="currentUser.attributes.type != '1'">
+                            <object class="dashboardIcon" type="image/svg+xml" data="img/icons/homeicon.svg">Your browser does not support SVG</object>
+                            <object class="dashboardIconNone" type="image/svg+xml" data="img/icons/homeiconwhite.svg">Your browser does not support SVG</object>
+
+                            <p>Darbalaukis</p>
+                            <p class="notifications" ng-if="pendingCount > 0">{{pendingCount}}</p>
+                        </a>
+                        <a ng-click='goToMessages()' class="dMenuItem messagesItem" ng-if="currentUser.attributes.type != '3'">
+                            <object class="messagesIcon" type="image/svg+xml" data="img/icons/messagesicon.svg">Your browser does not support SVG</object>
+                            <object class="messagesIconNone" type="image/svg+xml" data="img/icons/messagesiconwhite.svg">Your browser does not support SVG</object>
+                            <p>Žinutės</p>
+                            <p class="notifications" ng-if="messageCount > 0">{{messageCount}}</p>
+                        </a>
+                        <a ng-click='goToRegisterService()' class="dMenuItem listItem" ng-if="currentUser.attributes.type == '2'">
+                            <object class="listIcon" type="image/svg+xml" data="img/icons/listicon.svg">Your browser does not support SVG</object>
+                            <object class="listIconNone" type="image/svg+xml" data="img/icons/listiconwhite.svg">Your browser does not support SVG</object>
+                            <p>Mano Anketa</p>
+                        </a>
+                        <a ng-click='goToclientDash()' class="dMenuItem myaccountItem" ng-if="currentUser.attributes.type != '3'">
+                            <object class="myaccountIcon" type="image/svg+xml" data="img/icons/myaccounticon.svg">Your browser does not support SVG</object>
+                            <object class="myaccountIconNone" type="image/svg+xml" data="img/icons/myaccounticonwhite.svg">Your browser does not support SVG</object>
+                            <p>Profilis</p>
+                        </a>
+                        <a ng-click='goToSpecList()' class="dMenuItem listItem" ng-if="currentUser.attributes.type === '3'">
+                            <object class="listIcon" type="image/svg+xml" data="img/icons/listicon.svg">Your browser does not support SVG</object>
+                            <object class="listIconNone" type="image/svg+xml" data="img/icons/listiconwhite.svg">Your browser does not support SVG</object>
+                            <p>Specialistai</p>
+                        </a>
+                        <a ng-click='goToPayments()' class="dMenuItem paymentsItem" ng-if="currentUser.attributes.type != '1'">
+                            <object class="paymentsIcon" type="image/svg+xml" data="img/icons/paymentsicon.svg">Your browser does not support SVG</object>
+                            <object class="paymentsIconNone" type="image/svg+xml" data="img/icons/paymentsiconwhite.svg">Your browser does not support SVG</object>
+                            <p>Mokėjimai</p>
+                        </a>
+                        <!--
+<a ng-click='goToSettings()' class="dMenuItem settingsItem">
+    <object class="settingsIcon" type="image/svg+xml" data="img/icons/settingsicon.svg">Your browser does not support SVG</object>
+    <object class="settingsIconNone" type="image/svg+xml" data="img/icons/settingsiconwhite.svg">Your browser does not support SVG</object>
+    <p>Nustatymai</p>
+</a>
+-->
+                        <a ng-click='logOut()' class="dMenuItem logoutItem dMenuItemRight">
+                            <object class="logoutIcon" type="image/svg+xml" data="img/icons/logouticon.svg">Your browser does not support SVG</object>
+                            <object class="logoutIconNone" type="image/svg+xml" data="img/icons/logouticonwhite.svg">Your browser does not support SVG</object>
+                            <p>Atsijungti</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <nav class="klientohead theHeaderis navbar navbar-default navbar-static-top" ng-if="currentUser.attributes.type != '2' && currentUser.attributes.type != '3'">
+
+            <div class="container">
+                <div class="theHeaderisLogo">
+                    <a href="index.html">
+                        <object type="image/svg+xml" data="img/logo/pretitlogopilnasorange.svg">Your browser does not support SVG</object>
+                    </a>
+                </div>
+
+                <div class="theHeaderisMenu">
+
+                    <ul>
+                        <li><a ng-click="goToCat('Kirpimas')">Kirpimas</a></li>
+                        <li><a ng-click="goToCat('Manikiūras')">Manikiūras</a></li>
+                        <li><a ng-click="goToCat('Kosmetologija')" href="">Kosmetologija</a></li>
+                        <li><a ng-click="goToCat('Vizažas')" href="">Vizažas</a></li>
+                        <!-- <li><a href="">Masažas</a></li>
+									<li><a href="">Depiliacija</a></li> -->
+                    </ul>
+                </div>
+
+            </div>
+
+            <a href="#cd-nav" class="burger cd-nav-trigger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+
+
+
+
+
+            <nav class="cd-nav-container" id="cd-nav">
+                <header>
+                    <!-- <div id="headerProfilePic" class="coverbg" style="background: url('{{currentUser.attibutes.profilePic._url}}') no-repeat 50% 50%; background-size: cover;"></div> -->
+                    <div id="headerProfilePic" class="coverbg" style="background: url('{{currentUser.attributes.profilePhoto._url}}') no-repeat 50% 50%; background-size: cover;" ng-click="showPic()"></div>
+                    <h3 class="klientovardas">{{currentUser.attributes.data.name}}</h3>
+                    <a href="#0" class="cd-close-nav">Close</a>
+
+
+
+                </header>
+
+                <ul class="cd-nav">
+
+                    <li>
+                        <a ng-click="goTo('app.home')">
+                            <span>
+						   <object class="dashboardIconas" type="image/svg+xml" data="img/icons/homeicon.svg">Your browser does not support SVG</object>
+					</span>
+
+                            <em>Pradinis</em>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a ng-click='goToMessages()' ng-if="currentUser.attributes.type != '3'">
+                            <span>
+						   <object class="dashboardIconas" type="image/svg+xml" data="img/icons/messagesicon.svg">Your browser does not support SVG</object>
+					</span>
+
+                            <em>Žinutės</em>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a ng-click='goToclientDash()' ng-if="currentUser.attributes.type != '3'">
+                            <span>
+						   <object class="dashboardIconas" type="image/svg+xml" data="img/icons/myaccounticon.svg">Your browser does not support SVG</object>
+					</span>
+
+                            <em>Mano profilis</em>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a ng-click='goToclientDash()' ng-if="currentUser.attributes.type != '3'">
+                            <span style="margin-top: -8px">
+						   <object class="dashboardIconas2" type="image/svg+xml" data="img/icons/listicon.svg">Your browser does not support SVG</object>
+					</span>
+
+                            <em>Mano užsakymai</em>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a ng-click='logOut()'>
+                            <span>
+						   <object class="dashboardIconas" type="image/svg+xml" data="img/icons/logouticon.svg">Your browser does not support SVG</object>
+					</span>
+
+                            <em>Atsijungti</em>
+                        </a>
+                    </li>
+                    <li class="oranzinismenu">
+                        <a ng-click="becomeSpec()">
+                            <span>
+						   <object class="dashboardIconas3" type="image/svg+xml" data="img/icons/prwhite.svg">Your browser does not support SVG</object>
+					</span>
+                            <!-- <h6 class="tapk">tapk<br>
+					<strong>grožio specialistu</strong>
+					pradėk siūlyti<br>grožio paslaugas</h6> -->
+                            <em style="color: #fff;">Tapk grožio specialistu</em>
+                        </a>
+                    </li>
+                </ul>
+                <!-- .cd-3d-nav -->
+            </nav>
+
+            <div class="cd-overlay">
+                <!-- shadow layer visible when navigation is visible -->
+            </div>
+
+
+            <script src="js/mainmenu.js"></script>
+            <!-- Resource jQuery -->
+
+
+
+
+        </nav>
+
+
+
+
+
+
+
+
+
+
+        <!--   
+  
+    <div ng-if="currentUser.attributes.type != '2'" class="">
+  2
+  </div>
+    <div ng-if="currentUser.attributes.type != '3'" class="">
+  3
+  </div> -->
+
+    </div>
+
+
+
+
+</div>

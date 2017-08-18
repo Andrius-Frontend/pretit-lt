@@ -1,0 +1,127 @@
+<ion-content class='serviceModal3 serviceModalSelect' id="registerLoadCal">
+    <div class="modalheader">
+        <div class="modaltitle">
+            <p>Paslaugų užsakymas</p>
+            <h6>Pasirinkite norimą vizito laiką</h6>
+        </div>
+        <button class="absclose greybutton" ng-click="modal.hide()">Uždaryti</button>
+    </div>
+
+    <div class="modalcontent">
+
+        <div class="registerForm">
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="kalendoriusNew">
+                        <div class="kalendoriusNewData">
+                            <div class="row">
+                                <a class="previousWeek col-lg-2 col-md-2 col-sm-2 col-xs-2" ng-click="prevWeek()">
+                                    <object class="prevweeksvg" type="image/svg+xml" data="img/icons/prevweek.svg">Your browser does not support SVG</object>
+                                </a>
+
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">{{monthNamesShort[month]}} {{monthDay}}</div>
+                                <a class="nextWeek nopadding col-lg-2 col-md-2 col-sm-2 col-xs-2" ng-click="nextWeek()">
+                                    <object class="nextweeksvg" type="image/svg+xml" data="img/icons/nextweek.svg">Your browser does not support SVG</object>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="dienosPav naujosDienos " ng-repeat="diena in dienos">
+
+                            {{dayNames[$index]}}
+
+                        </div>
+                        <div class="dienosSkaicius naujosDienos " ng-repeat="diena in dienos" ng-click="testCompany(diena.date)" ng-class="{todayMark: todayMark.getDate() == diena.dayDate && todayMark.getMonth() == diena.dayMonth, unselectableDays: todayMark > diena.date, daySelected: diena.date == dateSelection}">
+
+                            {{diena.dayDate}}
+                        </div>
+                    </div>
+
+
+                    <div class="kalendoriusNewTime">
+                        <div class="registerTime">
+                            <div id="loading-overlay"></div>
+                            <ion-list style='width:70%'>
+                                <div>
+                                    <ion-radio ng-model='reservation.time' ng-repeat="key in counter" ng-if='times[key].availability' ng-value='times[key]'>
+                                        {{times[key].time}}
+                                    </ion-radio>
+                                    <ion-radio ng-if="times.working">
+                                        Nedirba sią dieną
+                                    </ion-radio>
+                                </div>
+                            </ion-list>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                    <div class="bookModalUsername">
+                        <!--                    <h2>{{theUser.attributes.data.name}} {{theUser.attributes.data.surname}}</h2>-->
+                        <h2>Užsakymo informacija</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <p class="bookModalBig">Bendra kaina</p>
+                            <p class="bookModalSmall">{{servicesSum}} &#8364;</p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <p class="bookModalBig">Bendra trukmė</p>
+                            <p class="bookModalSmall">{{servicesDuration * 30}} min.</p>
+
+                        </div>
+                    </div>
+
+
+                    <div class="registerTime">
+                        <h2 class="paslbookservice">Paslaugos</h2>
+                        <ion-list style='width:70%'>
+
+                            <ion-item class='booksSelected item-icon-right' ng-repeat="key in selectedServices">
+                                {{key.name}}
+                                <i ng-click='deleteFromSelectedService(key)' class="minusas icon ion-minus"></i>
+                            </ion-item>
+                            <ion-item ng-click='addNewToService()' class='booksMore booksSelected '>
+                                <p>
+                                    <object class="pliusassvgg" type="image/svg+xml" data="img/pliusas.svg">Your browser does not support SVG</object>
+                                </p>
+                                Pridėti daugiau paslaugų
+
+                            </ion-item>
+
+                        </ion-list>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+    <div class="modalfooter">
+        <div class="buttonaipriimt">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <button ng-click='registerService()' class="bookservicebutton greenbutton ">Registruotis</button>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+</ion-content>

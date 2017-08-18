@@ -1,0 +1,27 @@
+<!--
+<ion-header-bar class='serviceListModal'>
+    <h2>Paslaugų užsakymas</h2>
+</ion-header-bar>
+-->
+<ion-content class='serviceListModal'>
+    <button class="absclose greybutton" ng-click="theModal.hide()">Uždaryti</button>
+
+    <div class="atlPasList">
+        <h2>Atliekamos paslaugos</h2>
+        <div class="liistlist">
+            <div class="liist" ng-repeat="sub in userSubList">
+                <p>{{sub}}</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--
+
+    <div ng-repeat="sub in userSubList">
+        {{sub}}
+    </div>
+-->
+
+</ion-content>

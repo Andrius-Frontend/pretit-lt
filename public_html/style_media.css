@@ -1,0 +1,22 @@
+/* IPAD */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .home {
+        height: 55vh;
+    }
+    .theMiddle h1 {
+        font-size: 3.5rem;
+    }
+    .blokelistrys p {
+        font-size: 10px;
+    }
+    .sectiontitle h2 {
+        font-size: 1.2rem;
+    }
+    .apppromasText p {
+        font-size: 11px;
+    }
+    .apppromasText {
+        padding-top: 0;
+    }
+}

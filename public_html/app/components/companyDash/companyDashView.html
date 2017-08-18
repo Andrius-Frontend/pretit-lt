@@ -1,0 +1,381 @@
+<ion-view title="Kalendorius" hide-back-button="true" hide-nav-bar="true">
+
+    <!--
+   <link href="css/owl.carousel.min.css" rel="stylesheet">
+<script src="js/owl-carousel.min.js"></script>
+-->
+
+
+    <ion-content overflow-scroll="true">
+
+        <section id="bookingsView">
+
+            <div class="bookingsHeader" header></div>
+
+
+
+
+            <div id="dashboard">
+
+                <div class="dashboardnew">
+                    <div class="container-fluid">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <h2 class="textcenter">Kalendorius</h2>
+                                    <div class="dashboardBottom">
+                                        <div class="list verslaukList" id='datepickerBook'>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9" id="loadingCompCal">
+                                    <h2 class="textcenter">Užsakymai</h2>
+
+                                    <div class="calendarForSpecialists">
+
+
+
+
+                                        <div class="custompaddingg row">
+
+                                            <div class="upperCell compuserlaikai col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                <div class="theCell">
+                                                    <div class="baltas">
+                                                    </div>
+                                                </div>
+                                                <div class="lowerCell compusercell cellBorderRight" ng-repeat="cell in companyUsers[0].attributes.theTimes | toArray | orderBy:'id'" ng-class="{cellCurrentTime: $index == timeId}">
+                                                    <div>
+                                                        <h5>{{cell.time}} </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--
+<div class="testassss">
+
+    <div class="slider4">
+-->
+                                            <div class="comuseriaivisi">
+                                                <button class="comback" ng-click="moveBack()" ng-if="companyUsers.length > 3">
+                                                    <img src="img/icons/back.png"> </button>
+                                                <button class="comforward" ng-click="moveForward()" ng-if="companyUsers.length > 3"><img src="img/icons/next.png"></button>
+
+
+                                                <div class="upperCell comuser2 col-lg-4 col-md-4 col-sm-4 col-xs-4" id="first" ng-repeat="user in companyUsers | limitTo:3">
+                                                    <div class="userceles">
+                                                        <div class="theCell">
+                                                            <div class="cellInfo">
+                                                                <div class="comspeco">
+                                                                    <div class="comspecas">
+                                                                        <div class="cellInfoKaire theCellBorderLeft">
+                                                                            <h2 class="compuserh2">{{user.attributes.data.name}}</h2>
+                                                                        </div>
+                                                                        <div class="compuserpic userProfilePicture" style="background-image:url({{user.attributes.profilePhoto._url}});background-size: cover;">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div ng-if="user.theTimes" class="lowerCell compusercell" ng-repeat="cell in user.theTimes.TimeSched | toArray | orderBy:'id'" ng-class="{cellCurrentTime: $index == timeId}">
+                                                        <div ng-class="{cellFirst: cell.cssClass=='First', cellLast: cell.cssClass=='Last', cellOnly: cell.cssClass=='Only', cellMiddle: cell.cssClass=='Middle', cellOutdated: (cell.totalClass=='outdated') || (cell.totalClass=='outdatedToday' && $index < timeId), cellNotWorking:(user.attributes.WorkingDaysTimes[currentDay].working === false) || $index < user.notWorking[0] -1 || $index >= user.notWorking[1] -1  }">
+                                                            <div class="laisvaCell">
+                                                                <p class="pridetghost" ng-if="!cell.userInfo" ng-click="addGhostFromCalendar(user.theTimes.TimeSched, cell, user.id)">Pridėti užsakymą</p>
+                                                            </div>
+
+
+                                                            <div class="uzimtaOverlay">
+                                                                Praėjęs užsakymas
+                                                            </div>
+                                                            <div class="uzimtaInfo">
+
+
+                                                                <div ng-if="cell.registeredService.length > 0" class="uzimtaFull" ng-click="showAcceptedReservation(cell, selectedDate, user.id)">
+                                                                    <h2>Užsakymas</h2>
+                                                                    <h4>Praėjęs užsakymas</h4>
+                                                                    <h3>{{cell.userInfo.userName}}</h3>
+                                                                    <!--                                                                    <h4>{{cell.userInfo.userTel}}</h4>-->
+                                                                    <p>Paslaugų kiekis - {{cell.registeredService.length}}</p>
+                                                                </div>
+                                                                <!--
+                                                                <div class="uzsakymotrikampis">
+                                                                </div>
+-->
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div ng-if="!user.theTimes" class="lowerCell" ng-repeat="cell in user.attributes.theTimes | toArray | orderBy:'id'" ng-class="{cellCurrentTime: $index == timeId, cellNotWorking: (user.attributes.WorkingDaysTimes[currentDay].working === false) || $index < user.notWorking[0] -1 || $index >= user.notWorking[1] -1  }">
+                                                        <div class="laisvaCell">
+                                                            <p class="pridetghost" ng-if="!cell.userInfo" ng-click="addGhostFromCalendar(user.attributes.theTimes, cell, user.id)">Pridėti užsakymą</p>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+                                        <!--
+                                                </div>
+
+                                            </div>
+-->
+
+
+
+
+
+
+
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <!--
+            zfsddsf
+
+<div class="slider2">
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+</div>
+
+<div class="testt">
+
+    <div class="loop">
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+    </div>
+</div>
+-->
+            <!--
+              <script>
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: true
+            },
+            600: {
+                items: 3,
+                nav: false
+            },
+            1000: {
+                items: 5,
+                nav: true,
+                loop: false
+            }
+        }
+    })
+</script>
+-->
+
+            <!--
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="custompadding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <h2 class="textcenter">Artimiausias užsakymas</h2>
+                            <div class="dashboardTop">
+
+                                <div class="dashboardUser">
+                                    <div class="dashboardUserPhoto" ng-if="!upcomingReserv.userInfo.userPic._url">
+                                        <div class="coverbg2" style="background: url('{{upcomingReserv.userInfo.userPic._url}}') no-repeat 50% 50%; background-size: cover;"></div>
+                                    </div>
+                                    <div class="dashboardUserPhoto" ng-if="upcomingReserv.userInfo.userPic._url">
+                                        <div class="coverbg2" style="background: url('{{upcomingReserv.userInfo.userPic._url}}') no-repeat 50% 50%; background-size: cover;"></div>
+                                    </div>
+                                    <div class="dashboardUserInfo">
+                                        <h2>{{upcomingReserv.userInfo.userName}} <em>{{upcomingResDate}}</em></h2>
+                                        <h3>{{upcomingReserv.registeredService.name}} <em>{{upcomingReserv.time}}</em></h3>
+                                    </div>
+                                    <div class="dashboardUserDate">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="custompadding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <h2 class="textcenter">Statistika</h2>
+                            <div class="dashboardTop">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="nopadding statistika col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                            <h1>{{totalReservs}}</h1>
+                                            <p>Užsakymai</p>
+                                        </div>
+                                        <div class="nopadding statistika col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                            <h1>12</h1>
+                                            <p>Komentarai</p>
+                                        </div>
+                                        <div class="nopadding statistika col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                            <h1>4.1</h1>
+                                            <p>Įvertinimas (* / 5)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="custompadding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <h2 class="textcenter">Last message</h2>
+                            <div class="dashboardTop">
+                                <div class="lastmessage">
+                                    <h2>{{theLastMessage.CustomerName}} <em>{{theLastMessage.LastMessageTime}}</em></h2>
+
+                                    <p>{{theLastMessage.LastMessage}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+-->
+
+
+
+            <!--
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="custompadding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <h2 class="textcenter">Kalendorius</h2>
+                            <div class="dashboardBottom">
+                                <div class="list verslaukList" id='datepickerBook'>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="custompadding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <h2 class="textcenter">Verslauk užsakymai</h2>
+                            <div class="dashboardBottom">
+                                <div class="list">
+                                    <div class="item dashboardBottomUser" ng-repeat='booking in theBooking' ng-class="{bookingDeclinedVersl: booking.declined}">
+                                        <div class="dashboardBottomCategoryPhoto" ng-if='booking.userInfo.userPic._url'>
+                                            <div style="background: url('{{booking.userInfo.userPic._url}}') no-repeat 50% 50%; background-size: cover;" class="coverbg2"></div>
+                                        </div>
+                                        <div ng-if='!booking.userInfo.userPic._url' class="dashboardBottomCategoryPhoto">
+                                            <div style="background: url('{{booking.userInfo.userPic._url}}') no-repeat 50% 50%; background-size: cover;font-size: 1.5vw;" class="coverbg2">?</div>
+                                        </div>
+                                        <div class="dashboardBottomUserInfo">
+                                            <h2>{{booking.userInfo.userName}} </h2>
+                                            <h3>{{booking.registeredService.name}} </h3>
+                                        </div>
+                                        <div class="dashboardBottomUserInfo2">
+                                            <h2>{{showDate}}</h2>
+                                            <h3>{{booking.time}}</h3>
+                                        </div>
+                                        <div class="dashboardBottomUserButtons">
+                                            <button class="dashboardButtonGrey buttonas" ng-click='goToMessages(booking.userInfo)'>
+                                                Parašyti
+                                            </button>
+                                            <button ng-click="cancelReserv(booking.id)" class="dashboardButton buttonas">
+                                                Atšaukti
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="custompadding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <h2 class="textcenter">Mano užsakymai</h2>
+                            <div class="dashboardBottom">
+                                <div ng-repeat="booking in myReservations" class="item dashboardBottomUser" ng-class="{verslaukUzsak: booking.attributes.Date < formattedDate}">
+                                    <div class="dashboardBottomCategoryPhoto">
+                                        <div class="coverbg2" style="background: url('{{booking.attributes.ReceiverPic}}') no-repeat 50% 50%; background-size: cover;"></div>
+                                    </div>
+                                    <div class="dashboardBottomUserInfo">
+                                        <h2> </h2>
+                                        <h3>{{booking.attributes.ReservServic[0].name}}</h3>
+                                    </div>
+                                    <div class="dashboardBottomUserInfo2">
+                                        <h2>{{booking.attributes.Date}}</h2>
+                                        <h3>{{booking.attributes.TimeSched.time}}</h3>
+                                    </div>
+                                    <div class="dashboardBottomUserButtons">
+                                        <button class="dashboardButtonGrey buttonas" ng-click="goToMessagesAs(booking.attributes)">
+                                            Parašyti
+                                        </button>
+                                        <button ng-click='cancelReservBook(booking)' class="dashboardButton buttonas">
+                                            Atšaukti
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="custompadding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        </div>
+                    </div>
+                </div>
+-->
+
+
+
+            <!--
+                <div ng-if='pendingCompanyRequest' class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="custompadding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <h2 class="textcenter">Įmonė</h2>
+                        <div class="dashboardBottom">
+                            <div ng-repeat="request in pendingCompanyRequest" class="item dashboardBottomUser">
+                                <div class="dashboardBottomCategoryPhoto">
+                                    <div class="coverbg2" style="background: url('{{request.attributes.CompanyPic._url}}') no-repeat 50% 50%; background-size: cover;"></div>
+                                </div>
+                                <div class="dashboardBottomUserInfo">
+                                    <h2> </h2>
+                                   <h3>{{request.attributes.CompanyName}}</h3>
+                                </div>
+                                <div class="dashboardBottomUserInfo2">
+                                    <h2>{{booking.attributes.Date}}</h2>
+                                    <h3>{{booking.attributes.TimeSched.time}}</h3>
+                                </div>
+                                <div class="dashboardBottomUserButtons">
+                                    <button class="dashboardButtonGrey buttonas" ng-click="acceptRequest(request)">
+                                        Priimti
+                                    </button>
+                                    <button ng-click='cancelRequest(request)' class="dashboardButton buttonas">
+                                        Atšaukti
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+-->
+
+
+
+
+        </section>
+
+        <div footer></div>
+
+
+
+
+    </ion-content>
+
+</ion-view>

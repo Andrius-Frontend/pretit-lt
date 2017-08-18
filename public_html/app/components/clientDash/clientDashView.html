@@ -1,0 +1,252 @@
+<ion-view title="Profilis" hide-back-button="true" hide-nav-bar="true">
+
+
+    <ion-content overflow-scroll="true">
+
+        <section id="clientDash">
+
+            <div class="bookingsHeader" header></div>
+
+
+
+            <div class="clientDash">
+
+                <div class="container">
+                    <div class="manokaipkliento">
+                        <h2>Tavo kaip Kliento paskyra</h2>
+                        <h3>Asmeniniai užsakymai bei patikę grožio meistrai.</h3>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                        <div class="row">
+
+                            <div class="clientDashLeft col-lg-6 col-md-6 col-sm-5 col-xs-6">
+                                <div class="clientDashColor">
+                                    <div class="clientPic">
+                                        <div class="clientPhotoInput">
+                                            <div id="profilePic" class="coverbg" style="background: url('{{profilePic._url}}') no-repeat 50% 50%; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover;"></div>
+                                            <div ng-if="!profilePic" class="jeinera">
+                                                <!--
+                                                <label class="proflabel" for="file-input">
+                                                    <div class="addphotoprofile" id="addphotoprofile">
+                                                        <object class="pliusassvgprofile" type="image/svg+xml" data="img/pliusas.svg">Your browser does not support SVG</object>
+                                                        <p> Pridėti profilio nuotrauką
+                                                        </p>
+                                                    </div>
+                                                    <input type="file" accept="image/*" id="file-input" onchange="loadProfilePic(event)">
+                                                </label>
+-->
+                                            </div>
+                                            <div ng-if="profilePic" class="jeiyra">
+                                                <!--
+                                              <label class="proflabel" for="file-input">
+    <div class="addphotoprofile" id="addphotoprofile">
+        <object class="pliusassvgprofile" type="image/svg+xml" data="img/pliusas.svg">Your browser does not support SVG</object>
+        <p> Pridėti profilio nuotrauką
+        </p>
+    </div>
+    <input type="file" accept="image/*" id="file-input" onchange="loadProfilePic(event)">
+</label>
+-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clientInfo">
+                                        <h1>{{theUser.data.name}} {{theUser.data.surname}}</h1>
+                                        <h2>{{theUser.data.telNumber}}</h2>
+                                        <h3>{{theUser.email}}</h3>
+                                        <button class="changepass" ng-click="changePass()">Keisti slaptažodį</button>
+                                    </div>
+                                    <!--
+                                   <div class="clientSettings">
+    <label class="item filtro">
+        <div class="input-label">
+            Priminimai dėl paslaugų užsakymų:
+        </div>
+    </label>
+    <div class="checkboxai filtrocheckboxai">
+        <ion-list>
+            <ion-checkbox>
+                <p class="taip">Gauti priminimus el. paštu</p>
+            </ion-checkbox>
+        </ion-list>
+    </div>
+</div>
+-->
+                                    <div class="clientButtonai">
+
+                                        <button class="clientbutton greybut buttontarpas" ng-click="updateProfile()">Keisti duomenis</button>
+                                        <button class="clientbutton orangebutton buttontarpas" ng-if="currentUser.attributes.type == 1" ng-click="becomeSpecialist()">Tapk grožio specialistu !</button>
+                                        <button class="clientbutton greybut fbbutt" ng-click="linkFb()" ng-if="!currentUser.attributes.fbId">Susieti paskyrą su <img src="img/facebookbalta.png"></button>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="clientDashRight col-lg-6 col-md-6 col-sm-7 col-xs-6">
+                                <div class="clientDashColor">
+                                    <!--    <h2 class="textcenter">Mano užsakymai</h2> -->
+                                    <div class="clientDashChange">
+                                        <div class="nopadding nomargin row">
+                                            <button style="margin-left: 0%;" id="futureBookings" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 clbutton" ng-click="getFutureBookings()">Ateinantys užsakymai</button>
+                                            <button class="sonaibut col-lg-4 col-md-4 col-sm-4 col-xs-4 clbuttonactive " id="allBookings" ng-click="getAllBookings()">Praėję užsakymai</button>
+                                            <button class="netelpa col-lg-4 col-md-4 col-sm-4 col-xs-4 clbutton" id="favorites" ng-click="showFavorites()">Mėgstamiausi specialistai</button>
+                                        </div>
+                                    </div>
+                                    <div class="clientBook" ng-if="!favorites">
+                                        <div ng-click="openBooking(booking)" ng-repeat="booking in myBookings " class="clientbookingas item dashboardBottomUser " ng-class="{clientBookingAccepted: booking.attributes.Status === 'Patvirtintas', clientBookingDenied: booking.attributes.Status === 'denied'}">
+                                            <div class="dashboardBottomCategoryPhoto">
+                                                <div class="coverbg2 " style="background: url('{{booking.attributes.ReceiverPic}}') no-repeat 50% 50%; background-size: cover; "></div>
+                                            </div>
+                                            <div class="dashboardBottomUserInfo ">
+                                                <h2> </h2>
+                                                <h3> {{booking.attributes.ReceiverName}}</h3>
+                                            </div>
+                                            <div class="dashboardBottomUserInfo2 ">
+                                                <h2>{{returnDate(booking.attributes.DateUTC)}}</h2>
+                                                <h3>{{booking.attributes.TimeObject.time.time}}</h3>
+                                            </div>
+                                            <div class="dashboardBottomUserInfo6 ">
+                                                <p class="patvirt" ng-if="booking.attributes.Status == 'Patvirtintas'">Patvirtintas</p>
+                                                <p ng-if="booking.attributes.Status == 'canceled'">Atšauktas</p>
+                                                <p class="laukpatvirt" ng-if="booking.attributes.Status == 'Nepatvirtintas'">Laukiama patvirtinimo</p>
+                                            </div>
+
+
+                                            <!--  <div class="dashboardBottomUserButtons aff">
+                                            <button class="dngashboardButtonGrey buttonas " ng-click="openBooking(booking)">
+                                                Informacija
+                                            </button>
+                                            <button ng-click='cancelReservBook(booking)' class="dashboardButton buttonas ">
+                                                Atšaukti
+                                            </button>
+                                        </div> -->
+                                        </div>
+                                        <div class="nerakazko" ng-if="myBookings.length == 0">
+                                            <img src="img/neruzsakymu.png">
+                                            <p>Užsakymų nėra</p>
+                                        </div>
+                                    </div>
+                                    <div class="clientBook " ng-if="favorites">
+                                        <div ng-click="goToUser(user.id)" ng-repeat="user in favoriteUsers " class="item dashboardBottomUser ">
+                                            <div class="dashboardBottomCategoryPhoto ">
+                                                <div class="coverbg2 " style="background: url( '{{user.attributes.profilePhoto._url}}') no-repeat 50% 50%; background-size: cover; "></div>
+                                            </div>
+                                            <div class="dashboardBottomUserInfo ">
+                                                <h2> </h2>
+                                                <h3> {{user.attributes.data.name}} {{user.attributes.data.surname}}</h3>
+                                            </div>
+                                            <div class="dashboardBottomUserInfo8 ">
+                                                <p ng-click='unfollow(user)' class="nebesekti">Nebesekti</p>
+                                                <!--  <button class="dashboardButton buttonas" ng-click="goToUser(user.id)">
+                                                Peržiūrėti
+                                            </button> -->
+                                                <!--    <button ng-click='unfollow(user)' class="dashboardButtonGrey buttonas ">
+                                                Nebesekti
+                                            </button> -->
+                                            </div>
+                                        </div>
+                                        <div class="nerakazko" ng-if="favoriteUsers.length == 0">
+                                            <img src="img/nermegst.png">
+                                            <p>Jūs neturite mėgstamiausių specialistų</p>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+        </section>
+        <div footer></div>
+
+        <script>
+            (function () {
+                // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+                if (!String.prototype.trim) {
+                    (function () {
+                        // Make sure we trim BOM and NBSP
+                        var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                        String.prototype.trim = function () {
+                            return this.replace(rtrim, '');
+                        };
+                    })();
+                }
+
+				[].slice.call(document.querySelectorAll('input.input__field')).forEach(function (inputEl) {
+                    // in case the input is already filled..
+                    if (inputEl.value.trim() !== '') {
+                        classie.add(inputEl.parentNode, 'input--filled');
+                    }
+
+                    // events:
+                    inputEl.addEventListener('focus', onInputFocus);
+
+                    inputEl.addEventListener('blur', onInputBlur);
+                });
+
+                function onInputFocus(ev) {
+                    classie.add(ev.target.parentNode, 'input--filled');
+                }
+
+                function onInputBlur(ev) {
+                    if (ev.target.value.trim() === '') {
+                        classie.remove(ev.target.parentNode, 'input--filled');
+                    }
+                }
+            })();
+
+
+            window.fbAsyncInit = function () {
+                Parse.FacebookUtils.init({ // this line replaces FB.init({
+                    appId: '1762482773987575', // Facebook App ID
+                    status: true, // check Facebook Login status
+                    cookie: true, // enable cookies to allow Parse to access the session
+                    xfbml: true, // initialize Facebook social plugins on the page
+                    version: 'v2.5' // point to the latest Facebook Graph API version
+                });
+
+                // Run code after the Facebook SDK is loaded.
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "http://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+
+    </ion-content>
+
+</ion-view>

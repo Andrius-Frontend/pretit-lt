@@ -1,0 +1,34 @@
+<ion-view title="" hide-back-button="true" hide-nav-bar="true">
+
+
+    <ion-content overflow-scroll="true" ng-init="initiateChanging()">
+        <div class="confirmmain">
+
+            <div class="confirmwindow">
+
+                <div class="emailconfirm">
+                    <div class="emailmiddle">
+                        <div ng-if="!userExists">
+                            <p>Įvyko klaida! Įvesti neteisingi duomenys </p>
+                        </div>
+                        <div ng-if="userExists">
+                            <p>Įveskite naują slaptažodį.</p>
+
+                            <div class="confirmbut2">
+                                <input class="pamirsauinputas" type="password" placeholder="Slaptažodis" ng-model='pass'>
+                                <input class="pamirsauinputas" type="password" placeholder="Pakartokite slaptažodį" ng-model='rpass'>
+                                <button class="buttonasnew orangebutton" ng-click="changePass(pass,rpass)">Keisti slaptažodį</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </ion-content>
+
+</ion-view>

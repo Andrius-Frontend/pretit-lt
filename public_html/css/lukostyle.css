@@ -1,0 +1,111 @@
+.clientBooking {
+    height: 400px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    margin-top: 3%;
+    overflow: scroll;
+}
+
+.testassss {
+    float: left;
+    width: 60%;
+}
+
+.slider4 {}
+
+.requestFromCompany {
+    top: 35%;
+}
+
+.cellCurrentTime {
+    border-top-style: solid !important;
+    border-top-width: 2px !important;
+    border-top-color: #1abc9c !important;
+}
+
+.scroll-bar-indicator {
+    display: block;
+}
+
+.backgroundRed {
+    background: red;
+}
+
+.notifications {
+    letter-spacing: -1px;
+    border: 2px solid #fff;
+    line-height: 20px;
+    position: absolute;
+    background-color: #1abc9c;
+    height: 20px;
+    width: 20px !important;
+    color: #fff !important;
+    border-radius: 50%;
+    font-size: 12px !important;
+    margin-top: -85px;
+    margin-left: 100px;
+    text-align: center !important;
+    font-weight: 600;
+    font-family: 'Open Sans', Arial, sans-serif !important;
+}
+
+.cellOutdated {}
+
+.popupForSpec {
+    height: 70%;
+}
+
+.cellNotWorking {
+    /*    background-color: black;*/
+}
+
+.payNotSee {
+    visibility: hidden
+}
+
+.paymentInfo {
+    height: 400px;
+    background-color: #fafafa;
+    border-style: solid;
+    border-width: 4px;
+    padding: 30px;
+    text-align: center
+}
+
+.paymentInfo h1 {
+    color: #ed7250;
+}
+
+.mokejimuformos h1 {
+    text-align: center;
+}
+
+
+/* .clientBookingAccepted {
+    background-color: rgba(103, 197, 103, 0.08);
+}
+
+.clientBookingDenied {
+    background-color: rgba(197, 0, 0, 0.12);
+} */
+
+.sortingField {
+    float: right;
+}
+
+.serviceListing .pane[nav-view="cached"] {
+    display: inherit;
+}
+
+.serviceChoose {
+    height: 0px;
+    padding: 0px;
+    transition: all 0.3 ease;
+}
+
+.serviceChooseActive {
+    height: auto;
+    padding: 12px 20px 10px 20px;
+}

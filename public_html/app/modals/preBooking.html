@@ -1,0 +1,99 @@
+<ion-content class='serviceModal3 serviceModalSelect'>
+    <div class="modalheader">
+        <div class="modaltitle">
+            <p>Užsakymo informacija</p>
+            <h6>Nepatvirtinta</h6>
+        </div>
+        <button class="absclose greybutton" ng-click="preModal.hide()">Uždaryti</button>
+    </div>
+
+
+
+    <div class="modalcontent">
+
+        <div class="preBookingModal">
+
+            <div class="">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="preBookingClientInfo">
+                        <div class="fotke">
+                            <div class="preBookPhoto">
+                                <div class="coverbg2" style="background: url('{{reservation.attributes.UserObject.userPic._url}}') no-repeat 50% 50%; background-size: cover;"></div>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="preBookFull">
+                            <h1>{{reservation.attributes.UserObject.userName}}</h1>
+
+                            <h2>{{reservation.attributes.UserObject.userTel}}</h2>
+                            <!--  <h3>{{reservation.attributes.UserObject.userEmail}}</h3> -->
+                            <p>Neatvykęs: {{abandoned}}</p>
+                        </div>
+
+                        <!--                    <button class="buttonasnewsmall greybutton" ng-click="goToUser(reservation.attributes.UserObject.userId)">Peržiūrėti profilį</button>-->
+                        <button class="buttonasmessage orangebutton" ng-click="goToMessagesNew(reservation.attributes)">Rašyti žinutę</button>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="ll col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                    <div class="bookinfoleft preBookingClientInfo2">
+                        <h3>Laikas:</h3>
+
+
+                        <p>Data: <strong>{{reservation.attributes.DateUTC | date:"dd/MM/yyyy"}}</strong></p>
+                        <p>Trukmė: <strong>{{reservation.duration * 30}} min.</strong></p>
+                        <p>Laikas:<strong>nuo {{reservation.from}} iki {{reservation.to}}</strong></p>
+                        <p>Suma: <strong>{{reservation.price}} &#8364;</strong></p>
+
+
+
+                    </div>
+
+                </div>
+
+                <div class="ll col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                    <div class="bookinforight preBookingClientInfo2">
+                        <h3>Paslauga (-os):</h3>
+                        <p class="paslh" ng-repeat="service in reservation.attributes.TimeObject.service">{{service.name}}
+                            <br>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+    <div class="modalfooter">
+        <div class="buttonaipriimt">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <button class="buttonasnew greybutton" ng-click="cancelRequest(reservation)">Atšaukti</button>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <button class="buttonasnew greenbutton" ng-click="acceptReservation()">Patvirtinti</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</ion-content>

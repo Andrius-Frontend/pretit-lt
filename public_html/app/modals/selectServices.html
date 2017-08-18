@@ -1,0 +1,65 @@
+<ion-content class='serviceModal serviceModalSelect selservices'>
+    <div class="modalheader">
+		<div class="modaltitle">
+			<p>Pasirinkite atliekamas paslaugas</p>
+			<h6>{{services[selectedIndex].name}}</h6>
+		</div>
+		<button class="absclose greybutton" ng-click="modal.hide()">Uždaryti</button>
+	</div>
+	
+	
+    
+    <div class="modalcontent">
+	
+	
+	<div class="passervices">
+        <div class="modalServices">
+            <div class="selectYourService">
+                
+				
+                <div class="subcategorieService checkboxModal" ng-repeat="subcat in services[selectedIndex].subcategories">
+				<div style="padding: 0;" class="row">
+                    <ion-checkbox ng-model='subcat.doing'></ion-checkbox>
+                    <div class="catTitle col-lg-4 col-md-4 col-sm-4 col-xs-4" style="float:left">{{subcat.name}}</div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<div class="violet">
+                        <label class="item item-input item-select">
+                            <div class="input-label">
+                                Kaina nuo &#8364;
+                            </div>
+                            <input class="inputasviolet" type='number' placeholder="Kaina" ng-model='subcat.price'>
+                        </label>
+                    </div> </div>
+					<div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
+						<div class="violet2">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Trukmė
+                        </div> 
+                        <select class="serviceSelectas" ng-model='subcat.duration'>
+                            <option value="1">iki 30min</option>
+                            <option selected value="2">iki 60min</option>
+                            <option value="3">iki 90min</option>
+                            <option value="4">iki 120min</option>
+                        </select>
+                    </label>
+</div></div>
+
+
+                </div>
+				</div>
+            </div>
+
+        </div>
+
+    </div>
+	 
+	 
+</div>
+	<div class="modalfooter">
+		 <div class="modbutnew">
+        <button class="" ng-click="closeServicePicker()">Pasirinkti</button>
+    </div>
+	</div>
+
+</ion-content>

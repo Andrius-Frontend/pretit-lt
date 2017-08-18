@@ -1,0 +1,205 @@
+<ion-view title="" hide-back-button="true" hide-nav-bar="true">
+
+    <header class="neraheaderio bar bar-header bar-positive">
+        <div id="sideMenuGrey">
+            <div class="sideMenuLogo">
+                <a class="logoshort" href="index.html" class="navbar-link">
+                    <object type="image/svg+xml" data="img/logo/tylistlogoshort.svg">Your browser does not support SVG</object>
+                </a>
+            </div>
+            <div ng-click='goToBookings()' class="sideMenuButton ">
+                <p><i class="sidemenuicon ion-home"></i></p>
+                <p>Dashboard</p>
+            </div>
+            <div class="sideMenuButtonselected">
+                <p><i class="sidemenuicon ion-chatbubble-working"></i></p>
+                <p>Messages</p>
+            </div>
+            <div ng-click='goToRegisterService()' class="sideMenuButton">
+                <p><i class="sidemenuicon ion-person"></i></p>
+                <p>My Account</p>
+            </div>
+            <div ng-click='logOut()' class="sideMenuButton">
+                <p><i class="sidemenuicon ion-log-out"></i></p>
+                <p>Logout</p>
+            </div>
+
+
+
+
+        </div>
+    </header>
+    <ion-content overflow-scroll="true">
+
+
+        <section id="messaging">
+<nav class="theHeader navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-text navbar-left">
+            <a href="index.html" class="navbar-link">
+                <object class="logo" type="image/svg+xml" data="img/logo/tylistlogo.svg">Your browser does not support SVG</object>
+
+            </a>
+        </div>
+
+        <div class="navbar-text navbar-right">
+            <div class="navigation">
+
+                <ul>
+
+                    <li>
+                        <a href="" class="navbuttonas"> Verslauk</a>
+                    </li>
+                    <li ng-if='!currentUser'>
+                        <a ng-click='goToRegister()' class="navbuttonas"> Registracija</a>
+                                </li>
+                                <li ng-if='!currentUser'>
+                                    <a ng-click='goToLogin()' class="navbuttonas"> Prisijungti</a>
+                                </li>
+                                <li ng-if='currentUser'>
+                                    <a ng-click='goToLogin()' class="navbuttonas"> {{username}}</a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </nav>
+
+
+            <div class="zinutes container">
+
+                <h2>Mano žinutės</h2>
+
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="messagePeople">
+                            <ion-radio ng-model='choice' ng-value='message.attributes.Channel' ng-repeat='message in theAllMessages' ng-click='getThoseMessages(message)' class='messageOnHover'>
+                                <div class="messageUsers">
+                                    <div class="messageUserProfilePhoto">
+                                        <img src="{{message.attributes.VerslaukPic}}">
+                                    </div>
+                                    <div class="messageUserInfo">
+                                        <h2>{{message.attributes.VerslaukName}}  </h2>
+                                        <p>{{message.attributes.LastMessage}} </p>
+
+                                    </div>
+                                    <div class="textright messageUserDate">
+                                        <p>{{message.attributes.LastMessageTime}}</p>
+                                        <p>14:00</p>
+                                    </div>
+                                </div>
+
+                            </ion-radio>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <!--                        <section id="main" role="main">-->
+                        <div class="senderreceiver">
+
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <div class="receiverName">
+                                        <h2>Receiver Name</h2>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <div class="senderName">
+                                        <h2>Sender Name</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="messageHistory" id="messageHis">
+
+                            <ul>
+                                <div ng-repeat="message in content" class="messagas">
+
+                                    <li ng-class="{mySentMessage: theCurrentUser.id == message.user}">
+                                        <div class="pmax">
+                                            <p>{{message.text}}</p>
+                                        </div>
+                                    </li>
+
+                                   
+
+                                </div>
+                            </ul>
+                        </div>
+                        <div id="chat">
+                            <i id="avatar" class="face12"></i>
+                            <input class="writemessage" type="text" id="input" placeholder=" Rašyti žinutę...">
+                        </div>
+                        <button class="buttonassend" id="button">Siųsti žinutę</button>
+
+                        <p id="presence"></p>
+                    
+
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </section>
+
+
+
+        <div class="container">
+
+            <div id="tabs" class="tabs">
+                <nav>
+                    <ul>
+                        <li><a href="#section-1" class="icon-shop"><span>Shop</span></a></li>
+                        <li><a href="#section-2" class="icon-cup"><span>Drinks</span></a></li>
+
+                    </ul>
+                </nav>
+                <div class="content">
+                    <section id="section-1">
+                        aa
+                    </section>
+                    <section id="section-2">
+                        bb
+                    </section>
+
+
+
+                </div>
+                <!-- /content -->
+            </div>
+            <!-- /tabs -->
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <!-- Tabs js -->
+        <script type="text/javascript" src="../../../js/cbpFWTabs.js"></script>
+        <script>
+            new CBPFWTabs(document.getElementById('tabs'));
+        </script>
+
+    </ion-content>
+
+</ion-view>

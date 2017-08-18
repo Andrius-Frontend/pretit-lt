@@ -1,0 +1,14 @@
+{
+  "name": "overhang",
+  "homepage": "https://github.com/paulkr/overhang.js",
+  "_release": "11599c15a8",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "11599c15a87ed3fd68d99c8a9c5000c68bd21ab8"
+  },
+  "_source": "https://github.com/paulkr/overhang.js.git",
+  "_target": "*",
+  "_originalSource": "overhang",
+  "_direct": true
+}

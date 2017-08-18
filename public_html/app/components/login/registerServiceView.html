@@ -1,0 +1,499 @@
+<ion-view title="Anketos registracija" hide-back-button="true" hide-nav-bar="true">
+
+    <ion-content class="registerServiceBG registerservisaiview" overflow-scroll="true">
+
+
+
+
+
+        <section id="registerServiceView">
+
+            <div class="profileHeader" header></div>
+
+
+            <div id="registerService">
+
+                <div class="theRegisterService">
+
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                <div class="profileFoto">
+                                    <div class="profilePhotoInput">
+                                        <div id="profilePic" class="coverbg" style="background: url('{{profilePic}}') no-repeat 50% 50%; background-size: cover;"></div>
+                                        <div>
+                                            <label class="proflabel" for="file-input">
+                                                <div class="addphotoprofile" id="addphotoprofile" style="background:url({{theUser.attributes.profilePhoto._url}}) no-repeat 50% 50%; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover;">
+
+                                                    <object class="pliusassvgprofile" type="image/svg+xml" data="img/pliusas.svg">Your browser does not support SVG</object>
+                                                    <p> Pridėti profilio nuotrauką
+                                                    </p>
+
+                                                </div>
+
+                                                <input type="file" accept="image/*" id="file-input" onchange="loadProfilePic(event)">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="profileFotoBottom">
+
+                                        <p>Įvertinimas:<strong>{{theUser.attributes.rating}}</strong></p>
+                                    </div>
+                                </div>
+
+                                <div class="profileInfo">
+                                    <h1>{{theUser.attributes.data.name}} {{theUser.attributes.data.surname}}</h1>
+
+                                    <div class="profileInfoMore">
+                                        <p>Miestas:<strong>{{theUser.attributes.formatedCity}}</strong></p>
+                                        <p>Telefonas:<strong>{{theUser.attributes.data.telNumber}}</strong></p>
+                                    </div>
+                                    <textarea class="profileInfoAbout" spellcheck="false" maxlength="1000" placeholder='Prisistatykite savo potencialiems klientams (maksimalus simbolių skaičius - 1000)' class="apiemanetekstas" ng-change="doYouSave()" ng-model="theUser.attributes.data.about"> </textarea>
+
+                                </div>
+
+                                <div class="profileServices">
+
+
+                                    <div class="serviceListing">
+                                        <ion-tabs class="serviceTabs">
+                                            <ion-tab title="Kirpimas" ng-class="{'approved': theUser.attributes.servicesForSearch.indexOf(service.name) == -1}">
+                                                <div style="height:10px;"></div>
+                                                <div class="row">
+                                                    <div class="addservice" ng-click='addToServiceList()'>
+                                                        <h1>
+                                                                <object class="pliusassvg" type="image/svg+xml" data="img/pliusas.svg">Your browser does not support SVG</object>
+                                                            </h1>
+                                                        <p>
+                                                            Pridėti paslaugą į sąrašą</p>
+                                                    </div>
+                                                </div>
+                                                <div class="" ng-repeat='subcat in services[0].subcategories' ng-if="subcat.doing">
+                                                    <div class="service">
+                                                        <div class="">
+                                                            <div class="servicas col-lg-6 col-md-6 col-sm-5 col-xs-6">
+                                                                <p class="servicename">{{subcat.name}}</p>
+                                                                <p class="servicetime"> iki {{subcat.duration*30}}min</p>
+                                                            </div>
+
+                                                            <div class="servicasprice col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                                <p class="serviceprice">nuo <strong>{{subcat.price}}</strong> €</p>
+                                                            </div>
+                                                            <div class="servicebutton col-lg-3 col-md-3 col-sm-3 col-xs-3 neracol">
+                                                                <div class="addserviceNew orangebutton" ng-click='addToServiceList()'>
+                                                                    Redaguoti
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </ion-tab>
+                                            <ion-tab title="Manikiūras" ng-class="{'approved': theUser.attributes.servicesForSearch.indexOf(service.name) == -1}">
+                                                <div style="height:10px;"></div>
+                                                <div class="row">
+                                                    <div class="addservice" ng-click='addToServiceList()'>
+                                                        <h1>
+                                                                <object class="pliusassvg" type="image/svg+xml" data="img/pliusas.svg">Your browser does not support SVG</object>
+                                                            </h1>
+                                                        <p>
+                                                            Pridėti paslaugą į sąrašą</p>
+                                                    </div>
+                                                </div>
+                                                <div class="" ng-repeat='subcat in services[1].subcategories' ng-if="subcat.doing">
+                                                    <div class="service">
+                                                        <div class="">
+                                                            <div class="servicas col-lg-6 col-md-6 col-sm-5 col-xs-6">
+                                                                <p class="servicename">{{subcat.name}}</p>
+                                                                <p class="servicetime"> iki {{subcat.duration*30}}min</p>
+                                                            </div>
+
+                                                            <div class="servicasprice col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                                <p class="serviceprice">nuo <strong>{{subcat.price}}</strong> €</p>
+                                                            </div>
+                                                            <div class="servicebutton col-lg-3 col-md-3 col-sm-3 col-xs-3 neracol">
+                                                                <div class="addserviceNew orangebutton" ng-click='addToServiceList()'>
+                                                                    Redaguoti
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </ion-tab>
+                                            <ion-tab title="Kosmetologija" ng-class="{'approved': theUser.attributes.servicesForSearch.indexOf(service.name) == -1}">
+                                                <div style="height:10px;"></div>
+                                                <div class="row">
+                                                    <div class="addservice" ng-click='addToServiceList()'>
+                                                        <h1>
+                                                                <object class="pliusassvg" type="image/svg+xml" data="img/pliusas.svg">Your browser does not support SVG</object>
+                                                            </h1>
+                                                        <p>
+                                                            Pridėti paslaugą į sąrašą</p>
+                                                    </div>
+                                                </div>
+                                                <div class="" ng-repeat='subcat in services[2].subcategories' ng-if="subcat.doing">
+                                                    <div class="service">
+                                                        <div class="">
+                                                            <div class="servicas col-lg-6 col-md-6 col-sm-5 col-xs-6">
+                                                                <p class="servicename">{{subcat.name}}</p>
+                                                                <p class="servicetime"> iki {{subcat.duration*30}}min</p>
+                                                            </div>
+
+                                                            <div class="servicasprice col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                                <p class="serviceprice">nuo <strong>{{subcat.price}}</strong> €</p>
+                                                            </div>
+                                                            <div class="servicebutton col-lg-3 col-md-3 col-sm-3 col-xs-3 neracol">
+                                                                <div class="addserviceNew orangebutton" ng-click='addToServiceList()'>
+                                                                    Redaguoti
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </ion-tab>
+                                            <ion-tab title="Vizažas" ng-class="{'approved': theUser.attributes.servicesForSearch.indexOf(service.name) == -1}">
+                                                <div style="height:10px;"></div>
+                                                <div class="row">
+                                                    <div class="addservice" ng-click='addToServiceList()'>
+                                                        <h1>
+                                                                <object class="pliusassvg" type="image/svg+xml" data="img/pliusas.svg">Your browser does not support SVG</object>
+                                                            </h1>
+                                                        <p>
+                                                            Pridėti paslaugą į sąrašą</p>
+                                                    </div>
+                                                </div>
+                                                <div class="" ng-repeat='subcat in services[3].subcategories' ng-if="subcat.doing">
+                                                    <div class="service">
+                                                        <div class="">
+                                                            <div class="servicas col-lg-6 col-md-6 col-sm-5 col-xs-6">
+                                                                <p class="servicename">{{subcat.name}}</p>
+                                                                <p class="servicetime"> iki {{subcat.duration*30}}min</p>
+                                                            </div>
+
+                                                            <div class="servicasprice col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                                <p class="serviceprice">nuo <strong>{{subcat.price}}</strong> €</p>
+                                                            </div>
+                                                            <div class="servicebutton col-lg-3 col-md-3 col-sm-3 col-xs-3 neracol">
+                                                                <div class="addserviceNew orangebutton" ng-click='addToServiceList()'>
+                                                                    Redaguoti
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </ion-tab>
+                                        </ion-tabs>
+                                    </div>
+
+
+
+                                </div>
+
+
+
+                            </div>
+
+
+
+                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                <div class="profileDoneJobs">
+                                    <div class="imageGallery">
+                                        <h2 style="padding-top: 2%; padding-bottom: 1%; text-align: center">Atlikti darbai</h2>
+                                        <div ng-repeat="image in theUser.attributes.ImageGallery " class="galleryImage " style="background:url({{image._url}}) 50% 50% / cover; ">
+                                            <i class='ion-close' ng-click='deleteFromGallery(image)'></i></div>
+                                        <form action="/file-upload " class="profileAddMoreDoneJobs dropzone" id="my-awesome-dropzone">
+
+                                    </div>
+
+
+
+                                </div>
+                                <div id="previews" class="dropzone-previews"></div>
+
+                                <div class="profileAddress">
+                                    <h2> Adresas</h2>
+
+                                    <div class="registerLocation">
+                                        <ui-gmap-google-map class="frontMapView" ng-if="theUser.attributes.address" center='map.center' zoom='map.zoom'>
+
+                                            <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+                                            </ui-gmap-marker>
+                                        </ui-gmap-google-map>
+
+                                    </div>
+                                    <button class="buttonmain lightgreybutton" ng-click="addNewAdress()">Pridėti ar keisti adresą</button>
+                                    <div class="adresas">
+                                        <p>{{formatedAddress}}</p>
+
+                                    </div>
+
+
+
+
+
+                                </div>
+
+
+                                <div class="profileWorkHours">
+
+                                    <br>
+                                    <h2> Darbo laikas</h2>
+                                    <!--                                    <div class="gapas9"></div>-->
+                                    <div class="checkboxai">
+
+                                        <div class="laikoline">
+
+
+                                            <ion-checkbox ng-model="workingDays[1].working" ng-change="doYouSave()">
+                                                Pirmadienis
+
+                                            </ion-checkbox>
+
+                                            <div ng-if='!workingDays[1].working' class="workingDaysLaikas">
+                                                Nedirba
+                                            </div>
+                                            <div ng-if='workingDays[1].working' class="workingDaysLaikas">
+                                                <select class="dvlaikas" ng-model="workingDays[1].hourFrom" ng-change="doYouSave()">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key'>{{time.time}}</option>
+
+                                                </select>
+
+                                                <select class="dvlaikas" ng-model="workingDays[1].hourTo" ng-change="doYouSave()">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key' ng-value='time.time'>{{time.time}}</option>
+
+                                                </select>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="laikoline">
+                                            <ion-checkbox ng-model="workingDays[2].working" ng-change="doYouSave()">
+                                                Antradienis
+
+                                            </ion-checkbox>
+                                            <div ng-if='!workingDays[2].working' class="workingDaysLaikas">
+                                                Nedirba
+                                            </div>
+                                            <div ng-if='workingDays[2].working' class="workingDaysLaikas">
+                                                <select class="dvlaikas" ng-model="workingDays[2].hourFrom" ng-change="doYouSave()">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key'>{{time.time}}</option>
+
+                                                </select>
+
+
+                                                <select class="dvlaikas" ng-model="workingDays[2].hourTo" ng-change="doYouSave()">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key' ng-value='time.time'>{{time.time}}</option>
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="laikoline">
+                                            <ion-checkbox ng-model="workingDays[3].working" ng-change="doYouSave()">
+                                                Trečiadienis
+
+                                            </ion-checkbox>
+                                            <div ng-if='!workingDays[3].working' class="workingDaysLaikas">
+                                                Nedirba
+                                            </div>
+                                            <div ng-if='workingDays[3].working' class="workingDaysLaikas">
+                                                <select class="dvlaikas" ng-model="workingDays[3].hourFrom" ng-change="doYouSave()">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key'>{{time.time}}</option>
+
+                                                </select>
+
+
+                                                <select class="dvlaikas" ng-model="workingDays[3].hourTo" ng-change="doYouSave()">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key' ng-value='time.time'>{{time.time}}</option>
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="laikoline">
+                                            <ion-checkbox ng-model="workingDays[4].working" ng-change="doYouSave()">
+                                                Ketvirtadienis
+
+                                            </ion-checkbox>
+                                            <div ng-if='!workingDays[4].working' class="workingDaysLaikas">
+                                                Nedirba
+                                            </div>
+                                            <div ng-if='workingDays[4].working' class="workingDaysLaikas">
+                                                <select class="dvlaikas" ng-model="workingDays[4].hourFrom" ng-change="doYouSave()">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key'>{{time.time}}</option>
+
+                                                </select>
+
+
+                                                <select class="dvlaikas" ng-model="workingDays[4].hourTo" ng-change="doYouSave()">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key' ng-value='time.time'>{{time.time}}</option>
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="laikoline">
+                                            <ion-checkbox ng-model="workingDays[5].working" ng-change="doYouSave()">
+                                                Penktadienis
+
+                                            </ion-checkbox>
+
+                                            <div ng-if='workingDays[5].working' class="workingDaysLaikas">
+                                                <select class="dvlaikas" ng-model="workingDays[5].hourFrom" ng-change="doYouSave()">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key'>{{time.time}}</option>
+
+                                                </select>
+
+
+                                                <select class="dvlaikas" ng-model="workingDays[5].hourTo" ng-change="doYouSave()">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key' ng-value='time.time'>{{time.time}}</option>
+
+                                                </select>
+                                            </div>
+                                            <div ng-if='!workingDays[5].working' class="workingDaysLaikas">
+                                                Nedirba
+                                            </div>
+
+                                        </div>
+                                        <div class="laikoline">
+                                            <ion-checkbox ng-model="workingDays[6].working" ng-change="doYouSave()">
+                                                Šeštadienis
+
+                                            </ion-checkbox>
+                                            <div ng-if='!workingDays[6].working' class="workingDaysLaikas">
+                                                Nedirba
+                                            </div>
+                                            <div ng-if='workingDays[6].working' class="workingDaysLaikas">
+                                                <select class="dvlaikas" ng-model="workingDays[6].hourFrom" ng-change="doYouSave()">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key'>{{time.time}}</option>
+
+                                                </select>
+
+
+                                                <select class="dvlaikas" ng-model="workingDays[6].hourTo" ng-change="doYouSave()">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key' ng-value='time.time'>{{time.time}}</option>
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="laikoline">
+                                            <ion-checkbox ng-model="workingDays[0].working" ng-change="doYouSave()">
+                                                Sekmadienis
+
+                                            </ion-checkbox>
+                                            <div ng-if='!workingDays[0].working' class="workingDaysLaikas">
+                                                Nedirba
+                                            </div>
+                                            <div ng-if='workingDays[0].working' class="workingDaysLaikas">
+                                                <select class="dvlaikas" ng-model="workingDays[0].hourFrom" ng-change="doYouSave()">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key'>{{time.time}}</option>
+
+                                                </select>
+
+
+                                                <select class="dvlaikas" ng-model="workingDays[0].hourTo" ng-change="doYouSave()">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key' ng-value='time.time'>{{time.time}}</option>
+
+                                                </select>
+                                            </div>
+
+
+                                        </div>
+
+
+                                    </div>
+
+
+
+
+
+
+                                </div>
+
+
+
+
+
+
+
+                            </div>
+
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            </div>
+
+
+
+            <div footer></div>
+
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+
+
+        <script>
+            (function () {
+
+                // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+                if (!String.prototype.trim) {
+                    (function () {
+                        // Make sure we trim BOM and NBSP
+                        var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                        String.prototype.trim = function () {
+                            return this.replace(rtrim, '');
+                        };
+                    })();
+                }
+
+				[].slice.call(document.querySelectorAll('input.input__field')).forEach(function (inputEl) {
+                    // in case the input is already filled..
+                    if (inputEl.value.trim() !== '') {
+                        classie.add(inputEl.parentNode, 'input--filled');
+                    }
+
+                    // events:
+                    inputEl.addEventListener('focus', onInputFocus);
+
+                    inputEl.addEventListener('blur', onInputBlur);
+                });
+
+                function onInputFocus(ev) {
+                    classie.add(ev.target.parentNode, 'input--filled');
+                }
+
+                function onInputBlur(ev) {
+                    if (ev.target.value.trim() === '') {
+                        classie.remove(ev.target.parentNode, 'input--filled');
+                    }
+                }
+            })();
+        </script>
+
+    </ion-content>
+
+
+    <ion-footer>
+
+
+
+    </ion-footer>
+</ion-view>

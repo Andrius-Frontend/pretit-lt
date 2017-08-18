@@ -1,0 +1,35 @@
+<ion-content class='serviceModal serviceModalSelect mapocontent'>
+
+    <div class="modalheader">
+        <div class="modaltitle">
+            <p>Įveskite savo</p>
+            <h6>adresą</h6>
+        </div>
+        <button class="absclose greybutton" ng-click="modalMap.hide()">Uždaryti</button>
+    </div>
+
+    <div class="modalcontent">
+
+        <!--   <h2>Įveskite adresą</h2> -->
+        <!--   <button class="absclose greybutton" ng-click="modal.hide()">Uždaryti</button> -->
+        <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+            <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
+            <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+            </ui-gmap-marker>
+        </ui-gmap-google-map>
+        <!--   <div class="mapoButtonai">
+        <button class="buttonasnew greenbutton" ng-click="saveAddress()">Pridėti</button>
+    </div> -->
+        <!--
+   <button class="buttonasnew greybutton" ng-click="modalMap.hide()">Atgal</button>
+<button class="buttonasnew greenbutton" ng-click="saveAddress()">Saugoti</button>
+-->
+
+    </div>
+    <div class="modalfooter">
+        <div class="modbutnew">
+            <button class="" ng-click="saveAddress()">Pasirinkti</button>
+        </div>
+    </div>
+
+</ion-content>

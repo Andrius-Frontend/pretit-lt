@@ -1,0 +1,549 @@
+<ion-view title="" hide-back-button="true" hide-nav-bar="true">
+
+
+    <ion-content class="registerServiceBG" overflow-scroll="true">
+        <section id="registerServiceView">
+
+            <div class="profileHeader" header></div>
+
+
+
+            <div id="userService">
+
+                <div class="theRegisterService">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+
+
+                                <div class="profileFoto">
+                                    <div class="profilePhotoInput">
+                                        <div id="profilePic" class="coverbg" style="background: url('{{profilePic}}') no-repeat 50% 50%; background-size: cover;"></div>
+
+                                    </div>
+                                    <div class="profileFotoBottom">
+
+                                        <p>Įvertinimas:<strong>{{theUser.attributes.rating}}</strong></p>
+                                    </div>
+                                </div>
+
+                                <div class="profileInfo">
+                                    <h1>{{theUser.attributes.data.name}} {{theUser.attributes.data.surname}}</h1>
+
+                                    <div class="profileInfoMore">
+                                        <p>Miestas:<strong>{{formatedCity}}</strong></p>
+                                        <p>Telefonas:<strong>+370 610 00129</strong></p>
+                                    </div>
+                                    <div class="about">
+
+                                        {{theUser.attributes.data.about}}
+
+                                    </div>
+                                </div>
+
+
+                                <div class="profileServices">
+                                    <div class="serviceListing">
+                                        <ion-tabs class="serviceTabs">
+
+                                            <ion-tab title="Kirpimas" ng-if="checkIfDoing(services[0].subcategories)">
+                                                <div style="height:10px; "></div>
+                                                <div class="" ng-repeat='subcat in services[0].subcategories' ng-if="subcat.doing ">
+
+
+
+                                                    <div class="service">
+                                                        <div class="">
+
+                                                            <div class="servicas col-lg-6 col-md-6 col-sm-5 col-xs-6">
+                                                                <p class="servicename">{{subcat.name}}</p>
+                                                                <p class="servicetime"> iki {{subcat.duration*30}}min</p>
+                                                            </div>
+                                                            <div class="servicasprice col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                                <p class="serviceprice">nuo <strong>{{subcat.price}}</strong> €</p>
+                                                            </div>
+                                                            <div class="servicebutton col-lg-3 col-md-3 col-sm-3 col-xs-3 neracol">
+
+
+                                                                <div ng-if='!(selectedServices.indexOf(subcat) > -1)' class="addserviceNew orangebutton" ng-click="bookService(subcat) ">
+                                                                    Užsisakyti
+                                                                </div>
+                                                                <div ng-if='selectedServices.indexOf(subcat) > -1' class="addserviceNew greenbutton" ng-click="modal.show() ">
+                                                                    Pridėta
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </ion-tab>
+                                            <ion-tab title="Manikiūras" ng-if="checkIfDoing(services[1].subcategories)">
+                                                <div style="height:10px; "></div>
+                                                <div class="" ng-repeat='subcat in services[1].subcategories' ng-if="subcat.doing ">
+
+
+
+                                                    <div class="service">
+                                                        <div class="">
+
+                                                            <div class="servicas col-lg-6 col-md-6 col-sm-5 col-xs-6">
+                                                                <p class="servicename">{{subcat.name}}</p>
+                                                                <p class="servicetime"> iki {{subcat.duration*30}}min</p>
+                                                            </div>
+                                                            <div class="servicasprice col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                                <p class="serviceprice">nuo <strong>{{subcat.price}}</strong> €</p>
+                                                            </div>
+                                                            <div class="servicebutton col-lg-3 col-md-3 col-sm-3 col-xs-3 neracol">
+
+
+                                                                <div ng-if='!(selectedServices.indexOf(subcat) > -1)' class="addserviceNew orangebutton" ng-click="bookService(subcat) ">
+                                                                    Užsisakyti
+                                                                </div>
+                                                                <div ng-if='selectedServices.indexOf(subcat) > -1' class="addserviceNew greenbutton" ng-click="modal.show() ">
+                                                                    Pridėta
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </ion-tab>
+                                            <ion-tab title="Kosmetologija" ng-if="checkIfDoing(services[2].subcategories)">
+                                                <div style="height:10px; "></div>
+                                                <div class="" ng-repeat='subcat in services[2].subcategories' ng-if="subcat.doing ">
+
+
+
+                                                    <div class="service">
+                                                        <div class="">
+
+                                                            <div class="servicas col-lg-6 col-md-6 col-sm-5 col-xs-6">
+                                                                <p class="servicename">{{subcat.name}}</p>
+                                                                <p class="servicetime"> iki {{subcat.duration*30}}min</p>
+                                                            </div>
+                                                            <div class="servicasprice col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                                <p class="serviceprice">nuo <strong>{{subcat.price}}</strong> €</p>
+                                                            </div>
+                                                            <div class="servicebutton col-lg-3 col-md-3 col-sm-3 col-xs-3 neracol">
+
+
+                                                                <div ng-if='!(selectedServices.indexOf(subcat) > -1)' class="addserviceNew orangebutton" ng-click="bookService(subcat) ">
+                                                                    Užsisakyti
+                                                                </div>
+                                                                <div ng-if='selectedServices.indexOf(subcat) > -1' class="addserviceNew greenbutton" ng-click="modal.show() ">
+                                                                    Pridėta
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </ion-tab>
+                                            <ion-tab title="Vizažas" ng-if="checkIfDoing(services[3].subcategories)">
+                                                <div style="height:10px; "></div>
+                                                <div class="" ng-repeat='subcat in services[3].subcategories' ng-if="subcat.doing ">
+
+
+
+                                                    <div class="service">
+                                                        <div class="">
+
+                                                            <div class="servicas col-lg-6 col-md-6 col-sm-5 col-xs-6">
+                                                                <p class="servicename">{{subcat.name}}</p>
+                                                                <p class="servicetime"> iki {{subcat.duration*30}}min</p>
+                                                            </div>
+                                                            <div class="servicasprice col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                                <p class="serviceprice">nuo <strong>{{subcat.price}}</strong> €</p>
+                                                            </div>
+                                                            <div class="servicebutton col-lg-3 col-md-3 col-sm-3 col-xs-3 neracol">
+
+
+                                                                <div ng-if='!(selectedServices.indexOf(subcat) > -1)' class="addserviceNew orangebutton" ng-click="bookService(subcat) ">
+                                                                    Užsisakyti
+                                                                </div>
+                                                                <div ng-if='selectedServices.indexOf(subcat) > -1' class="addserviceNew greenbutton" ng-click="modal.show() ">
+                                                                    Pridėta
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </ion-tab>
+
+
+                                        </ion-tabs>
+                                    </div>
+                                </div>
+                                <!-- <ion-tabs class="serviceTabs">
+                                    <ion-tab ng-repeat='service in services' title="{{service.name}}" ng-if="checkIfDoing(service.subcategories)">
+                                        <div style="height:10px; "></div>
+                                        <div class="" ng-repeat='subcat in service.subcategories' ng-if="subcat.doing ">
+
+
+
+                                            <div class="service">
+                                                <div class="">
+
+                                                    <div class="servicas col-lg-6 col-md-6 col-sm-5 col-xs-6">
+                                                        <p class="servicename">{{subcat.name}}</p>
+                                                        <p class="servicetime"> iki {{subcat.duration*30}}min</p>
+                                                    </div>
+                                                    <div class="servicasprice col-lg-3 col-md-3 col-sm-4 col-xs-3">
+                                                        <p class="serviceprice">nuo <strong>{{subcat.price}}</strong> €</p>
+                                                    </div>
+                                                    <div class="servicebutton col-lg-3 col-md-3 col-sm-3 col-xs-3 neracol">
+
+
+                                                        <div ng-if='!(selectedServices.indexOf(subcat) > -1)' class="addserviceNew orangebutton" ng-click="bookService(subcat) ">
+                                                            Užsisakyti
+                                                        </div>
+                                                        <div ng-if='selectedServices.indexOf(subcat) > -1' class="addserviceNew greenbutton" ng-click="modal.show() ">
+                                                            Pridėta
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </ion-tab>
+
+
+                                    </ion-tabs>
+                                    -->
+
+
+                            </div>
+
+                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+
+
+
+                                <div ng-if="theUser.attributes.ImageGallery" class="profileDoneJobs">
+                                    <div class="imageGallery">
+                                        <h2 style="padding-top: 2%; padding-bottom: 1%; text-align: center">Atlikti darbai</h2>
+                                        <a ng-repeat="image in theUser.attributes.ImageGallery" href="{{image._url}}" data-lightbox="gallery">
+<<<<<<< HEAD
+                                            <div ng-if='$index < 5' class="galleryImage " style="background-image:url({{image._url}}); background-size: cover; "></div>
+                                            <div ng-if='$index == 5' class="galleryImage" data-lightbox="gallery">Daugiau</div>
+=======
+                                            <div ng-if='$index < 5' class="galleryImage " style="background: url({{image._url}}) no-repeat center center; background-size: cover; -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;"></div>
+>>>>>>> 8f8fd09f9176b9d1544009673b6bbd50ae3e5dc6
+                                        </a>
+                                        <!--                                        <a href="{{theUser.attributes.ImageGallery[5]._url}}" data-lightbox="gallery" ng-if='theUser.attributes.ImageGallery.length >= 5'>-->
+                                        <!--                                            <div class="galleryImage" data-lightbox="gallery">Daugiau</div>-->
+                                        <!--                                        </a>-->
+                                    </div>
+                                </div>
+
+                                <div class="bookPaslaugas">
+                                    <h2 style="margin-top: 20px; margin-bottom: 15px; text-align: center;"> Paslaugų užsakymas</h2>
+                                    <div class="paslButtonai ">
+                                        <button ng-click='modal.show()' class="orangebutton ">Pridėtos paslaugos({{selectedServices.length}})</button>
+                                        <button type="submit " ng-click="goToMessages() " class="greybutton ">Parašyti žinutę</button>
+                                    </div>
+                                </div>
+
+                                <div class="profileAddress">
+                                    <h2> Adresas</h2>
+
+                                    <div class="registerLocation">
+                                        <ui-gmap-google-map class="frontMapView " ng-if="theUser.attributes.address " center='map.center' zoom='map.zoom'>
+
+                                            <ui-gmap-marker coords="marker.coords " options="marker.options " events="marker.events " idkey="marker.id ">
+                                            </ui-gmap-marker>
+                                        </ui-gmap-google-map>
+
+                                    </div>
+
+                                    <div class="adresas">
+                                        <p>{{formatedAddress}}</p>
+
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                                <div class="profileWorkHours userWorkHours">
+                                    <br>
+                                    <h2 style="margin-bottom: 20px;"> Darbo laikas</h2>
+
+                                    <div class="workingDays list ">
+                                        <a class="item item-icon-left ">
+                                            <p class="userhoursleft ">Pirmadienis</p>
+                                            <span class="userhoursright item-note " ng-if='workingDays[1].working'>
+      
+                                            {{workingDays[1].hourFrom}}-{{workingDays[1].hourTo}}
+    </span>
+                                            <span class="userhoursnedirba item-note " ng-if='!workingDays[1].working'>
+      
+                                            Nedirba
+    </span>
+                                        </a>
+                                        <a class="item item-icon-left ">
+                                            <p class="userhoursleft ">Antradienis</p>
+                                            <span class="userhoursright item-note " ng-if='workingDays[2].working'>
+      {{workingDays[2].hourFrom}}-{{workingDays[2].hourTo}}
+    </span>
+                                            <span class="userhoursnedirba item-note " ng-if='!workingDays[2].working'>
+      Nedirba
+    </span>
+                                        </a>
+                                        <a class="item item-icon-left ">
+                                            <p class="userhoursleft ">Trečiadienis</p>
+                                            <span class="userhoursright item-note " ng-if='workingDays[3].working'>
+      {{workingDays[3].hourFrom}}-{{workingDays[3].hourTo}}
+    </span>
+                                            <span class="userhoursnedirba item-note " ng-if='!workingDays[3].working'>
+      Nedirba
+    </span>
+                                        </a>
+                                        <a class="item item-icon-left ">
+                                            <p class="userhoursleft ">Ketvirtadienis</p>
+                                            <span class="userhoursright item-note " ng-if='workingDays[4].working'>
+      {{workingDays[4].hourFrom}}-{{workingDays[4].hourTo}}
+    </span>
+                                            <span class="userhoursnedirba item-note " ng-if='!workingDays[4].working'>
+      Nedirba
+    </span>
+                                        </a>
+                                        <a class="item item-icon-left ">
+                                            <p class="userhoursleft ">Penktadienis</p>
+                                            <span class="userhoursright item-note " ng-if='workingDays[5].working'>
+      {{workingDays[5].hourFrom}}-{{workingDays[5].hourTo}}
+    </span>
+                                            <span class="userhoursnedirba item-note " ng-if='!workingDays[5].working'>
+      Nedirba
+    </span>
+                                        </a>
+                                        <a class="item item-icon-left ">
+                                            <p class="userhoursleft ">Šeštadienis</p>
+                                            <span class="userhoursright item-note " ng-if='workingDays[6].working'>
+      {{workingDays[6].hourFrom}}-{{workingDays[6].hourTo}}
+    </span>
+                                            <span class="userhoursnedirba item-note " ng-if='!workingDays[6].working'>
+      Nedirba
+    </span>
+                                        </a>
+                                        <a class="item item-icon-left ">
+                                            <p class="userhoursleft ">Sekmadienis</p>
+                                            <span class="userhoursright item-note " ng-if='workingDays[0].working'>
+      {{workingDays[0].hourFrom}}-{{workingDays[0].hourTo}}
+    </span>
+                                            <span class="userhoursnedirba item-note " ng-if='!workingDays[0].working'>
+      Nedirba
+    </span>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+
+
+                        <div ng-if="comment" class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="atsiliepimai">
+
+                                    <div class="container">
+                                        <h2 style="padding-top: 2%; padding-bottom: 1%; text-align: center ">Atsiliepimai</h2>
+
+
+
+
+                                        <div class="komentaras" ng-repeat="comment in comments">
+
+                                            <div class="komFoto">
+                                                <div class="coverbg5 " style="background: url( '{{comment.attributes.commentator.attributes.profilePhoto._url}}') no-repeat 50% 50%; background-size: cover; "></div>
+                                            </div>
+                                            <div class="komContent">
+                                                <h3>{{comment.attributes.commentator.attributes.data.name}}</h3>
+                                                <!--                                <h6>Posted 1 week ago</h6>-->
+                                                <p>{{comment.attributes.comment}}</p>
+                                            </div>
+                                            <div class="komRate">
+                                                <div class="komIvertinimas">
+                                                    <div class="komLangas">
+                                                        <h4>{{comment.attributes.rating}}</h4>
+                                                    </div>
+
+                                                    <p>Įvertinimas</p>
+                                                </div>
+
+                                            </div>
+
+
+
+
+                                        </div>
+
+
+
+
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+        <footer>
+            <div class="FooterPromo">
+
+                <div class="footerAppButtonai">
+
+                    <div class="appButtonas">
+                        <img class="applepng" src="img/apple.png">
+                        <p>Atsisiųsk iš</p>
+                        <h6>App Store</h6>
+                    </div>
+                    <div class="appButtonas">
+                        <img class="googlepng" src="img/play-store.png">
+                        <p>Atsisiųsk iš</p>
+                        <h6>Google Play</h6>
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+
+            <div class="footerNew">
+                <div class="container">
+                    <div class="footersiauras">
+                        <div class="footersocialikonos">
+                            <a href="http://www.facebook.com/pretit"><img src="img/fbpng.png"></a>
+                            <a href="http://www.instagram.com/pretit"><img src="img/instagrampng.png"></a>
+                            <a href="http://www.youtube.com/pretit"><img src="img/youtubepng.png"></a>
+                            <a href="mailto:labas@pretit.lt?Subject=Sveiki%20Pretit" target="_top"><img src="img/emailpng.png"></a>
+
+                        </div>
+                        <div class="footerkategorijosdivas">
+                            <div class="footerkategorijos">
+                                <ul>
+                                    <li><a href="">Kirpimas</a></li>
+                                    <li><a href="">Manikiūras</a></li>
+                                    <li><a href="">Vizažas</a></li>
+                                    <li><a href="">Kosmetologija</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footerpapdivas">
+                            <div class="footerpap">
+                                <ul>
+                                    <li><a href="">Apie mus</a></li>
+                                    <li><a href="">Kontaktai</a></li>
+                                    <li><a href="">Taisyklės</a></li>
+                                    <li><a href="">Privatumo politika</a></li>
+                                    <li><a href="">D.U.K</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="footerpagalba">
+                            <a href="mailto:labas@pretit.lt?Subject=Reikia%20pagalbos" target="_top">pagalba@pretit.lt</a>
+                            <p class="power">2017 &copy; Visos teisės saugomos</p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </footer>
+
+
+
+
+
+
+        <script>
+            (function () {
+                // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+                if (!String.prototype.trim) {
+                    (function () {
+                        // Make sure we trim BOM and NBSP
+                        var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                        String.prototype.trim = function () {
+                            return this.replace(rtrim, '');
+                        };
+                    })();
+                }
+
+				[].slice.call(document.querySelectorAll('input.input__field')).forEach(function (inputEl) {
+                    // in case the input is already filled..
+                    if (inputEl.value.trim() !== '') {
+                        classie.add(inputEl.parentNode, 'input--filled');
+                    }
+
+                    // events:
+                    inputEl.addEventListener('focus', onInputFocus);
+
+                    inputEl.addEventListener('blur', onInputBlur);
+                });
+
+                function onInputFocus(ev) {
+                    classie.add(ev.target.parentNode, 'input--filled');
+                }
+
+                function onInputBlur(ev) {
+                    if (ev.target.value.trim() === '') {
+                        classie.remove(ev.target.parentNode, 'input--filled');
+                    }
+                }
+            })();
+        </script>
+
+
+    </ion-content>
+
+</ion-view>

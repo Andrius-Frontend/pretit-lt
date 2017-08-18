@@ -1,0 +1,391 @@
+<ion-view title="Pretit - paieška" hide-back-button="true" hide-nav-bar="true">
+
+
+    <ion-content class="servisaiview" overflow-scroll="true" ng-init="loadDatePicker()">
+        <div class="bookingsHeader" header></div>
+
+
+
+        <section id="services">
+
+
+
+
+
+
+
+
+
+
+            <div class="services container-fluid">
+
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+                        <div class="filtroup">
+                            <h2></h2>
+                        </div>
+
+
+
+                        <div class="filtras">
+
+
+                            <div class="nopadding col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <label class="item filtro" ng-click='changeCategoryList()'>
+                                    <div class="input-label">
+                                        Kategorija
+                                    </div>
+                                    <div class="categoryChosen">
+                                        <p ng-if="!categoryChoice.name">Pasirinkite kategoriją
+                                            <object class="arrowdown" type="image/svg+xml" data="img/arrowdown.svg">Your browser does not support SVG</object>
+                                        </p>
+
+                                        <p ng-if="categoryChoice.name">{{categoryChoice.name}}
+                                            <!--                                       <object class="arrowdownright" type="image/svg+xml" data="img/arrowdownright.svg">Your browser does not support SVG</object>-->
+                                        </p>
+                                    </div>
+
+                                </label>
+                                <div ng-class='{showCategory: !categorySelect, showCategoryHeight: categorySelect }'>
+                                    <ion-list>
+
+                                        <ion-radio ng-repeat="service in services" ng-click='changeCategoryList(service)'>{{service.name}}</ion-radio>
+
+                                    </ion-list>
+
+                                </div>
+
+
+                                <label class="item filtro serviceChoose" ng-class="{'serviceChooseActive':categoryChoice.name}" ng-click='changeServiceList()'>
+                                    <div class="input-label">
+                                        Paslauga
+                                    </div>
+                                    <div class="serviceChosen">
+                                        <p ng-if="!serviceChoice">Pasirinkite paslaugą
+                                            <object class="arrowdown" type="image/svg+xml" data="img/arrowdown.svg">Your browser does not support SVG</object>
+                                        </p>
+                                        <p ng-if="serviceChoice">{{serviceChoice}}</p>
+                                    </div>
+                                </label>
+                                <div ng-class='{showService: !serviceSelect, showServiceHeight: serviceSelect }'>
+                                    <ion-list>
+                                        <ion-radio ng-repeat="sub in categoryChoice.subcategories" ng-click='changeServiceList(sub.name)'>{{sub.name}}</ion-radio>
+
+                                    </ion-list>
+
+                                </div>
+
+
+                                <label class="beleka12 item filtro filtro33 filtro22 filtromiesto">
+                                    <div class="input-label">
+                                        Miestas
+                                    </div>
+
+                                </label>
+
+
+                                <div class="checkboxai filtrocheckboxai filtro44">
+
+                                    <select class="js-example-responsive2" style="width: 100%" ng-model="cityChoice">
+                                        <option ng-repeat="city in cityList" value="{{city}}">{{city}}</option>
+
+
+                                    </select>
+
+                                </div>
+
+
+
+
+                                <label class="item filtro" ng-click='changeDateList()'>
+                                    <div class="input-label">
+                                        Data
+                                    </div>
+                                    <div class="dateChosen">
+                                        <p ng-if="!dateChoice">Pasirinkite dieną
+                                            <object class="arrowdown" type="image/svg+xml" data="img/arrowdown.svg">Your browser does not support SVG</object>
+                                        </p>
+                                        <p ng-if="dateChoice">{{dateChoice}}</p>
+                                    </div>
+                                </label>
+                                <div ng-class='{showDate: !dateSelect, showDateHeight: dateSelect }' id='datosPickeris'>
+                                    <div id="datepicker" class="filterDatepicker"> </div>
+
+                                </div>
+
+
+
+
+
+
+                                <div ng-if="dateChoice" class="paslaikareik">
+                                    <label class="item filtro filtro22">
+                                        <div class="input-label">
+                                            Laikas
+                                        </div>
+
+                                    </label>
+
+
+                                    <div class="checkboxai filtrocheckboxai filtro22">
+                                        <ion-list>
+
+                                            <ion-checkbox ng-model="filter.rytas">
+                                                <div class="laikaileft">
+                                                    <p>Rytas</p>
+                                                </div>
+                                                <div class="laikairight">
+                                                    <p>( 7:00 - 12:00 )</p>
+                                                </div>
+                                            </ion-checkbox>
+                                            <ion-checkbox ng-model="filter.diena">
+                                                <div class="laikaileft">
+                                                    <p>Diena</p>
+                                                </div>
+                                                <div class="laikairight">
+                                                    <p>( 12:00 - 18:00 )</p>
+                                                </div>
+                                            </ion-checkbox>
+                                            <ion-checkbox ng-model="filter.vakaras">
+                                                <div class="laikaileft">
+                                                    <p>Vakaras</p>
+                                                </div>
+                                                <div class="laikairight">
+                                                    <p>( 18:00 - 23:00 )</p>
+                                                </div>
+                                            </ion-checkbox>
+
+                                        </ion-list>
+                                    </div>
+                                </div>
+
+                                <label class="item filtro filtro22 textitem">
+                                    <div class="input-label">
+                                        Paieška pagal vartotojo vardą
+                                    </div>
+
+                                </label>
+                                <div class="tekstinepaieska filtro22">
+                                    <form ng-submit="searchByName(theName)">
+                                        <input ng-model="theName" type="text" class="tekstinesinput" placeholder="Vartotojo vardas">
+                                    </form>
+                                </div>
+
+                                <label class="dirbup item filtro filtro22">
+                                    <div class="input-label">
+                                        Dirbantis salone?
+                                    </div>
+
+                                </label>
+                                <div class="checkboxai filtrocheckboxai filtro22">
+                                    <ion-list>
+
+                                        <ion-checkbox ng-model="filter.salone">
+                                            <p class="taip">&nbsp;</p>
+
+                                        </ion-checkbox>
+
+
+
+                                    </ion-list>
+                                </div>
+
+
+
+
+
+                                <div id="datepicker" class="filterDatepicker"> </div>
+
+
+
+                                <label class="item filtro">
+                                    <div class="input-label">
+                                        Kaina
+                                    </div>
+
+                                </label>
+
+
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rangas">
+                                    <h2>{{price.min}} &#8364; - {{price.value}} &#8364;</h2>
+
+
+                                </div>
+                                <div class="range range-positive">
+
+                                    <input type="range" min="0" max="300" value="{{price.max}}" step="5" ng-model="price.value">
+
+                                </div>
+
+
+                                <div class="filtruotibuttonas">
+                                    <button ng-click='beginToSearch()' class="orangebutton">Ieškoti
+                                    </button>
+
+                                </div>
+
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8">
+                        <div class="specialistaivisiup">
+                            <div class="sortingField">Rūšiuoti pagal:
+                                <select ng-model="sortBy" ng-change="sortByChanged(sortBy)">
+                                    <option value="0">Populiariausi</option>
+                                    <option value="1">Naujausi</option>
+                                    <option value="2">Geriausiai įvertinti</option>
+                                    <option value="3" ng-if="serviceChoice">Pigiausi</option>
+                                    <option value="4" ng-if="serviceChoice">Brangiausi</option>
+                                    <!--                                <option value="3">Geriausiai įvertinti</option>-->
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="specialistaivisi">
+
+
+                            <div ng-if="!usersFinal.length">
+                                <div class="servicesnera">
+                                    <img src="img/glasses.png">
+                                    <p>Oops, pasirinktais kriterijais rezultatų nerasta.</p>
+                                </div>
+
+                            </div>
+                            <div class="homeSlider nopadding col-lg-4 col-md-6 col-sm-12 col-xs-12" ng-repeat='user in usersFinal | orderBy:orderByProperty:revers | limitTo:limitTo'>
+                                <div class="userisNaujas">
+                                    <div ng-carousel ng-carousel-name="{{user.id}}">
+                                        <div class="userImageOverlay"></div>
+                                        <!--   <div class="userImageBorders"> </div> -->
+                                        <slidecontainer>
+
+
+                                            <slide ng-repeat='image in user.attributes.ImageGallery' ng-if='user.attributes.ImageGallery.length != 0'>
+                                                <!--    <img src="{{image._url}}"> -->
+                                                <div class="coverbg" style="background: url('{{image._url}}') no-repeat 50% 50%; background-size: cover;"></div>
+                                            </slide>
+                                            <slide ng-if='user.attributes.ImageGallery.length === 0 || !user.attributes.ImageGallery'>
+                                                <!--   <img src="http://anzpartners.com/wp-content/uploads/2015/03/no-avatar-female.png"> -->
+                                                <div class="coverbg" style="background: url('http://anzpartners.com/wp-content/uploads/2015/03/no-avatar-female.png') no-repeat 50% 50%; background-size: cover;"></div>
+                                            </slide>
+
+
+
+                                        </slidecontainer>
+                                        <div class="carousel-arrow carousel-arrow-left" ng-click="Carousel.get('{{user.id}}').previous()">
+
+                                            <object ng-click="Carousel.get('{{user.id}}').previous()" class="arrowleft" type="image/svg+xml" data="img/svgarrowleft.svg"></object>
+
+                                        </div>
+                                        <div class="carousel-arrow carousel-arrow-right" ng-click="Carousel.get('{{user.id}}').next()">
+
+                                            <object ng-click="Carousel.get('{{user.id}}').next()" class="arrowright" type="image/svg+xml" data="img/svgarrowright.svg"></object>
+
+                                        </div>
+                                        <div ng-if="user.price" class="nuokiek">
+                                            <p><strong>{{user.price}}</strong> &#8364;</p>
+                                        </div>
+                                        <div class="userInfo" ng-click="goToUser(user.id)">
+                                            <div class="userPadding">
+                                                <div class="userProfilePicture" ng-click="goToUser(user.id)">
+                                                    <div ng-if="user.attributes.profilePhoto" class="coverbg3" style="background: url( '{{user.attributes.profilePhoto._url}}') no-repeat 50% 50%; background-size: cover; "></div>
+                                                    <div ng-if="!user.attributes.profilePhoto" class="coverbg3" style="background: url( 'http://anzpartners.com/wp-content/uploads/2015/03/no-avatar-female.png') no-repeat 50% 50%; background-size: cover; "></div>
+
+
+
+                                                </div>
+                                                <div class="simtasuser">
+                                                    <div class="userNickname">
+                                                        <h2 ng-click="goToUser(user.id)">
+                                                            {{user.attributes.data.name}} {{user.attributes.data.surname}} </h2>
+                                                    </div>
+                                                    <div class="userRate" ng-if="user.attributes.Stars">
+                                                        <p>{{user.attributes.Stars}}</p>
+                                                        <!-- <object class="star" type="image/svg+xml" data="img/star2.svg">Your browser does not support SVG</object> -->
+                                                        <img class="zvaigzde" src="img/zvaigzdute.png">
+                                                    </div>
+                                                </div>
+                                                <div class="spectext">
+                                                    <div class="spectextleft">
+
+                                                        <h2>Atlieku:</h2>
+                                                    </div>
+                                                    <div class="spectextright">
+                                                        <p ng-repeat="spec in user.attributes.servicesForSearch">{{spec}}</p>
+                                                    </div>
+                                                </div>
+
+                                                <!--
+                                                    <div class="abouttext">
+    <div class="abouttextleft">
+
+        <h2>APIE:</h2>
+    </div>
+    <div class="abouttextright">
+        <p>{{user.attributes.data.about}}</p>
+    </div>
+</div>
+-->
+                                                <div class="userInfoBottom">
+
+
+                                                    <div class="userBottomLeft">
+                                                        <p> Įvertinimas: <strong>{{user.attributes.rating | number:1}}</strong> / 5</p>
+
+                                                    </div>
+                                                    <div class="userBottomRight">
+                                                        <p> {{user.attributes.formatedCity}}</p>
+
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div ng-if="usersFinal.length > 0" class="loadingmore">
+                                <button class="orangebutton" ng-click="loadMore()">Rodyti daugiau</button>
+                            </div>
+
+
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+        </section>
+
+
+        <div footer></div>
+
+
+
+
+
+
+
+    </ion-content>
+
+</ion-view>

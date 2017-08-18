@@ -1,0 +1,81 @@
+angular.module('tyList.menu', [])
+
+.controller('MenuController', function ($scope, $state) {
+    // Form data for the login modal
+    $scope.currentUser = Parse.User.current();
+    $scope.connectionTesting = function () {
+        if (navigator.connection.type !== 'none') {
+            $state.go('app.newOrder.orderDetails');
+        } else {
+            alert('You are not connected to the internet')
+        }
+
+    }
+    $scope.loginData = {};
+
+    $scope.goToMessages = function () {
+        $state.go('app.messages')
+    }
+
+    $scope.goToLogin = function () {
+        $state.go('app.loginas')
+    }
+    $scope.logOut = function () {
+        Parse.User.logOut();
+        $state.go($state.current, {}, {
+            reload: true
+        });
+    }
+    if ($scope.currentUser) {
+        var MessageCount = Parse.Object.extend("Messages");
+        var vmessageCount = new Parse.Query(MessageCount);
+        var cmessageCount = new Parse.Query(MessageCount);
+        vmessageCount.equalTo("Customer", $scope.currentUser.id);
+        vmessageCount.equalTo("CSeen", false);
+        cmessageCount.equalTo("Verslauk", $scope.currentUser.id);
+        cmessageCount.equalTo("VSeen", false);
+        var mainQuery = Parse.Query.or(vmessageCount, cmessageCount);
+        mainQuery.count({
+            success: function (count) {
+                $scope.messageCount = count;
+                console.log(count)
+                $scope.$apply();
+            },
+            error: function (error) {
+
+            }
+        });
+    }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 044c55a41952c72b45a0b8bd3360aa68f85d12f0
+    if ($scope.currentUser && $scope.currentUser.attributes.type != "1") {
+        var PendingCount = Parse.Object.extend("PreBooking");
+        var pendingCount = new Parse.Query(PendingCount);
+
+        pendingCount.equalTo('ReceiverId', $scope.currentUser.id);
+        pendingCount.equalTo('Status', 'unknown');
+
+        pendingCount.count({
+            success: function (count) {
+                $scope.pendingCount = count;
+                console.log(count);
+                $scope.$apply();
+            },
+            error: function (error) {
+
+            }
+        });
+
+    }
+    $scope.goToRegisterService = function () {
+        $state.go('app.registerservice')
+    }
+    $scope.goToclientDash = function () {
+        $state.go('app.clientDash')
+    }
+    $scope.goToBookings = function () {
+        $state.go('app.bookings')
+    }
+});

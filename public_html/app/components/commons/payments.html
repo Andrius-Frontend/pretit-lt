@@ -1,0 +1,218 @@
+<ion-view title="" hide-back-button="true" hide-nav-bar="true">
+
+    <ion-content overflow-scroll="true" ng-init="paymentsfunc()">
+        <div class="bookingsHeader" header></div>
+
+
+        <div class="apmokejimai">
+
+
+            <div class="container" ng-init="generateCode()">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="apmokejimulangas">
+                            <h2>Profilio iškėlimas</h2>
+                            <p ng-if="currentUser.attributes.type == 3">Išsikelk savo specialistus aukščiau kitų. Kuo daugiau žvaigždučių, tuo aukščiau Jų profiliai yra rodomi. Tai padės būti pastebėtams ir sulaukti dar daugiau potencialių klientų dėmesio.</p>
+                            <p ng-if="currentUser.attributes.type == 2">Išsikelk save aukščiau kitų specialistų. Kuo daugiau žvaigždučių, tuo aukščiau Tavo profilis rodomas. Tai padės būti pastebėtam pirmam ir sulaukti dar daugiau potencialių klientų.</p>
+
+                            <div class="iskelimas">
+                                <div class="row">
+
+
+                                    <div class="iskeldienu col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                        <h3>Dienų skaičius</h3>
+                                        <select ng-model="numbers.days" ng-change="generateCode()">
+                                            <option value="{{num}}" ng-repeat="num in daysnstars">{{num}}</option>
+
+                                        </select>
+                                        <h3>Žvaigždučių skaičius</h3>
+                                        <select ng-model="numbers.stars" ng-change="generateCode()">
+                                            <option value="{{num}}" ng-repeat="num in daysnstars">{{num}}</option>
+                                        </select>
+                                        <div ng-if="currentUser.attributes.type == 3">
+                                            <h3>Mokėti už</h3>
+                                            <select ng-model="userToPayFor" ng-change="changeUserEmail(userToPayFor)">
+                                                <option value="1" selected>Mokėti už visus darbuotojus</option>
+                                                <option value="{{user.attributes.email}}" ng-repeat="user in usersToPayFor">{{user.attributes.data.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="iskelsuma col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <h3>Suma</h3>
+                                        <!--
+                                        <div class="skaiciuok" ng-if="userToPayFor == '1'">
+    {{suma * multiplier}}
+</div>
+-->
+                                        <div class="skaiciuok">
+                                            {{suma}}
+                                        </div>
+                                        <!--                                 id - {{idFour}}-->
+                                    </div>
+                                </div>
+
+
+                                <form class="iskelimoforma form-style-4" action="general/libwebtopay/redirect.php" method="post">
+                                    <input class="val" type="text" name="email" value="{{currentUser.attributes.email}}" readonly/>
+                                    <input class="payNotSee" type="text" name="oType" value="{{idFour}}" />
+                                    <input class="iskelbuttonas orangebutton" type="submit" value="Aktyvuoti" id="save" />
+
+                                </form>
+
+                                <div class="iskelimg">
+                                    <img src="img/ga2.png">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="apmokejimulangas">
+                            <h2>Narystės tipai  </h2>
+
+                            <div class="narystesnem">
+
+
+
+                                <div class="narnemokama">
+                                    <p>Nemokama</p>
+                                </div>
+                            </div>
+
+
+
+                            <div class="naryste narborder">
+                                <div class="nardienos ">
+                                    <h3>30 dienų</h3>
+                                </div>
+                                <div class="narnuolaida ">
+                                    <p>20% nuolaida</p>
+                                    <h4><div class="linijaper"></div>15 <strong>&#8364;</strong></h4>
+                                </div>
+                                <div class="narkaina">
+                                    <h3>12 <strong>&#8364;</strong></h3>
+                                    <!--  <form class="narkainaform form-style-4" action="general/libwebtopay/redirect.php" method="post">
+                                            <input class="narinput" type="text" name="email" value="{{currentUser.attributes.email}}" readonly/>
+                                            <input class="payNotSee" type="text" name="oType" value="{{idThree}}" />
+                                            <input class="narbuttonas buttonasnew greenbutton" type="submit" value="Pirkti" id="save " />
+                                        </form> -->
+                                </div>
+                            </div>
+                            <div class="naryste">
+                                <div class="nardienos ">
+                                    <h3>60 dienų</h3>
+                                </div>
+                                <div class="narnuolaida ">
+                                    <p>27% nuolaida</p>
+                                    <h4><div class="linijaper"></div>30 <strong>&#8364;</strong></h4>
+                                </div>
+                                <div class="narkaina">
+                                    <h3>22 <strong>&#8364;</strong></h3>
+                                    <!--   <form class="narkainaform form-style-4" action="general/libwebtopay/redirect.php " method="post">
+                                            <input class="narinput" type="text" name="email" value="{{currentUser.attributes.email}}" readonly/>
+                                            <input class="payNotSee" type="text" name="oType" value="{{idThree}}" />
+                                            <input class="narbuttonas buttonasnew greenbutton " type="submit" value="Pirkti" id="save" />
+                                        </form> -->
+                                </div>
+                            </div>
+                            <div class="naryste narborder">
+                                <div class="nardienos ">
+                                    <h3>90 dienų</h3>
+                                </div>
+                                <div class="narnuolaida ">
+                                    <p>34% nuolaida</p>
+                                    <h4><div class="linijaper"></div>45 <strong>&#8364;</strong></h4>
+                                </div>
+                                <div class="narkaina">
+                                    <h3>30 <strong>&#8364;</strong></h3>
+                                    <!--  <form class="narkainaform form-style-4" action="general/libwebtopay/redirect.php" method="post">
+                                            <input class="narinput" type="text" name="email" value="{{currentUser.attributes.email}}" readonly/>
+                                            <input class="payNotSee" type="text " name="oType" value="{{idThree}}" />
+                                            <input class="narbuttonas buttonasnew greenbutton" type="submit" value="Pirkti" id="save" />
+                                        </form> -->
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+        <div footer></div>
+
+
+
+        <!-- 
+
+
+        Galioja iki - {{valid}}
+        <div class="row " class='mokejimuformos'>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-md-offset-1 paymentInfo ">
+                <h3>Planas Min</h3>
+                <p>30 dienu pratęsimas</p>
+                <h1>7.99 eur</h1>
+                <form class="form-style-4 " action="general/libwebtopay/redirect.php " method="post ">
+                    <input type="text " name="email " value="{{currentUser.attributes.email}} " readonly/>
+                    <input class="payNotSee " type="text " name="oType " value="{{idOne}} " />
+                    <input class="buttonasnew greenbutton buttontarpas " type="submit " value="Pirkti " id="save " />
+                </form>
+
+
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-md-offset-1 paymentInfo ">
+                <h3>Planas Mid</h3>
+                <p>60 dienu pratęsimas</p>
+                <h1>13.99 eur</h1>
+                <form class="form-style-4 " action="general/libwebtopay/redirect.php " method="post ">
+                    <input type="text " name="email " value="{{currentUser.attributes.email}} " readonly/>
+                    <input class="payNotSee " type="text " name="oType " value="{{idTwo}} " />
+                    <input type="submit " value="Patvirtinti " id="save " />
+                </form>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-md-offset-1 paymentInfo ">
+                <h3>Planas Max</h3>
+                <p>90 dienu pratęsimas</p>
+                <h1>19.99 eur</h1>
+                <form class="form-style-4 " action="general/libwebtopay/redirect.php " method="post ">
+                    <input type="text " name="email " value="{{currentUser.attributes.email}} " readonly/>
+                    <input class="payNotSee " type="text " name="oType " value="{{idThree}} " />
+                    <input type="submit " value="Patvirtinti " id="save " />
+                </form>
+            </div>
+            <div class=" col-md-offset-1 ">
+
+
+            </div>
+
+        </div>
+        <div>
+            dienu skaicius
+            <select ng-model="numbers.days " ng-change="generateCode() ">
+                <option value="{{num}} " ng-repeat="num in daysnstars ">{{num}}</option>
+
+            </select>
+        </div>
+        <div>
+            zvaigzduciu skaicius
+            <select ng-model="numbers.stars " ng-change="generateCode() ">
+                <option value="{{num}} " ng-repeat="num in daysnstars ">{{num}}</option>
+            </select>
+        </div>
+        id - {{idFour}} suma - {{suma}}
+        <form class="form-style-4 " action="general/libwebtopay/redirect.php " method="post ">
+            <input type="text " name="email " value="{{currentUser.attributes.email}} " readonly/>
+            <input class="payNotSee " type="text " name="oType " value="{{idFour}} " />
+            <input type="submit " value="Patvirtinti " id="save " />
+        </form> -->
+    </ion-content>
+
+</ion-view>

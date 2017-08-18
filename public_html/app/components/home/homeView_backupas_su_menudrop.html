@@ -1,0 +1,200 @@
+<ion-view title="" hide-back-button="true" hide-nav-bar="true">
+    <ion-content overflow-scroll="true">
+
+
+        <section id="home">
+            <div class="hero__imgwrap">
+                <img class="hero__img tilt-effect" data-tilt-options='{ "opacity" : 0.6, "movement": { "perspective" : 1500, "translateX" : 10, "translateY" : 10, "translateZ" : 2, "rotateX" : 3, "rotateY" : 3 } }' src="img/home/homeimage2.jpg" alt="Hero image" />
+
+
+                <nav class="theHeader navbar navbar-default navbar-static-top">
+                    <div class="container-fluid">
+                        <div class="navbar-text navbar-left">
+                            <a href="index.html" class="navbar-link">
+                                <object class="logo" type="image/svg+xml" data="img/logo/tylistlogo.svg">Your browser does not support SVG</object>
+
+                            </a>
+                        </div>
+
+                        <div class="navbar-text navbar-right">
+                            <div class="navigation">
+
+                                <ul>
+
+                                    <li>
+                                        <a href="" class="navbuttonas"> Verslauk</a>
+                                    </li>
+                                    <li ng-if='!currentUser'>
+                                        <a ng-click='goToRegister()' class="navbuttonas"> Registracija</a>
+                                    </li>
+                                    <li ng-if='!currentUser'>
+                                        <a ng-click='goToLogin()' class="navbuttonas"> Prisijungti</a>
+                                    </li>
+                                    <li ng-if='currentUser'>
+                                        <a ng-click='goToLogin()' class="navbuttonas"> {{username}}</a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </nav>
+
+
+
+                <div class="theMiddle">
+                    <div class="theMiddlelinijaup"></div>
+                    <div id="o-wrapper" class="o-wrapper theMiddleplotas">
+                        <div class="theMiddleText">
+
+                            <h1>Registruokis grožio vizitui bet kur ir bet kada!</h1>
+
+                        </div>
+                        <div class="theMiddleSearch">
+
+                            <div class="row">
+
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                    <button id="c-button--slide-top" class="c-button">
+                                        <div class="row">
+                                            <div class="searchotext1 col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                                Paslauga
+                                            </div>
+                                            <div class="searchotext2 col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                Vieta
+                                            </div>
+                                            <div class="searchotext3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                Data ir Laikas
+                                            </div>
+                                        </div>
+
+                                    </button>
+
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <button class="buttonas ieskoti">Ieškoti
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+                            <div id="c-menu--slide-top" class="c-menu c-menu--slide-top">
+                                <button class="c-menu__close"><strong>x</strong></button>
+
+
+                                <div class="row">
+
+                                    <div class="pasirinkimas paslauga col-lg-5 col-md-5 col-sm-5 col-xs-5">
+
+
+                                        <p>Nagai</p>
+                                        <p> Plaukai</p>
+                                        <p> Veidas</p>
+                                        <p> Masažai</p>
+                                        <p> Kūno plaukų šalinimas</p>
+
+                                    </div>
+
+                                    <div class="pasirinkimas vieta col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                        <p>Vilnius</p>
+                                        <p> Kaunas</p>
+                                        <p> Šiauliai</p>
+                                        <p> Panevėžys</p>
+                                        <p> Klaipėda</p>
+                                    </div>
+                                    <div class="pasirinkimas data col-lg-2 col-md-2 col-sm-2 col-xs-2">
+
+                                    </div>
+                                    <div class="pasirinkimas laikas col-lg-2 col-md-2 col-sm-2 col-xs-2">
+
+                                    </div>
+
+
+
+                                </div>
+
+
+
+
+
+
+                            </div>
+                            <!-- /c-menu slide-top -->
+                        </div>
+                    </div>
+
+                    <div class="theMiddlelinijabottom"></div>
+                </div>
+
+
+
+
+
+                <div id="c-mask" class="c-mask"></div>
+                <!-- /c-mask -->
+            </div>
+        </section>
+
+        <!-- /c-menu slide-top -->
+        <section id="sekantis">
+
+            <div class="howto">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <h2>1. Discover</h2>
+                        <p> Search for beauty & wellness salons in your area</p>
+                    </div>
+                    <div class="borderleft2 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <h2>2. Book</h2>
+                        <p> Choose your service and book an appointment directly from the salon's calendar</p>
+                    </div>
+                    <div class="borderleft2 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <h2>3. Enjoy</h2>
+                        <p>Sit back and enjoy your unique beauty & wellness experience</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="useriai">
+
+                <div ng-repeat="user in users" class="user" ng-click="goToUser(user.id)">
+                    <div class="userImage">
+                        <img src="{{user.attributes.profilePhoto._url}}">
+                    </div>
+                    <ul class="list">
+                        <li class='item'>{{user.attributes.data.name}} {{user.attributes.data.surname}}</li>
+
+                        <li class='item'>{{user.attributes.email}}</li>
+                        <li class="item">{{user.id}}</li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+
+
+
+
+
+    </ion-content>
+
+
+
+    <!-- imagetilt js -->
+    <script src="js/imagetilt/tiltfx.js"></script>
+</ion-view>

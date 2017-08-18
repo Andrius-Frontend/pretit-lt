@@ -1,0 +1,186 @@
+<ion-view title="Žinutės" hide-back-button="true" hide-nav-bar="true">
+
+
+    <ion-content overflow-scroll="true">
+
+
+        <section id="messaging">
+
+
+            <div class="bookingsHeader" header></div>
+
+
+
+
+
+
+
+
+
+
+            <div class="zinutes">
+
+
+
+
+
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="messagesContainer">
+
+                        <div class="row">
+
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <h2 class="messageh2">Mano žinutės</h2>
+                                <div class="messagePeople">
+                                    <div ng-repeat='message in theAllMessages' class="testukas">
+                                        <ion-radio ng-model='choice' ng-value='message.attributes.Channel' ng-click='getThoseMessages(message)' class='messageOnHover'>
+                                            <div class="messageUsers" ng-if="message.attributes.MessageObject.a.id == theCurrentUser.id">
+                                                <div class="messageUserProfilePhoto">
+                                                    <div style="background: url({{message.attributes.MessageObject.b.picture}}) no-repeat center center; -webkit-background-size: cover;
+										-moz-background-size: cover; -o-background-size: cover; background-size: cover; border-radius: 100%" class="messageUserProfilePhoto">
+                                                    </div>
+                                                </div>
+                                                <div class="messageUserInfo">
+
+                                                    <h2>{{message.attributes.MessageObject.b.name}} </h2>
+                                                    <h3>{{message.attributes.LastMessageTime}}</h3>
+                                                    <p>{{message.attributes.LastMessage}} </p>
+
+                                                </div>
+
+                                            </div>
+                                            <div class="messageUsers" ng-if="message.attributes.MessageObject.a.id != theCurrentUser.id">
+                                                <div class="messageUserProfilePhoto">
+                                                    <div style="background: url({{message.attributes.MessageObject.a.picture}}) no-repeat center center; -webkit-background-size: cover;
+										-moz-background-size: cover; -o-background-size: cover; background-size: cover; border-radius: 100%" class="messageUserProfilePhoto">
+                                                    </div>
+                                                </div>
+                                                <div class="messageUserInfo">
+
+                                                    <h2>{{message.attributes.MessageObject.a.name}} </h2>
+                                                    <h3>{{message.attributes.LastMessageTime}}</h3>
+                                                    <p>{{message.attributes.LastMessage}}</p>
+
+
+                                                </div>
+
+                                            </div>
+
+
+                                        </ion-radio>
+                                        <div class="rightx" ng-click="deleteTheMessage(message)">
+                                            X
+                                        </div>
+                                    </div>
+
+                                    <div class="nomessages" ng-if="noMessages">
+                                        <img class="nerzinuciu" src="img/nerzinuciu.png">
+                                        <p>Nėra žinučių</p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                <!--                        <section id="main" role="main">-->
+                                <div class="senderreceiver">
+
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <div class="receiverName">
+                                                <h2>Gavėjas</h2>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <div class="senderName">
+                                                <h2>Siuntėjas</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="messageHistory" id="messageHis">
+
+                                    <ul>
+                                        <div ng-repeat="message in content" class="messagas">
+
+                                            <li ng-class="{mySentMessage: theCurrentUser.id == message.user}">
+                                                <div class="zinutekaire">
+                                                    <div ng-if="theCurrentUser.id != message.user" style="background: url({{customerPic}}) no-repeat center center; -webkit-background-size: cover;
+											-moz-background-size: cover; -o-background-size: cover; background-size: cover; border-radius: 100%" class="messageUserProfilePhoto2">
+                                                    </div>
+                                                    <div ng-if="theCurrentUser.id == message.user" style="background: url({{myPic}}) no-repeat center center; -webkit-background-size: cover;
+											-moz-background-size: cover; -o-background-size: cover; background-size: cover; border-radius: 100%" class="messageUserProfilePhoto2">
+
+                                                    </div>
+                                                </div>
+                                                <div class="zinutedesine">
+                                                    <div class="zinutetrikampis"></div>
+                                                    <div class="zinutedesineup">
+                                                        <h2 ng-if="theCurrentUser.id != message.user">{{customerName}}</h2>
+                                                        <h2 ng-if="theCurrentUser.id == message.user">{{myName}}</h2>
+                                                        <h3>{{message.time}}</h3>
+                                                    </div>
+                                                    <div class="zinutedesinedown">
+                                                        <div class="pmax">
+                                                            <p>{{message.text}}</p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </li>
+
+                                            <!--                                <div id="output"></div>-->
+
+                                        </div>
+
+                                    </ul>
+                                </div>
+                                <div id="chat">
+                                    <i id="avatar" class="face12"></i>
+                                    <input class="writemessage" type="text" id="input" placeholder=" Rašyti žinutę...">
+                                </div>
+                                <button class="buttonassend" id="button">Siųsti žinutę</button>
+
+                                <p id="presence"></p>
+                                <!--                      </section>-->
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <div footer></div>
+
+
+
+
+    </ion-content>
+
+</ion-view>

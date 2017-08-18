@@ -1,0 +1,19 @@
+.clientBooking {
+    height: 400px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    margin-top: 3%;
+    overflow: scroll;
+}
+
+.requestFromCompany {
+    top: 35%;
+}
+
+.cellCurrentTime {
+    border-top-style: solid !important;
+    border-top-width: 2px !important;
+    border-top-color: #1abc9c !important;
+}

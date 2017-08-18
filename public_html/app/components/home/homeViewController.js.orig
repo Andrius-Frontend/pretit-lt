@@ -1,0 +1,229 @@
+angular.module('tyList.home', ['tyList.service'])
+
+.controller('HomeController', function ($scope, $state, $ionicSlideBoxDelegate, $interval, Carousel, Services) {
+    $scope.services = Services;
+    console.log(ionic.Platform.isWebView())
+        //    $scope.dateSearch = ''
+
+    //    $scope.selectedService = ''
+    //    $scope.selectedSubService = ''
+    var obj = {
+        availability: true,
+        id: '1',
+        time: '7:00'
+    }
+    $scope.Carousel = Carousel;
+    $scope.users = [];
+    console.log('geege');
+
+    var cityQuery = new Parse.Query("General");
+    cityQuery.find({
+        success: function (response) {
+            $scope.cityList = response[0].attributes.CityList;
+            $scope.$apply();
+            $('#editable-select').editableSelect({
+                effects: 'slide',
+                onSelect: function (element) {
+                    $scope.citySearch = $(this).val();
+                }
+            });
+            $("#editable-select").click(function () {
+                $("#tiesiog").appendTo($(".homeSearch"));
+            });
+            //            $('#editable-select').editableSelect('add', 'text', 0);
+
+        }
+    })
+
+
+
+    var query = new Parse.Query(Parse.User);
+
+    query.equalTo('hasService', true);
+
+    query.limit(8);
+    query.find({
+        success: function (users) {
+
+            //            Parse.Cloud.run('hello', {
+            //                price: 20,
+            //                service: "Moterų kirpimas"
+            //            }, {
+            //                success: function (result) {
+            //                    console.log(result)
+            //                },
+            //                error: function (error) {
+            //                    alert(error)
+            //                }
+            //            });
+            console.log(users);
+            $scope.users = users;
+
+            $scope.$apply();
+
+
+
+        }
+    });
+
+    $scope.openCategorySeachCount = false;
+    $scope.openCategorySeach = function () {
+        if ($scope.openCategorySeachCount) {
+            $scope.openCategorySeachCount = false;
+        } else {
+            $scope.openCategorySeachCount = true;
+            $scope.openSubCategorySeachCount = false;
+        }
+
+        console.log('asda')
+    }
+    $scope.theChangeServ = function (ser) {
+        $scope.selectedService = ser
+        $scope.openCategorySeachCount = false;
+    }
+
+    $scope.openSubCategorySeachCount = false;
+    $scope.openSubCategorySeach = function () {
+
+        if ($scope.selectedService) {
+
+            if ($scope.openSubCategorySeachCount) {
+                $scope.openSubCategorySeachCount = false;
+            } else {
+                $scope.openSubCategorySeachCount = true;
+                $scope.openCategorySeachCount = false;
+            }
+        } else {
+
+            //            var backgroundInterval = setInterval(function () {
+            //                $div2blink.toggleClass("backgroundRed");
+            //            }, 100)
+            $div2blink.stop().css("background-color", "#ff4819")
+                .animate({
+                    backgroundColor: "#FFFFFF"
+                }, 1500);
+            $scope.openSubCategorySeachCount = false;
+
+        }
+
+
+    }
+
+    $scope.theChangeSub = function (ser) {
+        $scope.selectedSubService = ser
+        $scope.openSubCategorySeachCount = false;
+    }
+    $scope.theChangeCity = function (ser) {
+        $scope.citySearch = ser
+    }
+    $scope.theChangeDate = function (ser) {
+        $scope.dateSearch = ser
+    }
+    $scope.currentUser = Parse.User.current();
+    if ($scope.currentUser) {
+        $scope.username = $scope.currentUser.get('email');
+    }
+    $scope.goToRegister = function () {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 044c55a41952c72b45a0b8bd3360aa68f85d12f0
+        $state.go('app.register')
+    }
+    $scope.goToVerslauk = function () {
+        if ($scope.currentUser) {
+            $state.go('app.bookings')
+        }
+    }
+    $scope.logOut = function () {
+        Parse.User.logOut();
+        $state.go($state.current, {}, {
+            reload: true
+        });
+    }
+
+
+
+    //
+    //    var video = document.getElementById('video');
+    //
+    //    video.play();
+
+
+
+    $scope.goToLogin = function () {
+        $state.go('app.loginas')
+    }
+
+
+    $scope.goToUser = function (id) {
+        $state.go('app.userProfile', {
+            "userId": id
+        });
+    }
+    $scope.search = function () {
+        console.log($scope.citySearch);
+        console.log($scope.dateSearch);
+        console.log($scope.selectedService);
+        console.log($scope.selectedSubService);
+        $state.go('app.search', {
+            "city": $scope.citySearch,
+            "date": $scope.dateSearch,
+            "service": $scope.selectedService,
+            "serviceType": $scope.selectedSubService
+                //            "time": 'asd'
+        });
+
+    }
+
+    $("#datepickeris").datepicker({
+        inline: true,
+        showOtherMonths: true,
+        dayNamesMin: ['Se', 'Pi', 'An', 'Tr', 'Ke', 'Pe', 'Še'],
+        monthNames: ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis',
+            'Liepa', 'Rugpjūtis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis'],
+        monthNamesShort: ['Sau', 'Vas', 'Kov', 'Bal', 'Geg', 'Bir',
+            'Lie', 'Rugpj', 'Rugsej', 'Spa', 'Lap', 'Gru'],
+        minDate: 0,
+        firstDay: 1,
+        showOn: 'button',
+        buttonText: ""
+
+        //        onSelect: searchDate
+
+    });
+
+    $("#ui-datepicker-div").addClass("homePageDatePicker");
+
+    $("#datepickeris").focus(function () {
+        $("#datepickeris").datepicker("widget").appendTo($(".homeSearch"));
+    });
+
+
+
+    function searchDate(date) {
+        $scope.dateSearch = $(this).val();
+    }
+    //    $('#datepickeris').focus(function () {
+    //        setTimeout(function () {
+    //            $('#datepickeris').datepicker('show');
+    //        }, 3000);
+    //
+    //    });
+    var $div2blink = $("#serviceHomeBlink"); // Save reference, only look this item up once, then save
+
+
+    $scope.goToBookings = function () {
+        if ($scope.currentUser.attributes.type == '2' && !$scope.currentUser.attributes.hasService) {
+
+            $state.go('app.registerservice')
+        } else if ($scope.currentUser.attributes.type == '2') {
+            $state.go('app.bookings')
+        } else if ($scope.currentUser.attributes.type == '3') {
+            $state.go('app.companyDash')
+        } else {
+            $state.go('app.clientDash')
+        }
+    }
+
+});

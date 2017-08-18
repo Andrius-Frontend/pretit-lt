@@ -1,0 +1,105 @@
+<ion-header-bar class='serviceModal'>
+    <h2>Paslaugų užsakymas</h2>
+</ion-header-bar>
+<ion-content class='serviceModal serviceModalSelect'>
+
+
+
+
+    <div class="registerForm">
+        <div class="chooseservice">
+            <div class="row">
+                <div class="bord col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input class="prewindow" ng-model='ghostObject.service' type="text" placeholder="Paslauga">
+                </div>
+                <div class="bord col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input class="prewindow" ng-model='ghostObject.userName' type="text" placeholder="Vardas">
+                    <!--
+                    <div class="workingDays">
+                        <div ng-repeat='service in services'>
+                            <ion-checkbox ng-repeat='item in service.subcategories' ng-click='addToService(item)' ng-if='item.doing'>{{item.name}}
+                            </ion-checkbox>
+                        </div>
+                    </div>
+-->
+                </div>
+                <div class="bord col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input class="prewindow" ng-model='ghostObject.telNumber' type="number" placeholder="Telefono Numeris">
+                </div>
+                <div class="bord col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <label class="noborder item item-input item-select">
+                        <div class="prewindow2 input-label">
+                            Trukmė
+                        </div>
+                        <select class="trukmessel" ng-model='ghostObject.duration'>
+                            <option value="1">30min</option>
+                            <option value="2">60min</option>
+                            <option value="3">90min</option>
+                            <option value="4">120min</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="choosedate">
+            <div class="row">
+
+
+                <div id='datepickerGhost' class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 registerTime">
+                    <div class="upperCell " id="first">
+
+                        <ion-list>
+                            <ion-radio class="lowerCell" ng-repeat="cell in ghostCalendarInfo[0].bott" ng-class="{cellCurrentTime: $index == timeId, ghostBookBlocked: cell.userInfo}" ng-model="ghostObject.timeId" ng-value="cell.id">
+                                <p>{{cell.time}}</p>
+                                <!--                                <div ng-class="{cellFirst: cell.cssClass=='First', cellLast: cell.cssClass=='Last', cellOnly: cell.cssClass=='Only', cellMiddle: cell.cssClass=='Middle'}">-->
+
+                                <!--
+                                <div class="uzimtaInfo">
+                                    <div class="uzimtaLeft">
+                                        <p ng-if="cell.registeredService.length > 0" ng-click="showOrder(cell)"> {{cell.time}}</p>
+
+                                    </div>
+
+                                    <div class="uzimtaRight">
+                                        <p ng-if="cell.registeredService.length > 0" ng-click="showOrder(cell)"> +370 610 00129</p>
+                                        <h2 ng-if="cell.registeredService.length > 0">Vyrų kirpimas</h2>
+
+                                    </div>
+                                    <div class="uzimtaFull">
+
+                                        <p>
+                                            <button ng-if="cell.registeredService.length > 0" ng-click="showAcceptedReservation(cell)" class="buttonasn buttonasnew orangebutton">
+                                                Užsakymo informacija
+                                            </button>
+                                        </p>
+                                    </div>
+
+                                </div>
+-->
+
+                                <!--                    </div>-->
+                            </ion-radio>
+                        </ion-list>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="bookbutton">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                <button class="buttonasnew greenbutton " ng-click='registerGhostService()' class="button button-full button-positive ">Pridėti užsakymą</button>
+            </div>
+        </div>
+    </div>
+
+
+
+</ion-content>

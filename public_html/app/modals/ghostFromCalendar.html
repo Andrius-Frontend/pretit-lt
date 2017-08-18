@@ -1,0 +1,55 @@
+<ion-content class='serviceModal3 serviceModalSelect'>
+    <div class="modalheader">
+        <div class="modaltitle">
+            <p>Pridėkite užsakymą</p>
+            <h6>{{monthNames[selectedGhostCalendar.top.month]}} {{dayNames[selectedGhostCalendar.top.day]}} {{selectedGhostCalendar.top.date}}</h6>
+        </div>
+        <button class="absclose greybutton" ng-click="ghostModal.hide()">Uždaryti</button>
+    </div>
+
+    <div class="modalcontent">
+
+
+        <div class="ghostgapas3"></div>
+        <div class="ghostFromCalendar">
+            <!--        <h2>Laikas: {{monthNames[selectedGhostCalendar.top.month]}} {{dayNames[selectedGhostCalendar.top.day]}} {{selectedGhostCalendar.top.date}}</h2>-->
+            <input class="ghostin" type="text" placeholder="Paslauga" ng-model="ghostCalendarObj.service">
+            <input class="ghostin" type="text" placeholder="Vardas" ng-model="ghostCalendarObj.name">
+            <input class="ghostin" type="tel" placeholder="Telefono numeris" ng-model="ghostCalendarObj.tel">
+            <div class="ghosttrukme">
+                Trukmė
+                <select class="ghostins" class="trukmessel" ng-model="ghostCalendarObj.duration">
+
+                    <option value="{{$index+1}}" ng-repeat="n in [].constructor(maxDuration) track by $index">{{($index + 1) * 30}}min</option>
+                    <!--
+        <option value="2">60min</option>
+<option value="3">90min</option>
+<option value="4">120min</option>
+-->
+                </select>
+            </div>
+            <!--
+        <div class="bookbutton">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                    <button class="buttonasnew greenbutton " ng-click='registerGhostServiceCalendar()' class="button button-full button-positive ">Pridėti užsakymą</button>
+                </div>
+            </div>
+        </div>
+-->
+
+        </div>
+
+
+    </div>
+    <div class="modalfooter">
+        <div class="modbutnew">
+            <button ng-click='registerGhostServiceCalendar()' class="">Pridėti užsakymą</button>
+        </div>
+
+
+    </div>
+
+
+
+</ion-content>

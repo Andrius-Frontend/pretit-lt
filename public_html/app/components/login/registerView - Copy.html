@@ -1,0 +1,493 @@
+<ion-view title="" hide-back-button="true" hide-nav-bar="true">
+
+    <link rel="stylesheet" href="css/fixed/style.css">
+    <!-- Resource style -->
+    <script src="js/fixed/modernizr.js"></script>
+    <!-- Modernizr -->
+
+    <ion-content delegate-handle="myPageDelegate">
+
+
+
+
+        <section id="registerView">
+
+            <div class="registerLogo">
+                <button class="atgalabs buttonasnew whiteborderbutton" ng-click="goBack()">Grįžti atgal</button>
+                <p>
+                    <object class="reglogo" type="image/svg+xml" data="img/logo/pretitlogopilnaswhite.svg">Your browser does not support SVG</object>
+                </p>
+                <h2 class="regselecth">Registracija</h2>
+                <h3 class="regselecthh">Pasirinkite registracijos tipą</h3>
+                <!--             <button class="buttonasnew orangebutton regb" type="submit" ng-click="emailTest()">Test</button>-->
+            </div>
+            <div class="registerSelect">
+                <div class="regbgoverlay"></div>
+                <div class="row">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 "></div>
+                    <div ng-click="scrollTo('registrationFormKlientas' , '1')" class="userr col-lg-3 col-md-3 col-sm-3 col-xs-3 registerSelectPart">
+
+                        <h2>
+                            <object class="uservienas" type="image/svg+xml" data="img/icons/us22.svg">Your browser does not support SVG</object>
+</h2>
+                        <h3>Klientas</h3>
+                        <h4>Noriu gauti grožio paslaugas</h4>
+
+
+                    </div>
+                    <div ng-click="scrollTo('registrationFormSpecialistas', '2')" class="userr col-lg-3 col-md-3 col-sm-3 col-xs-3 registerSelectPart">
+                        <h2>
+                            <object class="userdu" type="image/svg+xml" data="img/icons/us11.svg">Your browser does not support SVG</object>
+</h2>
+                        <h3>Grožio specialistas</h3>
+                        <h4>Noriu siūlyti grožio paslaugas</h4>
+                    </div>
+                    <div ng-click="scrollTo('registrationFormSalonas', '3')" class="userr col-lg-3 col-md-3 col-sm-3 col-xs-3 registerSelectPart">
+                        <h2>
+                            <object class="usertrys" type="image/svg+xml" data="img/icons/us33.svg">Your browser does not support SVG</object>
+</h2>
+                        <h3>Grožio salonas</h3>
+                        <h4>Noriu administruoti savo specialistus</h4>
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="registrationFormKlientas" class="beleka">
+
+            <div class="regklientas">
+                <button class="atgalabs2 buttonasnew greybutton" ng-click="scrollTo('registerView')">Grįžti atgal</button>
+                <div class="reglogo3">
+                    <p>
+                        <object class="reglogo2" type="image/svg+xml" data="img/logo/pretitlogopilnasorange.svg">Your browser does not support SVG</object>
+                    </p>
+                </div>
+                <div class="tekstasreg">
+
+                    <h2 class="klh2">
+                            <object class="uservienas" type="image/svg+xml" data="img/icons/us1.svg">Your browser does not support SVG</object>
+
+</h2>
+                    <h3 class="klh3">Klientas</h3>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Grožio paslaugos ten, kur esi:</h2>
+                            <p>Tavo patogumui užtikrinti, „Pretit“ naudojasi daugelis specialistų, siūlančių įvairias grožio paslaugas Tavo mieste! Pasirinkite norimą lokaciją ir peržiūrėkite ten įsikūrusių specialistų darbų galerijas ir atliekamų paslaugų sąrašus bei klientų įvertinimus! </p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Registruokis išvengiant skambučio: </h2>
+                            <p>Peržiūrėk specialisto darbo kalendorių ir registruotis pasirinktam laisvam vizito laikui, mobiliosios aplikacijos ar internetinio puslapio pagalba. Beliks tik sulaukti patvirtinimo iš specialisto ir vykti grožio vizitui!</p>
+                        </div>
+
+                    </div>
+
+                    <div class="row regeile">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Nebijok klausti: </h2>
+                            <p>Interaktyvios pokalbių programėlės pagalba, galėsi tiesiogiai susisiekti su grožio meistru ir susitarti dėl specialios procedūros ar užduoti rūpimus klausimus. </p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Priminimai apie paslaugas</h2>
+                            <p>Artėjant Tavo grožio vizitui –priminsime apie būsimo vizito detales ir registracijos laiką SMS ir El. paštu! Juk kartais pamirštame svarbias datas, būtų puiku jei kas nors mums jas primintų!</p>
+                        </div>
+
+                    </div>
+
+                    <div class="row regeile">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Mylimiausi meistrai – dar arčiau:  </h2>
+                            <p>Patiko manikiūras, o gal tai geriausia šukuosena Tavo gyvenime? Nepamirškit šio jausmo - įtrauk grožio specialistą į savo „Mėgstamiausius” ir lepinkis jo paslaugomis be ilgų paieškų! </p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Džiugiomis akimirkomis – reikia dalintis: </h2>
+                            <p>Pasidalink įspūdžiais bei nauju savo įvaizdžiu su draugais socialiniuose tinkluose „Facebook“ ir „Instagram“. </p>
+                        </div>
+
+                    </div>
+
+                    <div class="row regeile">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Įvertink: </h2>
+                            <p>Tik Tavo mylimiausi meistrai yra nusipelnę aukščiausio balo – įvertink specialistus po atliktos paslaugos ir padėk kitiems nariams apsispręsti dėl specialisto darbo kokybės! </p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <button class="butregprice2 buttonasnew orangebutton " ng-click="scrollTo('registrationForm', '2')">Įkainiai</button>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <button class="butreg buttonasnew greenbutton " ng-click="scrollTo('registrationForm', '2')">Registruotis !</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="bgreg">
+                    <img src="img/pr7.png">
+                </div>
+            </div>
+        </section>
+
+
+        <section id="registrationFormSpecialistas" class="beleka">
+
+            <div class="regklientas">
+                <button class="atgalabs2 buttonasnew greybutton" ng-click="scrollTo('registerView')">Grįžti atgal</button>
+                <div class="reglogo3">
+                    <p>
+                        <object class="reglogo2" type="image/svg+xml" data="img/logo/pretitlogopilnasorange.svg">Your browser does not support SVG</object>
+                    </p>
+                </div>
+                <div class="tekstasreg">
+
+                    <h2 class="klh2sp">
+                            <object class="uservienas" type="image/svg+xml" data="img/icons/us2.svg">Your browser does not support SVG</object>
+
+</h2>
+                    <h3 class="klh3">Grožio specialistas</h3>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Tapkite matomais: </h2>
+                            <p>Dirbkite dar sklandžiau nei įprastai susikurdami savo asmeninį profilį. Nurodyk informaciją apie save, teikiamas paslaugas, paslaugų įkainius. Dalinkis savo darbų galerija, kuri padės naujiems klientams įsimylėti Tavo darbus!</p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Rezervacijos 24/7:  </h2>
+                            <p>Visos registracijos vyks net tuomet, kai Tu dirbi. Darbo kalendorius Tavo išmaniajame telefone, plančetėje ar kompiuteryje, kurio pagalba klientai galės registruoti savo vizitus savarankiškai! Tau beliks tik patvirtinti registracijos laiką ir laukti vizito.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="row regeile">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Marketingo įrankis:  </h2>
+                            <p>Būkite pasiekiami dar didesnei auditorijai ir padidinkite savo pajamas bei darbo užimtumą. Naujos pažintys – ne tik pelninga, bet ir malonu!</p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Priminimai klientams: </h2>
+                            <p>Naudodamiesi „Pretit“, galėsite būti užtikrinti, jog klientams bus priminta apie vizito laiką tiesiai į jo telefoną SMS ir El.paštu! Apie atšauktus vizitus – būsite informuoti ir Jūs, taigi neteks švaistyti savo brangaus laiko!</p>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row regeile">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Sek savo reitingus! </h2>
+                            <p>Po kiekvieno vizito klientai galės palikti atsiliepimą ir įvertinti Tavo darbo kokybę. Tai ne tik pamalonins Tave už puikiai atliktą darbą, bet ir leis kitiems vartotojams geriau susipažinti su Tavo darbo specifika ir kokybe! </p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <button class="butregprice buttonasnew orangebutton " ng-click="scrollTo('registrationForm', '2')">Įkainiai</button>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <button class="butregsp buttonasnew greenbutton " ng-click="scrollTo('registrationForm', '2')">Registruotis !</button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="bgreg">
+                    <img src="img/pr7.png">
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+        <section id="registrationFormSalonas" class="beleka">
+
+            <div class="regklientas">
+                <button class="atgalabs2 buttonasnew greybutton" ng-click="scrollTo('registerView')">Grįžti atgal</button>
+                <div class="reglogo3">
+                    <p>
+                        <object class="reglogo2" type="image/svg+xml" data="img/logo/pretitlogopilnasorange.svg">Your browser does not support SVG</object>
+                    </p>
+                </div>
+                <div class="tekstasreg">
+
+                    <h2 class="klh2sp">
+                            <object class="uservienas" type="image/svg+xml" data="img/icons/us3.svg">Your browser does not support SVG</object>
+
+</h2>
+                    <h3 class="klh3">Grožio salonas</h3>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Darbo įrankis:  </h2>
+                            <p>Norint užtikrinti dar patogesnį klientų vizitų valdymą – Jums padės paprasta administracinė paskyra, kurioje galėsite stebėti klientų registracijas, darbuotojų užimtumo tvarkaraščius ir kitą svarbią informaciją.</p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Individualūs profiliai:  </h2>
+                            <p>Kiekvienas darbuotojas susikurs individualų profilį, kuriame stebės bei valdys savo darbo kalendorių išmaniajame telefone, plančetėje ar kompiuteryje! Nurodys informaciją apie save, teikiamas paslaugas, paslaugų įkainius bei darbų galeriją.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="row regeile">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Marketingo įrankis:  </h2>
+                            <p>Tai ne tik pagalbinis įrankis Jūsų darbo našumui gerinti, bet ir puikus marketinginis sprendimas, kuris leis dar labiau išpopuliarinti Jūsų grožio saloną bei jame dirbančius specialistus!
+                                <br>Naujos pažintys – ne tik pelninga, bet ir malonu!</p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Rezervacijos 24/7:</h2>
+                            <p>Net tuomet, kai Jūsų salono darbo laikas baigiasi – klientai gali ir toliau registruoti savo vizitus! Interaktyvaus darbo kalendoriaus dėka, klientai galės registruoti savo vizitus savarankiškai, Jūsų salono darbuotojui beliks tik patvirtinti registracijos laiką ir laukti vizito.</p>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row regeile">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Priminimai klientams:  </h2>
+                            <p>: Naudodamiesi „Pretit“, galėsite būti užtikrinti, jog klientams bus priminta apie vizito laiką tiesiai į jų telefonus SMS ir El.paštu. Apie atšauktus vizitus informuos pati programa, taigi neteks švaistyti savo brangaus laiko!</p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <button class="butregprice buttonasnew orangebutton " ng-click="scrollTo('registrationForm', '2')">Įkainiai</button>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <button class="butregsp buttonasnew greenbutton " ng-click="scrollTo('registrationForm', '2')">Registruotis !</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="bgreg">
+                    <img src="img/pr7.png">
+                </div>
+            </div>
+        </section>
+
+
+        <section>
+
+            <div class='registerSelectedDescrip' id='first'>
+
+                <button ng-click="scrollTo('registerView')">
+                    atgal</button>
+                <button ng-click="scrollTo('registrationForm')">Pirmyn</button>
+
+            </div>
+
+        </section>
+        <section>
+            <div class='registerSelectedDescrip' id='second'>
+                Antras
+                <button ng-click="scrollTo('registerView')">atgal</button>
+                <button ng-click="scrollTo('registrationForm')">Pirmyn</button>
+            </div>
+        </section>
+        <section>
+            <div class='registerSelectedDescrip' id='third'>
+                Trecias
+                <button ng-click="scrollTo('registerView')">atgal</button>
+                <button ng-click="scrollTo('registrationForm')">Pirmyn</button>
+            </div>
+        </section>
+
+        <section id='registrationForm' class="pilkaa sectionFullHeight">
+
+
+            <div class="registerLogo">
+                <button class="atgalabs buttonasnew greybutton" ng-click="scrollTo('registerView')">Grįžti atgal</button>
+                <p>
+                    <object class="reglogo" type="image/svg+xml" data="img/logo/pretitlogopilnasorange.svg">Your browser does not support SVG</object>
+                </p>
+                <h2 class="regselecth" ng-if="selectedProfile == '1'">Kliento profilio registracija</h2>
+                <h2 class="regselecth" ng-if="selectedProfile == '2'">Grožio specialisto profilio registracija</h2>
+                <h2 class="regselecth" ng-if="selectedProfile == '3'">Grožio salono profilio registracija</h2>
+            </div>
+            <form>
+
+                <div class="container theRegister">
+                    <div class="registracion">
+
+                        <div class="row">
+
+
+
+
+                            <div class="theRegisterinputai col-lg-12 col-md-12 col-sm-12 col-xs-12s">
+
+                                <span class="input input--ruri">
+					<input autofocus class="input__field input__field--ruri" type="text" id="input-26" ng-model="credits.data.name"  />
+                      
+					<label class="input__label input__label--ruri" for="input-26">
+						<span ng-if="selectedProfile != '3'"  class="input__label-content input__label-content--ruri">Vartotojo vardas</span>
+                                <span ng-if="selectedProfile === '3'" class="input__label-content input__label-content--ruri">Imones pavadinimas</span>
+                                </label>
+                                </span>
+
+                                <!--
+                                <span ng-if="selectedProfile != '3'" class="input input--ruri">
+					<input ng-if="credits.jurisdiction == 'private'" class="input__field input__field--ruri" type="text" id="input-26" ng-model="credits.data.surname"  />
+                      
+					<label ng-if="credits.jurisdiction == 'private'" class="input__label input__label--ruri" for="input-26">
+						<span class="input__label-content input__label-content--ruri">Pavarde</span>
+                                </label>
+                                </span>
+-->
+
+                                <span class="input input--ruri">
+					<input class="input__field input__field--ruri" type="email" id="input-26" ng-model="credits.email"  />
+                      
+					<label class="input__label input__label--ruri" for="input-26">
+						<span class="input__label-content input__label-content--ruri">El. paštas</span>
+                                </label>
+                                </span>
+
+                                <span class="input input--ruri">
+					<input class="input__field input__field--ruri" type="number" id="input-26" ng-model="credits.data.telNumber"  />
+                      
+					<label class="input__label input__label--ruri" for="input-26">
+						<span class="input__label-content input__label-content--ruri">Tel. numeris</span>
+                                </label>
+                                </span>
+
+
+                                <span class="input input--ruri">
+					<input class="input__field input__field--ruri" type="password" id="input-26" ng-model="credits.password"  />
+                      
+					<label class="input__label input__label--ruri" for="input-26">
+						<span class="input__label-content input__label-content--ruri">Slaptažodis</span>
+                                </label>
+                                </span>
+
+                                <span class="input input--ruri">
+					<input class="input__field input__field--ruri" type="password" id="input-26" ng-model="credits.repeatpassword"  />
+                      
+					<label class="input__label input__label--ruri" for="input-26">
+						<span class="input__label-content input__label-content--ruri">Pakartokite slaptažodi</span>
+                                </label>
+                                </span>
+
+
+                                <div class="lytishead">
+                                    <p>Lytis:</p>
+                                    <ion-radio class="lytis" ng-model="credits.data.gender" ng-value="'women'">Moteris</ion-radio>
+
+                                    <ion-radio class="lytis" ng-model="credits.data.gender" ng-value="'men'">Vyras</ion-radio>
+                                </div>
+
+
+
+                                <!--
+                                <select ng-model="credits.data.gender">
+    <option value="man">Vyras</option>
+    <option value="women" selected>Moteris</option>
+</select>
+-->
+
+                                <div class="checkboxai taisykles">
+
+                                    <ion-checkbox ng-model="filter.blue">Sutinku su taisyklemis</ion-checkbox>
+                                </div>
+
+
+
+
+
+
+
+
+
+                            </div>
+                            <!--
+                          <div class="theRegisterRight col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+    gsadgadsg
+
+</div>
+-->
+
+
+                        </div>
+                        <!--
+                      <div class="gapas6">
+</div>
+-->
+                        <div class="regbut">
+                            <button class="buttonasnew orangebutton regb" type="submit" ng-click="signUp()">Registruotis</button>
+
+                            <button class="buttonasnew greybutton" type="submit" ng-click="fbLogin()">
+                                Registruotis su
+
+                                <object class="fblogo" type="image/svg+xml" data="img/logo/fblogo2.svg">Your browser does not support SVG</object>
+                            </button>
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+            </form>
+
+        </section>
+        <script>
+            (function () {
+                // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+                if (!String.prototype.trim) {
+                    (function () {
+                        // Make sure we trim BOM and NBSP
+                        var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                        String.prototype.trim = function () {
+                            return this.replace(rtrim, '');
+                        };
+                    })();
+                }
+
+				[].slice.call(document.querySelectorAll('input.input__field')).forEach(function (inputEl) {
+                    // in case the input is already filled..
+                    if (inputEl.value.trim() !== '') {
+                        classie.add(inputEl.parentNode, 'input--filled');
+                    }
+
+                    // events:
+                    inputEl.addEventListener('focus', onInputFocus);
+
+                    inputEl.addEventListener('blur', onInputBlur);
+                });
+
+                function onInputFocus(ev) {
+                    classie.add(ev.target.parentNode, 'input--filled');
+                }
+
+                function onInputBlur(ev) {
+                    if (ev.target.value.trim() === '') {
+                        classie.remove(ev.target.parentNode, 'input--filled');
+                    }
+                }
+            })();
+        </script>
+        <script src="js/fixed/main.js"></script>
+        <!-- Resource jQuery -->
+
+    </ion-content>
+
+</ion-view>

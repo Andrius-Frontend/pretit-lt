@@ -1,0 +1,68 @@
+<ion-content class='serviceModal3 serviceModalSelect serviceListModal'>
+
+    <div class="modalheader">
+        <div class="modaltitle">
+            <p>Įvertink</p>
+            <h6>grožio specialistą</h6>
+        </div>
+        <button class="absclose greybutton" ng-click="rateModal.hide()">Uždaryti</button>
+    </div>
+
+
+    <div class="modalcontent">
+
+        <!--  <div class="atlPasList">
+        <h2>Įvertink grožio specialistą (username)</h2>
+    </div> -->
+
+        <div class="ivertink">
+            <!--   <p>Lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p> -->
+            <div class="ivertinkblokas">
+                <ion-radio class="skaicius" ng-model="choice" ng-value="'1'">1</ion-radio>
+            </div>
+            <div class="ivertinkblokas">
+                <ion-radio class="skaicius" ng-model="choice" ng-value="'2'">2</ion-radio>
+            </div>
+            <div class="ivertinkblokas">
+                <ion-radio class="skaicius" ng-model="choice" ng-value="'3'">3</ion-radio>
+            </div>
+            <div class="ivertinkblokas">
+                <ion-radio class="skaicius" ng-model="choice" ng-value="'4'">4</ion-radio>
+            </div>
+            <div class="ivertinkblokas">
+                <ion-radio class="skaicius" ng-model="choice" ng-value="'5'">5</ion-radio>
+            </div>
+
+
+
+        </div>
+
+        <div class="komentarui">
+            <h2>Parašyti atsiliepimą</h2>
+            <p></p>
+            <div class="komleft">
+                <div style="background: url({{theUser.profilePhoto._url}}) no-repeat center center; -webkit-background-size: cover;
+											-moz-background-size: cover; -o-background-size: cover; background-size: cover; border-radius: 100%" class="messageUserProfilePhoto2">
+                </div>
+            </div>
+            <div class="komright">
+
+                <textarea ng-model="comment" spellcheck="false" maxlength="250" placeholder='Rašykite komentarą (maksimalus simbolių skaičius - 1000)' class="komentarotextarea"> </textarea>
+            </div>
+
+
+        </div>
+
+        <!--   <div class="vertink">
+        <button class="buttonasnew orangebutton" ng-click="saveComment(choice, comment)">Vertink !</button>
+
+    </div> -->
+
+    </div>
+    <div class="modalfooter">
+        <div class="modbutnew">
+            <button class="" ng-click="saveComment(choice, comment)">Vertink !</button>
+        </div>
+    </div>
+
+</ion-content>

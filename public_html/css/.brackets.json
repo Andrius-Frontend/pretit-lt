@@ -1,0 +1,24 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/Users/Artas/insurance/02.Development/Insur/www/lib/ionic/js/ionic.min.js",
+        "/Users/lukasjunokas/Documents/Darbai/app/insurance/www/lib/ionic/js/ionic.min.js",
+        "/Users/lukasjunokas/Documents/Darbai/app/draudimas(sureTrip)/www/lib/ionic/js/ionic.min.js",
+        "/Users/lukasjunokas/Documents/Darbai/app/draudimas(sureTrip) copy/www/assets/libs/ionic/js/angular-ui/angular-ui-router.min.js",
+        "/Users/lukasjunokas/Documents/Darbai/app/draudimas(sureTrip) copy/www/lib/ionic/js/ionic.min.js",
+        "/Users/lukasjunokas/Documents/Darbai/app/draudimas(sureTrip) copy/www/app/components/menu/menuController.js",
+        "/Users/lukasjunokas/Documents/Darbai/app/draudimas(sureTrip) copy/www/app/components/insuredPersons/insuredPersonsController.js",
+        "/Users/lukasjunokas/Documents/Darbai/app/draudimas(sureTrip) copy/www/app/components/orders/newOrder/newOrderService.js",
+        "/Users/lukasjunokas/Documents/Darbai/app/insur/www/assets/libs/ionic/js/angular-ui/angular-ui-router.min.js",
+        "/Users/lukasjunokas/Documents/Darbai/app/insur/www/lib/ionic/js/ionic.min.js",
+        "/Users/lukasjunokas/Documents/Darbai/app/insur/www/app/components/orders/newOrder/newOrderController.js",
+        "/Users/lukasjunokas/Documents/Darbai/app/dizainas/www/lib/ionic/js/ionic.min.js",
+        "/Users/lukasjunokas/tylist/www/app/components/menu/menuController.js",
+        "/Users/lukasjunokas/tylist/www/app/app.module.js",
+        "/Users/lukasjunokas/tylist/www/app/components/commons/commonServices.js",
+        "/Users/lukasjunokas/tylist/www/app/components/bookings/bookingsViewController.js",
+        "/Users/lukasjunokas/tylist/www/app/components/home/homeViewController.js",
+        "/Users/lukasjunokas/tylist/www/app/components/login/loginViewController.js",
+        "C:/Users/Audrius/Desktop/tylist/www/app/components/login/loginViewController.js",
+        "C:/Users/Audrius/Desktop/tylist/www/app/components/bookings/bookingsViewController.js"
+    ]
+}

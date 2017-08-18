@@ -1,0 +1,1628 @@
+/* Audrius */
+
+
+/***** General css start *****/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Oswald', Arial, sans-serif;
+}
+
+h2 {
+    color: #555;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+p,
+a {
+    font-weight: 300;
+    color: #555;
+    letter-spacing: 2px;
+    font-family: 'Calibri', Arial, sans-serif;
+}
+
+a:focus,
+a:hover {
+    color: #23527c;
+    text-decoration: none;
+}
+
+.buttonas {
+    text-transform: uppercase;
+    color: #fff;
+    background: #b887b3;
+    opacity: 0.8;
+    border: 0;
+    height: 40px;
+    width: 100%;
+    font-family: 'Calibri', Arial, sans-serif;
+    /* background-color: white; */
+    letter-spacing: 2px;
+    font-weight: 300;
+    vertical-align: middle;
+    text-align: center;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+}
+
+.buttonaspilkas {
+    text-transform: uppercase;
+    color: #999;
+    background: #ededed;
+    opacity: 1;
+    border: 0;
+    height: 40px;
+    width: 100%;
+    font-family: 'Calibri', Arial, sans-serif;
+    /* background-color: white; */
+    letter-spacing: 2px;
+    font-weight: 300;
+    vertical-align: middle;
+    text-align: center;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+}
+
+.buttonas2 {
+    text-transform: uppercase;
+    color: #fff;
+    background: #b887b3;
+    opacity: 0.8;
+    border: 0;
+    height: 40px;
+    width: 80%;
+    font-family: 'Calibri', Arial, sans-serif;
+    /* background-color: white; */
+    letter-spacing: 2px;
+    font-weight: 300;
+    vertical-align: middle;
+    text-align: center;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+    margin-left: 10%;
+}
+
+.buttonas2fb {
+    margin-top: 5px;
+    text-transform: uppercase;
+    color: #666;
+    background: none;
+    opacity: 0.8;
+    border: 0;
+    height: 40px;
+    width: 80%;
+    font-family: 'Calibri', Arial, sans-serif;
+    /* background-color: white; */
+    letter-spacing: 2px;
+    font-weight: 300;
+    vertical-align: middle;
+    text-align: center;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+    margin-left: 10%;
+    font-size: 11px;
+}
+
+.buttonas:hover {
+    opacity: 1;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+}
+
+.buttonaspilkas:hover {
+    background: #ddd;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+}
+
+.buttonas2:hover {
+    opacity: 1;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+}
+
+.buttonas2fb:hover {
+    opacity: 1;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+}
+
+.ieskoti {
+    position: relative;
+    z-index: 999;
+}
+
+
+/***** General css end *****/
+
+
+/***** Header start *****/
+
+.navbar-text {
+    margin-top: 25px;
+}
+
+.navigation {}
+
+.navigation ul {
+    margin-bottom: 0;
+}
+
+.navigation ul li {
+    display: inline-block;
+}
+
+.navigation ul li a {
+    padding: 20px 20px 20px 20px;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+
+/***** Header end *****/
+
+
+/***** Login view start *****/
+
+#loginView {
+    height: 100vh;
+    width: 100%;
+    /*
+    background: url("../img/home/homeimageblurred.jpg") no-repeat 0% 0%;
+background-size: 100%;
+*/
+}
+
+.theLogin {
+    width: 100%;
+    /* margin-left: 25%; */
+    height: 45%;
+    margin-top: 10%;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.theLogininputai {
+    height: 100%;
+    width: 40%;
+    margin: 0 auto;
+    padding-top: 3%;
+}
+
+
+/***** Login view end *****/
+
+
+/***** Register view start *****/
+
+#registerView {
+    height: 100vh;
+    width: 100%;
+    background: #fff;
+}
+
+.theRegister h1 {
+    margin-left: 5%;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #555;
+}
+
+#registerView .buttonas {
+    position: absolute;
+    width: 220px;
+    right: 15%;
+    bottom: 10%;
+}
+
+#registerView .buttonas2fb {
+    position: absolute;
+    width: 220px;
+    left: 0%;
+    bottom: 10%;
+}
+
+.theRegister {
+    padding-top: 2%;
+}
+
+.theRegister input {
+    margin: 0;
+}
+
+.theRegisterinputai {
+    width: 100%;
+    height: 100%;
+    margin-top: 2%;
+}
+
+
+/***** Register view end *****/
+
+
+/***** Register Service view start *****/
+
+#registerServiceView {}
+
+.theRegisterService {}
+
+.coverPhotoInput {
+    height: 200px;
+    overflow: hidden;
+    background-color: #ededed;
+}
+
+.coverPhotoInput img {
+    width: 100%;
+}
+
+.addphoto {
+    margin-top: 25%;
+    margin-left: 10%;
+    height: 30px;
+    width: 250px;
+    display: inline-block;
+}
+
+.addservice {
+    margin-left: -125px;
+    height: 30px;
+    width: 250px;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+}
+
+.addservice .pliusassvg {
+    position: relative;
+    float: none;
+    left: 50%;
+    margin-left: -25px;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.addservice:hover {
+    cursor: pointer;
+}
+
+.addservice:hover .pliusassvg {
+    opacity: 1;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.addservice p {
+    text-align: center;
+    /* margin-top: 2px; */
+    /* vertical-align: middle; */
+    line-height: 30px;
+    font-size: 12px;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.addservice:hover p {
+    font-size: 14px;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.addphotoprofile {
+    /* margin-top: 25%; */
+    /* margin-left: 10%; */
+    height: 200px;
+    width: 200px;
+    display: block;
+}
+
+label {
+    cursor: pointer;
+}
+
+.addphotoprofile p {
+    font-size: 0px;
+    text-align: center;
+    /* margin-left: 40px; */
+    /* margin-top: 2px; */
+    /* vertical-align: middle; */
+    /* line-height: 30px; */
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.addphoto p {
+    margin-left: 40px;
+    /* margin-top: 2px; */
+    /* vertical-align: middle; */
+    line-height: 30px;
+    font-size: 0px;
+}
+
+.pliusassvg {
+    opacity: 0.8;
+    float: left;
+    width: 30px;
+    pointer-events: none;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.pliusassvgprofile {
+    margin-top: 85px;
+    margin-left: 85px;
+    /* margin: 0 auto; */
+    opacity: 0.8;
+    width: 30px;
+    pointer-events: none;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.coverlabel:hover .pliusassvg {
+    opacity: 1;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.about {
+    margin-bottom: 3%;
+}
+
+.about p {
+    letter-spacing: 1px;
+}
+
+.fixed {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+}
+
+.buttonasfull {
+    position: fixed;
+    width: 100%;
+    height: 40px;
+    left: 0;
+    bottom: 0;
+}
+
+.proflabel {
+    position: relative;
+    z-index: 100;
+}
+
+.proflabel:hover .pliusassvgprofile {
+    opacity: 1;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.proflabel:hover .addphotoprofile p {
+    font-size: 11px;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.coverlabel:hover .addphoto p {
+    font-size: 11px;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+}
+
+.inputButton {
+    background-color: aqua
+}
+
+.timesvg {
+    margin-right: 5px;
+    width: 25px;
+    vertical-align: middle;
+}
+
+.profilePhotoInput {
+    top: 25%;
+    left: 50%;
+    /* margin: -100px auto; */
+    height: 200px;
+    width: 200px;
+    /* border-style: solid; */
+    /* border-width: 5px; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    /* margin-top: -100px; */
+    position: absolute;
+    vertical-align: middle;
+    /* font-size: 55px; */
+    overflow: hidden;
+    background: #ededed;
+    border: 4px solid #fff;
+    border-radius: 200px;
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 200px;
+    margin-left: -100px;
+}
+
+.profilePhotoInput img {
+    width: 100%;
+    position: absolute;
+    z-index: 110;
+}
+
+.flright {
+    float: right;
+    margin-right: 15px;
+}
+
+.borderleft {
+    border-left: 1px solid #999;
+}
+
+.borderleft2 {
+    border-left: 1px solid #ededed;
+}
+
+.theRegisterService h2 {
+    color: #555;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.fltextright {
+    text-align: right;
+}
+
+.profilePhotoInput input {
+    display: none;
+}
+
+.coverPhotoInput input {
+    display: none;
+}
+
+.linijaverslauk {
+    height: 140px;
+}
+
+.linijaverslauk .name {
+    text-align: center;
+}
+
+.linijaverslauk .name p {
+    font-weight: 400;
+    padding-top: 30%;
+    font-family: 'Oswald', Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+.service {
+    display: block;
+    width: 100%;
+    height: 60px;
+}
+
+.servicephoto {}
+
+.servicephoto img {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+.servicename {
+    line-height: 50px;
+}
+
+.servicetime {
+    line-height: 50px;
+}
+
+.serviceprice {
+    line-height: 50px;
+    text-align: center;
+}
+
+
+/***** Register Service view end *****/
+
+
+/***** Home page start *****/
+
+#home {
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    background: url("../img/home/homeimage2.jpg") no-repeat 0% 0%;
+    background-size: 100%;
+    margin: 0;
+}
+
+.hero__imgwrap .theHeader {
+    padding-left: 5%;
+    background: none;
+    border: none;
+    padding-right: 5%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.theHeader {
+    padding-left: 5%;
+    background: none;
+    border: none;
+    padding-right: 5%;
+}
+
+.logo {
+    height: 28px;
+}
+
+.fblogo {
+    height: 14px;
+}
+
+.theHeader .logo {
+    pointer-events: none;
+}
+
+.theMiddle {
+    width: 100%;
+    height: 40%;
+    position: absolute;
+    top: 30%;
+    left: 0;
+}
+
+.theMiddleSearch {
+    width: 70%;
+    /*    height: 100%;*/
+    margin: 0 auto;
+}
+
+.theMiddleText {
+    margin-bottom: 3%;
+}
+
+.paslauga {}
+
+.vieta {}
+
+.data {}
+
+.laiksa {}
+
+.pasirinkimas {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.pasirinkimas p {}
+
+.paslauga p {
+    text-align: left;
+    font-family: 'Oswald', Arial, sans-serif;
+    color: #777;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 500;
+    padding-bottom: 12px;
+    padding-left: 20%;
+}
+
+.vieta p {
+    text-align: left;
+    font-family: 'Oswald', Arial, sans-serif;
+    color: #777;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 500;
+    padding-bottom: 12px;
+    padding-left: 20%;
+}
+
+.theMiddleText h1 {
+    padding-top: 4%;
+    /* vertical-align: middle; */
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+.searchotext1 {
+    padding-left: 3%;
+}
+
+.searchotext2 {
+    border-left: 1px solid #999;
+    text-align: center;
+}
+
+.searchotext3 {
+    border-left: 1px solid #999;
+    text-align: center;
+}
+
+.theMiddleplotas {
+    background: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    height: 100%;
+}
+
+.theMiddlelinijaup {
+    width: 100%;
+    height: 10px;
+    border-top: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.theMiddlelinijabottom {
+    width: 100%;
+    height: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.theSlider {}
+
+.theSlider div {
+    background: url("../img/home/homeimage1.jpg");
+}
+
+#sekantis {
+    background: #f7f7f7;
+}
+
+.green {
+    float: left;
+    background: green;
+}
+
+.blue {
+    background: blue;
+}
+
+.howto {
+    background: #fff;
+    height: 150px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 2%;
+}
+
+.howto h2 {
+    margin-top: 9%;
+    text-align: center;
+}
+
+.howto p {
+    margin-bottom: 12%;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+
+/***** Home page end *****/
+
+
+/* Lukas */
+
+.tesstas {
+    background-image: url(../images/landing_2.png);
+}
+
+.landing-image-first {
+    background-image: url(../images/Untitled-1.png);
+    height: 80px;
+    background-size: 100%;
+}
+
+.loginForm {
+    text-align: center;
+    border: #757575;
+    border-style: solid;
+    margin-bottom: 7px;
+    border-radius: 9px;
+}
+
+.loginButton {
+    background-color: green;
+    margin-left: auto;
+    margin-right: auto;
+    width: 48%;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 33px;
+    margin-top: 10px;
+}
+
+.registerButton {
+    background-color: green;
+    margin-left: auto;
+    margin-right: auto;
+    width: 48%;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 33px;
+    margin-top: 10px;
+}
+
+.main-menu-footer {
+    background-color: white;
+    height: 250px;
+    padding: 0px
+}
+
+.main-row {
+    height: 100px;
+    width: 100%;
+}
+
+.main-section {
+    width: 33.33333333%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e1dfdf;
+    float: left;
+    height: 100px;
+    background-color: white;
+}
+
+.main-background {
+    background-image: url(../images/landing_2.png);
+    background-size: 100%;
+    background-position: 0px -200px;
+}
+
+.main-section-low {
+    height: 50%;
+    background-color: white;
+    width: 50%;
+    float: left;
+    border-width: 1px;
+}
+
+.main-welcome {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.main-welcome p {
+    text-align: center;
+    font-weight: 100;
+    padding: 23px;
+}
+
+.upper {
+    border-bottom-style: none;
+}
+
+.map-icon {
+    background-image: url(../images/map.png);
+    width: 60%;
+    height: 56px;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    margin-left: 26%;
+}
+
+.main-icon {
+    width: 60%;
+    height: 56px;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    margin-left: 26%;
+}
+
+.no-right-border {
+    border-right-style: none;
+}
+
+.settings-icon {
+    background-image: url(../images/settings.png);
+}
+
+.tools-icon {
+    background-image: url(../images/tools.png);
+}
+
+.history-icon {
+    background-image: url(../images/history.png);
+}
+
+.events-icon {
+    background-image: url(../images/events.png);
+}
+
+.objects-icon {
+    background-image: url(../images/objects.png);
+}
+
+.account-icon {
+    background-image: url(../images/account.png);
+    float: left;
+    height: 24px;
+    width: 19%;
+    background-repeat: no-repeat;
+    background-size: 72%;
+    margin-left: 24px;
+}
+
+.support-icon {
+    background-image: url(../images/support.png);
+    float: left;
+    height: 24px;
+    width: 19%;
+    background-repeat: no-repeat;
+    background-size: 72%;
+    margin-left: 24px;
+}
+
+.objectProps {
+    width: 100%;
+    height: 200px;
+    background-color: white;
+}
+
+.objectItem i {
+    visibility: hidden;
+}
+
+.objectLabel label {
+    padding-left: 10px;
+}
+
+.objectShowData {
+    padding-top: 6px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #F1F1F1;
+    background-color: #F3F3F3;
+    width: 89%;
+    height: 93%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.objectItem {
+    width: 45%;
+    float: left;
+    color: black;
+    height: 75px;
+}
+
+.objectItem p {
+    color: black;
+    margin-left: 0px;
+    font-size: 10px;
+}
+
+.objectItem h2 {
+    color: black;
+    padding-left: 15px;
+}
+
+.objectOnline {
+    width: 15%;
+    float: left;
+    height: 75px;
+}
+
+.objectSett {
+    width: 40%;
+    background-color: white;
+    height: 75px;
+}
+
+.showSpeed {
+    height: 100%;
+    float: left;
+    padding: 9px;
+    background-color: #E8E8E8;
+    margin-left: -14px;
+    border-radius: 11%;
+    color: #737373;
+}
+
+.objectSettIcon {
+    height: 100%;
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    margin-left: 4px;
+    width: 41px;
+    color: #8B8B8B;
+    border-radius: 11%;
+    font-size: 31px;
+    padding-top: 4px;
+    padding-left: 8px;
+}
+
+.objOnline {
+    height: 10px;
+    width: 10px;
+    background-color: green;
+    position: absolute;
+    margin-top: 7px;
+    border-radius: 50%;
+}
+
+.objOffline {
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    position: absolute;
+    margin-top: 7px;
+    border-radius: 50%;
+}
+
+.objDetailData p {
+    float: right;
+}
+
+.objDetailData {
+    width: 100%;
+    height: 18px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: #E6E6E6;
+    margin-bottom: 12px;
+}
+
+.addDevice {
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    background-color: white;
+    color: green;
+}
+
+.footeris {
+    border-top-style: solid;
+    border-width: 1px;
+    border-color: #CECECE;
+}
+
+.objSettButt {
+    height: 40px;
+    width: 40px;
+    font-size: 22px;
+    color: #848484;
+    margin-right: 10px;
+}
+
+.floater {
+    float: right;
+}
+
+.padder {
+    padding: 10px
+}
+
+.useriai {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.user {
+    max-width: 300px;
+    width: 30%;
+    float: left;
+    /* margin: 5%; */
+    margin-right: 1%;
+}
+
+.user img {
+    width: 100%;
+}
+
+.userImage {
+    max-width: 300px;
+    max-height: 200px;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    float: left;
+    z-index: 199;
+    overflow: hidden;
+}
+
+.userImage:hover {
+    cursor: pointer;
+}
+
+.userImage:hover .userImageOverlay {
+    background: rgba(232, 232, 232, 0);
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+}
+
+.userImage:hover .userImageBorders {
+    border: 5px solid rgba(255, 255, 255, 0.8);
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+}
+
+.userInfo h2:hover {
+    cursor: pointer;
+}
+
+.userImageOverlay {
+    /* margin: 0; */
+    overflow: hidden;
+    background: rgba(232, 232, 232, 0.2);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* left: 0; */
+    /* top: 0; */
+    z-index: 200;
+    /* background-size: cover; */
+    /* padding: 0; */
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+}
+
+.userImageBorders {
+    width: 90%;
+    height: 90%;
+    margin: 2.5%;
+    border: 5px solid rgba(255, 255, 255, 0.6);
+    position: absolute;
+    z-index: 201;
+    transition: 0.2s all;
+    -webkit-transition: 0.2s all;
+    -moz-transition: 0.2s all;
+}
+
+.userInfo {
+    padding: 3% 5% 0% 5%;
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.userPadding {
+    padding: 0% 5% 0% 5%;
+}
+
+.userInfo p {
+    letter-spacing: 0px;
+    font-size: 1.2rem;
+}
+
+.userInfo h2 {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.spectext h2 {
+    margin-bottom: 20px;
+    line-height: 14px;
+    float: left;
+    padding-right: 5px;
+    /* margin: 0; */
+}
+
+.spectext p {
+    line-height: 14px;
+    font-family: 'Oswald', Arial, sans-serif;
+    letter-spacing: 1px;
+    /* float: left; */
+}
+
+.userInfoBottom {
+    border-bottom: 1px solid #ededed;
+}
+
+.userInfoBottom p {
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-family: 'Oswald', Arial, sans-serif;
+}
+
+.userInfoBottom p strong {
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.userInfoBottom p small {}
+
+.textleft {
+    text-align: left;
+    padding: 0;
+}
+
+.textright {
+    text-align: right;
+    padding: 0;
+}
+
+.mainSlider {
+    height: 500px;
+    width: 100%;
+    background-color: black;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.theFooter {
+    height: 300px;
+    background-color: fuchsia;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.homeTopService {
+    height: 400px;
+    background-color: white;
+    padding: 50px;
+}
+
+.underline {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: grey;
+}
+
+.theTopService {
+    height: 200px;
+    width: 30%;
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin: 1.6666666666%;
+}
+
+.serviceModal {
+    width: 70%;
+    margin: 3% auto;
+}
+
+.serviceModalSelect {
+    background-color: white;
+    height: 80%;
+}
+
+.selectYourService {
+    width: 100%;
+}
+
+.selectServiceTitle {
+    width: 100%;
+    height: 50px;
+    color: grey;
+    text-align: center;
+}
+
+.subcategorieService {
+    height: 75px;
+}
+
+.subcategorieService .item-checkbox {
+    width: 20px;
+    float: left;
+    border: none;
+}
+
+.subcategorieService input {
+    width: 20%;
+    float: right;
+}
+
+.subcategorieService .item-select {
+    width: 20%;
+    float: right;
+}
+
+.workingDays .item-checkbox {
+    width: 100%;
+    float: left;
+    text-align: left;
+}
+
+.workingDays {
+    float: left;
+    width: 100%;
+    text-align: left;
+}
+
+.workingDays .checkbox-icon {
+    width: 16px;
+    height: 18px;
+}
+
+.workingDays .item {
+    padding: 5px 5px 5px 5px;
+    letter-spacing: 2px;
+    font-weight: 300;
+    font-family: 'Calibri', Arial, sans-serif;
+    /* text-transform: uppercase; */
+    font-size: 1.2rem;
+}
+
+.workingDays .item-content {
+    padding-left: 50px;
+}
+
+.workingDays .checkbox-icon:before {
+    background: none;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border: 1px solid #999;
+}
+
+.workingDays .checkbox-icon:after {
+    width: 13px;
+    top: 5%;
+    border-right: 0;
+    border-top: 0;
+    border-left: 2px solid #999;
+    border-bottom: 2px solid #999;
+    left: 26%;
+    transform: rotate(-54deg);
+    -webkit-transform: rotate(-54deg);
+    -moz-transform: rotate(-54deg);
+}
+
+.workingDays .checkbox input:checked + .checkbox-icon:before {
+    background: none;
+    border: 1px solid #999;
+}
+
+.workingDays .item-checkbox .checkbox {
+    margin-top: -18px;
+}
+
+.workingDaysLaikas {
+    padding-right: 2%;
+    float: right;
+}
+
+.workingDays .item p {}
+
+.darbovalandunustatymas {
+    margin-top: 3%;
+    width: 100%;
+    position: relative;
+    height: 100%;
+    float: left;
+    margin-bottom: 3%;
+}
+
+.darbovalandunustatymas .input-label {
+    font-family: 'Calibri', Arial, sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: left;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.darbovalandunustatymas .item-select:after {
+    color: #b887b3;
+    opacity: 0.8;
+}
+
+.darbovalandunustatymas .dvlaikas {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.redagavimas {}
+
+.dvlaikas {
+    font-family: 'Calibri', Arial, sans-serif;
+    font-size: 1.4rem !important;
+    color: #777 !important;
+    font-weight: 300;
+}
+
+.ui-datepicker {
+    width: 100%;
+    height: 300px;
+    margin: 5px auto 0;
+}
+
+.ui-datepicker a {
+    text-decoration: none;
+}
+
+ui-datepicker table {
+    width: 100%;
+}
+
+.ui-datepicker-header {
+    background: white;
+    color: #e0e0e0;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.ui-datepicker-title {
+    text-align: center;
+    color: #555;
+    font-family: 'Oswald', Arial, sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.ui-datepicker-prev {
+    display: inline-block;
+    width: 10px;
+    height: 19px;
+    text-align: center;
+    cursor: pointer;
+    background-image: url('../img/svgarrowleft.svg');
+    background-repeat: no-repeat;
+    line-height: 600%;
+    overflow: hidden;
+}
+
+.ui-datepicker-next {
+    display: inline-block;
+    width: 10px;
+    height: 19px;
+    text-align: center;
+    cursor: pointer;
+    background-image: url('../img/svgarrowright.svg');
+    background-repeat: no-repeat;
+    line-height: 600%;
+    overflow: hidden;
+}
+
+.ui-datepicker-prev {
+    float: left;
+    background-position: center 0px;
+}
+
+.ui-datepicker-next {
+    float: right;
+    background-position: center 0px;
+}
+
+.ui-datepicker thead {
+    background: none;
+    border-bottom: 1px solid #bbb;
+}
+
+.ui-datepicker th {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 6pt;
+    padding: 5px 0;
+    color: #666666;
+}
+
+.ui-datepicker tbody td {
+    vertical-align: middle;
+    padding: 0;
+    border: 0px solid #bbb;
+    font-family: 'Calibri', Arial, sans-serif;
+}
+
+.ui-datepicker tbody td:last-child {
+    border-right: 0px;
+}
+
+.ui-datepicker tbody tr {
+    border: 0px solid #bbb;
+}
+
+.ui-datepicker tbody tr:last-child {
+    border-bottom: 0px;
+}
+
+.ui-datepicker td span {
+    display: inline-block;
+    font-weight: bold;
+    line-height: 50px;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    color: #666666;
+}
+
+.ui-datepicker td a {
+    display: inline-block;
+    font-weight: bold;
+    line-height: 50px;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    color: #666666;
+}
+
+.ui-datepicker-calendar {
+    width: 100%;
+    height: 90%;
+}
+
+.ui-datepicker-calendar .ui-state-default {}
+
+.ui-datepicker-unselectable .ui-state-default {
+    color: #ddd;
+}
+
+.ui-datepicker-other-month {
+    background: #fff;
+}
+
+.ui-datepicker-calendar .ui-state-hover {
+    background: #f7f7f7;
+}
+
+.ui-datepicker-calendar .ui-state-active {
+    background: #b887b3;
+    color: #fff;
+    border: 0px solid #55838f;
+    position: relative;
+}
+
+.ui-datepicker-calendar td:first-child .ui-state-active {
+    width: 100%;
+    margin-left: 0;
+}
+
+.ui-datepicker-calendar td:last-child .ui-state-active {
+    width: 100%;
+    margin-right: 0;
+}
+
+.ui-datepicker-calendar tr:last-child .ui-state-active {
+    height: 100%;
+    margin-bottom: 0;
+}
+
+.registerTime {
+    font-family: 'Calibri', Arial, sans-serif;
+    height: 300px;
+    overflow: scroll;
+}
+
+.registerTime .item-radio {
+    font-size: 1.4rem;
+    color: #777;
+}
+
+.registerTime .item-radio input:checked ~ .item-content {
+    background: #b887b3;
+    height: auto;
+    color: #fff;
+}
+
+.registerTime .item-radio .radio-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    visibility: hidden;
+    padding: 14px;
+    height: 100%;
+    font-size: 20px;
+}
+
+section {
+    height: 100vh;
+    width: 100%;
+    float: left;
+}
+
+.registerServiceView {
+    margin-bottom: 10%;
+    height: 100vh;
+}
+
+#registerForm {}
+
+.registerForm {}
+
+.orderService {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    font-size: 35px;
+    margin-top: 30px;
+    border-bottom-style: solid;
+    border-width: 1px;
+    vertical-align: middle;
+}
+
+.item h2 {
+    color: black
+}
+
+.item p {
+    color: black;
+    margin-left: 0px;
+}
+
+.serviceModal h2 {
+    padding-top: 2%;
+    width: 100%;
+    text-align: center;
+}
+
+.chooseservice {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.choosedate {
+    margin-top: 5%;
+}
+
+.bookbutton {
+    width: 70%;
+    margin: 7% auto;
+}
+
+.verslaukList {
+    height: 300px;
+    overflow: scroll;
+}
+
+.seperator {
+    height: 150px;
+    width: 100%;
+}
+
+.messagesWindow {
+    height: 300px;
+    width: 100%;
+    overflow: scroll;
+}
+
+#apppromo {
+    margin-top: 10%;
+    background: #f7f7f7;
+    height: 400px;
+    float: left;
+    margin-bottom: 10%;
+}
+
+.apppromologo {
+    height: 22px;
+}

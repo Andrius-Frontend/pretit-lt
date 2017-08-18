@@ -1,0 +1,80 @@
+<ion-view class="specai" title="" hide-back-button="true" hide-nav-bar="true">
+
+
+    <ion-content overflow-scroll="true" ng-init="loadSpecialists()">
+
+        <div class="bookingsHeader" header></div>
+
+        <div class="specbg">
+            <h2 style="text-align: center;">Specialistai</h2>
+            <div class="container">
+
+
+                <div class="specialistai">
+
+                    <div class="specheader">
+
+                        <div class="specheaderblock borderright33">
+                            <h2>Specialistas</h2>
+                        </div>
+                        <div class="specheaderblock borderright33">
+                            <h2>Telefono numeris</h2>
+                        </div>
+                        <div class="specheaderblock borderright33">
+                            <h2>El. paštas</h2>
+                        </div>
+                        <div class="specheaderblock borderright33">
+                            <h2>Atliekamos paslaugos</h2>
+                        </div>
+                        <div class="specheaderblock borderright44">
+                            <h2>&nbsp;</h2>
+                        </div>
+                    </div>
+                    <div class="gapas198"></div>
+                    <div class="specblokai" ng-repeat="user in companySpecialists">
+                        <div class="specblock2" ng-click="goToUser(user.id)">
+                            <div class="specblockpic" style="height:50px;width:50px;background-image:url('{{user.attributes.profilePhoto._url}}');background-size:cover"></div>
+                            <p>{{user.attributes.data.name}}</p>
+                        </div>
+                        <div class="specblock">
+                            <p>{{user.attributes.data.telNumber}}</p>
+                        </div>
+                        <div class="specblock">
+                            <p>{{user.attributes.email}}</p>
+                        </div>
+                        <div class="specblock3">
+
+                            <button class="specbuttonas butmar2 buttonasnew orangebutton" ng-click="specialistList(user)">Paslaugų sąrašas</button>
+
+                        </div>
+                        <div class="specblock3">
+
+                            <button class="specbuttonas buttonasnew greybutton" ng-click="removeFromCompany(user, $index)">Pašalinti</button>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+                <div class="pridetiNew requestFromCompany">
+                    <button ng-click="addNewSpecialist()" class=" greenbutton buttonPridetiNew">Pridėti Specialistą</button>
+
+                </div>
+
+
+            </div>
+
+            <!--
+            <div ng-repeat="user in companySpecialists">
+    <div style="height:50px;width:50px;background-image:url('{{user.attributes.profilePhoto._url}}');background-size:cover"></div>
+    {{user.attributes.data.name}} {{user.attributes.data.telNumber}} {{user.attributes.email}}
+    <button ng-click="specialistList(user)">Paslaugų sąrašas</button>
+    <button ng-click="removeFromCompany(user)">Pašalinti</button>
+</div>
+-->
+        </div>
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,189 @@
+<ion-view title="Prisjungti" hide-back-button="true" hide-nav-bar="true">
+
+
+    <ion-content class="loginas" overflow-scroll="true">
+
+
+
+
+
+
+
+
+
+        <section id="loginView">
+            <div class="loginbgoverlay">
+
+                <nav class="theHeader navbar navbar-default navbar-static-top">
+                    <div class="container-fluid">
+
+                        <div class="navigacija">
+                            <div class="row">
+
+                                <a ng-click="goBack()" class="lgbtn3 whiteborderbtn">Grįžti atgal</a>
+
+
+
+
+
+                                <a ng-click='goToRegister()' class="lgbtn5 greenbutton"> Registracija</a>
+
+
+                                <a ng-click='forgotPassword()' class="lgbtn4 greybutton "> Pamiršote slaptažodį ?</a>
+
+
+                            </div>
+
+                        </div>
+
+
+                        <!--  <div class="navbar-text navbar-right">
+                        <div class="navigation">
+
+                            <ul>
+                                <li><button class="lgbtn4 backbtn whiteborderbutton" ng-click="goBack()">Grįžti atgal</button></li>
+
+                                <li>
+                                    <a ng-click='goToRegister()' class="lgbtn4 greenbutton"> Registracija</a>
+                                </li>
+                                <li>
+                                    <a ng-click='forgotPassword()' class="lgbtn4 greybutton "> Pamiršote slaptažodį ?</a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+
+                    </div> -->
+                    </div>
+                </nav>
+
+
+                <div class="theLogin">
+
+                    <p class="loginlogo">
+                        <object class="loglogo" type="image/svg+xml" data="img/logo/pretitlogopilnasorange.svg">Your browser does not support SVG</object>
+                    </p>
+                    <div class="theLogininputai">
+
+
+                        <form>
+                            <span class="loginspanas padidintasspanas input input--ruri">
+					
+					<div class="loginemail">
+					<h6><object type="image/svg+xml" data="img/loginemail.svg">Your browser does not support SVG</object></h6>
+					</div>
+					<input autofocus placeholder="El. paštas" class="loginoinputas1 input__field input__field--ruri" type="text" id="input-26" ng-model="credits.username"/>
+                      
+					<label class="loginolabelis1 input__label input__label--ruri" for="input-26">
+						<span class="input__label-content input__label-content--ruri">El. paštas</span>
+                            </label>
+                            </span>
+
+                            <span class="loginspanas padidintasspanas input input--ruri">
+							<div class="loginpass">
+					<h6><object type="image/svg+xml" data="img/loginpass.svg">Your browser does not support SVG</object></h6>
+					</div>
+					<input placeholder="Slaptažodis" class="loginoinputas1 input__field input__field--ruri" type="password" id="input-27" ng-model="credits.password" />
+					<label class="loginolabelis2 input__label input__label--ruri" for="input-27">
+						<span class="input__label-content input__label-content--ruri">Slaptažodis</span>
+                            </label>
+                            </span>
+
+                            <button class="loginbutton loginloginbut buttonasnew orangebutton gapbut" type="submit" ng-click="login()">Prisijungti</button>
+
+
+
+
+
+                            <button class="loginbutton buttonasnew greybutton" type="submit" ng-click="fbLogin()">
+                                Prisijungti su
+
+                                <object class="fblogo" type="image/svg+xml" data="img/logo/fblogo.svg">Your browser does not support SVG</object>
+                            </button>
+                        </form>
+
+
+
+
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <script>
+            (function () {
+                // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+                if (!String.prototype.trim) {
+                    (function () {
+                        // Make sure we trim BOM and NBSP
+                        var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                        String.prototype.trim = function () {
+                            return this.replace(rtrim, '');
+                        };
+                    })();
+                }
+
+				[].slice.call(document.querySelectorAll('input.input__field')).forEach(function (inputEl) {
+                    // in case the input is already filled..
+                    if (inputEl.value.trim() !== '') {
+                        classie.add(inputEl.parentNode, 'input--filled');
+                    }
+
+                    // events:
+                    inputEl.addEventListener('focus', onInputFocus);
+
+                    inputEl.addEventListener('blur', onInputBlur);
+                });
+
+                function onInputFocus(ev) {
+                    classie.add(ev.target.parentNode, 'input--filled');
+                }
+
+                function onInputBlur(ev) {
+                    if (ev.target.value.trim() === '') {
+                        classie.remove(ev.target.parentNode, 'input--filled');
+                    }
+                }
+            })();
+
+
+            window.fbAsyncInit = function () {
+                Parse.FacebookUtils.init({ // this line replaces FB.init({
+                    appId: '1762482773987575', // Facebook App ID
+                    status: true, // check Facebook Login status
+                    cookie: true, // enable cookies to allow Parse to access the session
+                    xfbml: true, // initialize Facebook social plugins on the page
+                    version: 'v2.5' // point to the latest Facebook Graph API version
+                });
+
+                // Run code after the Facebook SDK is loaded.
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "http://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+
+
+    </ion-content>
+
+</ion-view>

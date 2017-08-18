@@ -1,0 +1,663 @@
+<ion-view title="Kalendorius" hide-back-button="true" hide-nav-bar="true">
+
+
+    <ion-content class="bookingviewas" overflow-scroll="true">
+
+        <section id="bookingsView">
+            <div class="bookingsHeader" header></div>
+
+
+
+
+
+
+            <div id="dashboard">
+
+                <div class="dashboardnew">
+                    <div class="container-fluid">
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                            <div class="row">
+
+
+
+
+
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+
+
+                                    <div ng-if='pendingCompanyRequest' class="imonesPending">
+                                        <h2 class="textcenter">UŽKLAUSA AR DIRBATE ŠIAME GROŽIO SALONE</h2>
+
+
+                                        <div class="kompanyreq">
+                                            <div ng-repeat="request in pendingCompanyRequest" class="">
+
+                                                <div class="compreq">
+                                                    <!--                                                    {{request.attributes.CompanyName}}-->
+                                                    <h2>{{request.attributes.CompanyName}}</h2>
+
+
+                                                </div>
+
+
+
+
+                                                <div class="compreqbuttons">
+                                                    <button class="dashboardButton orangebutton" ng-click="acceptRequest(request)">
+                                                        Priimti
+                                                    </button>
+                                                    <button ng-click='denyCompany(request)' class="dashboardButton greybutton">
+                                                        Atšaukti
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div ng-if='theCompany' class="imonesPending">
+                                        <h2 class="textcenter">JŪSŲ DARBOVIETĖ</h2>
+
+
+                                        <div class="kompanyreq">
+                                            <div class="">
+
+                                                <div class="compreq">
+                                                    <!--                                                    {{request.attributes.CompanyName}}-->
+                                                    <h2>{{theCompany.attributes.Title}}</h2>
+                                                    <!--                                                    <h3>{{theCompany.attributes.Tel}}</h3>-->
+
+                                                </div>
+
+
+
+
+                                                <div class="compreqbuttons">
+
+                                                    <button ng-click='exitCompany()' class="compbuttonas  greybutton">
+                                                        Išeiti
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                    <h2 class="textcenter">Kalendorius</h2>
+                                    <div class="dashboardBottom bookingscal">
+                                        <div class="list verslaukList" id='datepickerBook'>
+
+
+
+                                        </div>
+                                        <!--                                      <button class="buttonas" ng-click="addGhostReserv()"> Pridėti užsakymą</button>-->
+                                    </div>
+                                    <h2 class="textcenter">Užsakymai laukiantys patvirtinimo</h2>
+                                    <div class="dashboardBottom pendingai" scroll-on-click>
+                                        <div ng-repeat="request in pendingRequests" class="item dashboardBottomUser" ng-class="{verslaukUzsak: booking.attributes.Date < formattedDate}">
+                                            <div class="dashboardBottomCategoryPhoto">
+                                                <div class="coverbg2" style="background: url('{{request.attributes.UserObject.userPic._url}}') no-repeat 50% 50%; background-size: cover;"></div>
+                                            </div>
+                                            <div ng-click="openPendingReservation(request)" class="dashboardBottomUserInfo">
+                                                <h2>{{request.attributes.UserObject.userName}} </h2>
+                                                <h3>Paslaugų kiekis - {{request.attributes.ReservServic.length}}</h3>
+                                            </div>
+
+                                            <div class="dashboardBottomUserInfo2">
+                                                <!--                                                <h4>{{request.attributes.DateUTC}}</h4>-->
+                                                <h4 ng-bind="request.attributes.DateUTC | date:'dd-MM-yyyy'"></h4>
+                                                <h5>{{request.attributes.TimeObject.time.time}}</h5>
+                                            </div>
+
+
+
+
+
+                                            <!--
+                                            <div class="dashboardBottomUserButtons">
+                                                <button class="dashboardButton buttonasnew butmar orangebutton" ng-click="openPendingReservation(request)">
+                                                    Informacija
+                                                </button>
+                                                <button ng-click='cancelReservBook(booking)' class="dashboardButtonGrey buttonasnew">
+                                                    Atšaukti
+                                                </button>
+                                            </div>
+-->
+                                        </div>
+
+                                        <div class="nerakazko" ng-if="pendingRequests.length == 0">
+                                            <img src="img/neruzsakymu.png">
+                                            <p>Užsakymų nėra</p>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9" id="loadingCal">
+                                    <h2 class="textcenter">Užsakymai</h2>
+                                    <div class="calendarForSpecialists">
+
+                                        <div class="custompaddingg row">
+                                            <div class="upperCell col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                <div class="theCell">
+                                                    <div class="baltas">
+
+                                                    </div>
+                                                </div>
+                                                <div class="lowerCell cellBorderRight" ng-repeat="cell in calendarInfo[0].bott" ng-class="{cellCurrentTime: $index == timeId}" id="id{{$index}}">
+                                                    <div>
+                                                        <h5>{{cell.time}}</h5>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="upperCell col-lg-4 col-md-4 col-sm-4 col-xs-4" id="first">
+                                                <div class="theCell ">
+                                                    <div class="cellInfo">
+                                                        <div class="cellInfoKaire theCellBorderLeft">
+                                                            <h2>{{calendarInfo[0].top.date}}</h2>
+                                                        </div>
+                                                        <div class="cellInfoDesine">
+                                                            <h3>{{monthNames[calendarInfo[0].top.month]}}</h3>
+                                                            <h4>{{dayNames[calendarInfo[0].top.day]}}</h4>
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="lowerCell" ng-repeat="cell in calendarInfo[0].bott" ng-class="{cellCurrentTime: $index == timeId}">
+                                                    <div ng-class="{cellFirst: cell.cssClass=='First', cellLast: cell.cssClass=='Last', cellOnly: cell.cssClass=='Only', cellMiddle: cell.cssClass=='Middle', cellOutdated: (cell.totalClass=='outdated') || (cell.totalClass=='outdatedToday' && $index < timeId) }">
+
+                                                        <div class="laisvaCell">
+                                                            <p class="pridetghost" ng-if="!cell.userInfo" ng-click="addGhostFromCalendar(calendarInfo[0], cell)">Pridėti užsakymą</p>
+
+                                                        </div>
+                                                        <div ng-if="cell.registeredService.length > 0" ng-click="showAcceptedReservation(cell, calendarInfo[0].top.fullDate)" class="lowerCellInner">
+
+                                                            <div class="uzimtaOverlay">
+                                                                Praėjęs užsakymas
+                                                            </div>
+                                                            <div class="uzimtaInfo">
+                                                                <!--
+                                                                <div class="uzimtaLeft">
+                                                                    <p ng-if="cell.registeredService.length > 0"> {{cell.userInfo.userName}}</p>
+
+                                                                </div>
+
+                                                                <div class="uzimtaRight">
+                                                                    <p ng-if="cell.registeredService.length > 0" ng-click="showOrder(cell)"> {{cell.userInfo.userTel}}</p>
+                                                                    <h2 ng-if="cell.registeredService.length > 0">Paslaugų kiekis - {{cell.registeredService.length}}</h2>
+
+                                                                </div>
+-->
+                                                                <div ng-if="cell.registeredService.length > 0" class="uzimtaFull">
+                                                                    <h2>Užsakymas</h2>
+                                                                    <h4>Praėjęs užsakymas</h4>
+                                                                    <h3>{{cell.userInfo.userName}}</h3>
+                                                                    <!--                                                                    <h4>{{cell.userInfo.userTel}}</h4>-->
+                                                                    <p>Paslaugų kiekis - {{cell.registeredService.length}}</p>
+
+
+
+                                                                </div>
+
+                                                                <!--
+                                                                <div class="uzsakymotrikampis">
+                                                                </div>
+-->
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="upperCell col-lg-4 col-md-4 col-sm-4 col-xs-4" id="second">
+                                                <div class="theCell">
+                                                    <div class="cellInfo">
+                                                        <div class="cellInfoKaire theCellBorderLeft">
+                                                            <h2>{{calendarInfo[1].top.date}}</h2>
+                                                        </div>
+                                                        <div class="cellInfoDesine">
+                                                            <h3>{{monthNames[calendarInfo[1].top.month]}}</h3>
+                                                            <h4>{{dayNames[calendarInfo[1].top.day]}}</h4>
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="lowerCell" ng-repeat="cell in calendarInfo[1].bott" ng-class="{cellCurrentTime: $index == timeId}">
+                                                    <div ng-class="{cellFirst: cell.cssClass=='First', cellLast: cell.cssClass=='Last', cellOnly: cell.cssClass=='Only', cellMiddle: cell.cssClass=='Middle',cellOutdated: (cell.totalClass=='outdated') || (cell.totalClass=='outdatedToday' && $index < timeId) }">
+                                                        <div class="laisvaCell">
+                                                            <p class="pridetghost" ng-if="!cell.userInfo" ng-click="addGhostFromCalendar(calendarInfo[1], cell)">Pridėti užsakymą</p>
+
+                                                        </div>
+                                                        <div ng-if="cell.registeredService.length > 0" ng-click="showAcceptedReservation(cell, calendarInfo[1].top.fullDate)" class="lowerCellInner">
+
+
+
+
+                                                            <div class="uzimtaOverlay">
+                                                                Praėjęs užsakymas
+                                                            </div>
+                                                            <div class="uzimtaInfo">
+                                                                <!--
+                                                                <div class="uzimtaLeft">
+                                                                    <p ng-if="cell.registeredService.length > 0" ng-click="showOrder(cell)"> {{cell.userInfo.userName}}</p>
+
+                                                                </div>
+
+                                                                <div class="uzimtaRight">
+                                                                    <p ng-if="cell.registeredService.length > 0" ng-click="showOrder(cell)"> {{cell.userInfo.userTel}}</p>
+                                                                    <h2 ng-if="cell.registeredService.length > 0">Paslaugų kiekis - {{cell.registeredService.length}}</h2>
+
+                                                                </div>
+-->
+                                                                <div ng-if="cell.registeredService.length > 0" class="uzimtaFull">
+                                                                    <h2>Užsakymas</h2>
+                                                                    <h4>Praėjęs užsakymas</h4>
+                                                                    <h3>{{cell.userInfo.userName}}</h3>
+                                                                    <!--                                                                    <h4>{{cell.userInfo.userTel}}</h4>-->
+                                                                    <p>Paslaugų kiekis - {{cell.registeredService.length}}</p>
+
+
+
+                                                                </div>
+
+                                                                <!--
+                                                                <div class="uzsakymotrikampis">
+                                                                </div>
+-->
+
+                                                            </div>
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="upperCell col-lg-4 col-md-4 col-sm-4 col-xs-4" id="third">
+                                                <div class="theCell">
+                                                    <div class="cellInfo">
+                                                        <div class="cellInfoKaire theCellBorderLeft">
+                                                            <h2>{{calendarInfo[2].top.date}}</h2>
+                                                        </div>
+                                                        <div class="cellInfoDesine">
+                                                            <h3>{{monthNames[calendarInfo[2].top.month]}}</h3>
+                                                            <h4>{{dayNames[calendarInfo[2].top.day]}}</h4>
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="lowerCell" ng-repeat="cell in calendarInfo[2].bott" ng-class="{cellCurrentTime: $index == timeId}">
+                                                    <div ng-class="{cellFirst: cell.cssClass=='First', cellLast: cell.cssClass=='Last', cellOnly: cell.cssClass=='Only', cellMiddle: cell.cssClass=='Middle', cellOutdated: (cell.totalClass=='outdated') || (cell.totalClass=='outdatedToday' && $index < timeId) }">
+                                                        <div class="laisvaCell">
+                                                            <p class="pridetghost" ng-if="!cell.userInfo" ng-click="addGhostFromCalendar(calendarInfo[2], cell)">Pridėti užsakymą</p>
+
+                                                        </div>
+                                                        <div ng-if="cell.registeredService.length > 0" ng-click="showAcceptedReservation(cell, calendarInfo[2].top.fullDate)" class="lowerCellInner">
+
+
+                                                            <div class="uzimtaOverlay">
+                                                                Praėjęs užsakymas
+                                                            </div>
+                                                            <div class="uzimtaInfo">
+                                                                <!--
+                                                                <div class="uzimtaLeft">
+                                                                    <p ng-if="cell.registeredService.length > 0" ng-click="showOrder(cell)"> {{cell.userInfo.userName}}</p>
+
+                                                                </div>
+
+
+                                                                <div class="uzimtaRight">
+                                                                    <p ng-if="cell.registeredService.length > 0" ng-click="showOrder(cell)">{{cell.userInfo.userTel}}</p>
+                                                                    <h2 ng-if="cell.registeredService.length > 0">Paslaugų kiekis - {{cell.registeredService.length}}</h2>
+
+                                                                </div>
+-->
+                                                                <div ng-if="cell.registeredService.length > 0" class="uzimtaFull">
+                                                                    <h2>Užsakymas</h2>
+                                                                    <h4>Praėjęs užsakymas</h4>
+                                                                    <h3>{{cell.userInfo.userName}}</h3>
+                                                                    <!--                                                                    <h4>{{cell.userInfo.userTel}}</h4>-->
+                                                                    <p>Paslaugų kiekis - {{cell.registeredService.length}}</p>
+
+
+
+                                                                </div>
+
+                                                                <!--
+                                                              <div class="uzsakymotrikampis">
+</div>
+-->
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--
+                                         <div class="upperCell col-lg-3 col-md-3 col-sm-3 col-xs-3" id="fourth">
+    <div class="theCell">
+        <div class="cellInfo">
+            <div class="cellInfoKaire theCellBorderLeft">
+                <h2>{{calendarInfo[3].top.date}}</h2>
+            </div>
+            <div class="cellInfoDesine">
+                <h3>{{monthNames[calendarInfo[3].top.month]}}</h3>
+                <h4>{{dayNames[calendarInfo[3].top.day]}}</h4>
+            </div>
+
+
+
+        </div>
+    </div>
+    <div class="lowerCell" ng-repeat="cell in calendarInfo[3].bott">
+        <div ng-class="{cellFirst: cell.cssClass=='First', cellLast: cell.cssClass=='Last', cellOnly: cell.cssClass=='Only', cellMiddle: cell.cssClass=='Middle'}">
+            <p ng-if="cell.registeredService.length > 0" ng-click="showOrder(cell)"> uzimta - {{cell.userInfo.userName}}</p>
+        </div>
+    </div>
+</div>
+-->
+                                        </div>
+                                    </div>
+
+
+                                    <div class="gapas14"></div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+                <!--
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="row">
+        <div class="custompadding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <h2 class="textcenter">Artimiausias užsakymas</h2>
+            <div class="dashboardTop">
+
+                <div class="dashboardUser">
+                    <div class="dashboardUserPhoto" ng-if="!upcomingReserv.userInfo.userPic._url">
+                        <div class="coverbg2" style="background: url('{{upcomingReserv.userInfo.userPic._url}}') no-repeat 50% 50%; background-size: cover;"></div>
+                    </div>
+                    <div class="dashboardUserPhoto" ng-if="upcomingReserv.userInfo.userPic._url">
+                        <div class="coverbg2" style="background: url('{{upcomingReserv.userInfo.userPic._url}}') no-repeat 50% 50%; background-size: cover;"></div>
+                    </div>
+                    <div class="dashboardUserInfo">
+                        <h2>{{upcomingReserv.userInfo.userName}} <em>{{upcomingResDate}}</em></h2>
+                        <h3>{{upcomingReserv.registeredService.name}} <em>{{upcomingReserv.time}}</em></h3>
+                    </div>
+                    <div class="dashboardUserDate">
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="custompadding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <h2 class="textcenter">Statistika</h2>
+            <div class="dashboardTop">
+                <div class="col-lg-12">
+
+                    <div class="row">
+                        <div class="nopadding statistika col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <h1>{{totalReservs}}</h1>
+                            <p>Užsakymai</p>
+                        </div>
+                        <div class="nopadding statistika col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <h1>12</h1>
+                            <p>Komentarai</p>
+                        </div>
+                        <div class="nopadding statistika col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <h1>4.1</h1>
+                            <p>Įvertinimas (* / 5)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="custompadding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <h2 class="textcenter">Last message</h2>
+            <div class="dashboardTop">
+
+
+                <div class="lastmessage">
+                    <h2>{{theLastMessage.CustomerName}} <em>{{theLastMessage.LastMessageTime}}</em></h2>
+
+                    <p>{{theLastMessage.LastMessage}}</p>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+-->
+                <!--
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="row">
+        <div class="custompadding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <h2 class="textcenter">Kalendorius</h2>
+            <div class="dashboardBottom">
+                <div class="list verslaukList" id='datepickerBook'>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="custompadding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <h2 class="textcenter">Verslauk užsakymai</h2>
+            <div class="dashboardBottom">
+                <div class="list">
+
+
+
+                    <div class="item dashboardBottomUser" ng-repeat='booking in theBooking' ng-class="{bookingDeclinedVersl: booking.declined}">
+                        <div class="dashboardBottomCategoryPhoto" ng-if='booking.userInfo.userPic._url'>
+                            <div style="background: url('{{booking.userInfo.userPic._url}}') no-repeat 50% 50%; background-size: cover;" class="coverbg2"></div>
+                        </div>
+                        <div ng-if='!booking.userInfo.userPic._url' class="dashboardBottomCategoryPhoto">
+                            <div style="background: url('{{booking.userInfo.userPic._url}}') no-repeat 50% 50%; background-size: cover;font-size: 1.5vw;" class="coverbg2">?</div>
+                        </div>
+                        <div class="dashboardBottomUserInfo">
+                            <h2>{{booking.userInfo.userName}} </h2>
+                            <h3>{{booking.registeredService.name}} </h3>
+                        </div>
+                        <div class="dashboardBottomUserInfo2">
+                            <h2>{{showDate}}</h2>
+                            <h3>{{booking.time}}</h3>
+                        </div>
+
+
+                        <div class="dashboardBottomUserButtons">
+                            <button class="dashboardButtonGrey buttonas" ng-click='goToMessages(booking.userInfo)'>
+                                Parašyti
+                            </button>
+                            <button ng-click="cancelReserv(booking.id)" class="dashboardButton buttonas">
+                                Atšaukti
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="custompadding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <h2 class="textcenter">Mano užsakymai</h2>
+            <div class="dashboardBottom">
+                <div ng-repeat="booking in myReservations" class="item dashboardBottomUser" ng-class="{verslaukUzsak: booking.attributes.Date < formattedDate}">
+                    <div class="dashboardBottomCategoryPhoto">
+                        <div class="coverbg2" style="background: url('{{booking.attributes.ReceiverPic}}') no-repeat 50% 50%; background-size: cover;"></div>
+                    </div>
+                    <div class="dashboardBottomUserInfo">
+                        <h2> </h2>
+                        <h3>{{booking.attributes.ReservServic[0].name}}</h3>
+                    </div>
+                    <div class="dashboardBottomUserInfo2">
+                        <h2>{{booking.attributes.Date}}</h2>
+                        <h3>{{booking.attributes.TimeSched.time}}</h3>
+                    </div>
+
+
+
+                    <div class="dashboardBottomUserButtons">
+                        <button class="dashboardButtonGrey buttonas" ng-click="goToMessagesAs(booking.attributes)">
+                            Parašyti
+                        </button>
+                        <button ng-click='cancelReservBook(booking)' class="dashboardButton buttonas">
+                            Atšaukti
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="custompadding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+
+            <h2 class="textcenter">Pending request</h2>
+            <div class="dashboardBottom">
+                <div ng-repeat="request in pendingRequests" class="item dashboardBottomUser" ng-class="{verslaukUzsak: booking.attributes.Date < formattedDate}" ng-click="acceptReservation(request)">
+                    <div class="dashboardBottomCategoryPhoto">
+                        <div class="coverbg2" style="background: url('{{request.attributes.UserObject.userPic._url}}') no-repeat 50% 50%; background-size: cover;"></div>
+                    </div>
+                    <div class="dashboardBottomUserInfo">
+                        <h2> </h2>
+                        <h3>Kiekis - {{request.attributes.ReservServic.length}}</h3>
+                    </div>
+                    <div class="dashboardBottomUserInfo2">
+                        <h2>{{booking.attributes.Date}}</h2>
+                        <h3>{{booking.attributes.TimeSched.time}}</h3>
+                    </div>
+
+
+
+                    <div class="dashboardBottomUserButtons">
+                        <button class="dashboardButtonGrey buttonas" ng-click="goToMessagesAs(booking.attributes)">
+                            Parašyti
+                        </button>
+                        <button ng-click='cancelReservBook(booking)' class="dashboardButton buttonas">
+                            Atšaukti
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+-->
+
+            </div>
+
+
+
+
+
+
+
+            <!--            <button ng-click="cloudTest()">asdasdasdasdasdasdas</button>-->
+
+        </section>
+        <section>
+            <!--
+            <div class="calendarForSpecialists">
+                <div class="row">
+                    <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                    <div class="upperCell col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        <div class="theCell" style="visibility:hidden">
+                            {{monthNames[calendarInfo[0].top.month]}} {{calendarInfo[0].top.date}} {{dayNames[calendarInfo[0].top.day]}}
+                        </div>
+                        <div class="lowerCell" ng-repeat="cell in calendarInfo[0].bott">
+                            <div>
+                                {{cell.time}}
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upperCell col-lg-2 col-md-2 col-sm-2 col-xs-2" id="first">
+                        <div class="theCell">
+                            {{monthNames[calendarInfo[0].top.month]}} {{calendarInfo[0].top.date}} {{dayNames[calendarInfo[0].top.day]}}
+                        </div>
+                        <div class="lowerCell" ng-repeat="cell in calendarInfo[0].bott">
+                            <div ng-class="{cellFirst: cell.cssClass=='First', cellLast: cell.cssClass=='Last', cellOnly: cell.cssClass=='Only', cellMiddle: cell.cssClass=='Middle'}">
+
+                                <p ng-if="cell.registeredService.length > 0" ng-click="showOrder(cell)"> uzimta - {{cell.userInfo.userName}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upperCell col-lg-2 col-md-2 col-sm-2 col-xs-2" id="second">
+                        <div class="theCell">
+                            {{monthNames[calendarInfo[1].top.month]}} {{calendarInfo[1].top.date}} {{dayNames[calendarInfo[1].top.day]}}
+                        </div>
+                        <div class="lowerCell" ng-repeat="cell in calendarInfo[1].bott">
+                            <div ng-class="{cellFirst: cell.cssClass=='First', cellLast: cell.cssClass=='Last', cellOnly: cell.cssClass=='Only', cellMiddle: cell.cssClass=='Middle'}">
+                                <p ng-if="cell.registeredService.length > 0" ng-click="showOrder(cell)"> uzimta - {{cell.userInfo.userName}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upperCell col-lg-2 col-md-2 col-sm-2 col-xs-2" id="third">
+                        <div class="theCell">
+                            {{monthNames[calendarInfo[2].top.month]}} {{calendarInfo[2].top.date}} {{dayNames[calendarInfo[2].top.day]}}
+                        </div>
+                        <div class="lowerCell" ng-repeat="cell in calendarInfo[2].bott">
+                            <div ng-class="{cellFirst: cell.cssClass=='First', cellLast: cell.cssClass=='Last', cellOnly: cell.cssClass=='Only', cellMiddle: cell.cssClass=='Middle'}">
+                                <p ng-if="cell.registeredService.length > 0" ng-click="showOrder(cell)"> uzimta - {{cell.userInfo.userName}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upperCell col-lg-2 col-md-2 col-sm-2 col-xs-2" id="fourth">
+                        <div class="theCell">
+                            {{monthNames[calendarInfo[3].top.month]}} {{calendarInfo[3].top.date}} {{dayNames[calendarInfo[3].top.day]}}
+                        </div>
+                        <div class="lowerCell" ng-repeat="cell in calendarInfo[3].bott">
+                            <div ng-class="{cellFirst: cell.cssClass=='First', cellLast: cell.cssClass=='Last', cellOnly: cell.cssClass=='Only', cellMiddle: cell.cssClass=='Middle'}">
+                                <p ng-if="cell.registeredService.length > 0" ng-click="showOrder(cell)"> uzimta - {{cell.userInfo.userName}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+-->
+        </section>
+
+
+        <div footer></div>
+
+
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,560 @@
+<ion-view title="" hide-back-button="true" hide-nav-bar="true">
+
+    <header class="neraheaderio bar bar-header bar-positive">
+        <div id="sideMenuGrey">
+            <div class="sideMenuLogo">
+                <a class="logoshort" href="index.html" class="navbar-link">
+                    <object type="image/svg+xml" data="img/logo/tylistlogoshort.svg">Your browser does not support SVG</object>
+                </a>
+            </div>
+            <div ng-click='goToBookings()' class="sideMenuButton ">
+                <p><i class="sidemenuicon ion-home"></i></p>
+                <p>Dashboard</p>
+            </div>
+            <div ng-click='goToMessages()' class="sideMenuButton">
+                <p><i class="sidemenuicon ion-chatbubble-working"></i></p>
+                <p>Messages</p>
+            </div>
+            <div class="sideMenuButtonselected">
+                <p><i class="sidemenuicon ion-person"></i></p>
+                <p>My Account</p>
+            </div>
+            <div ng-click='logOut()' class="sideMenuButton">
+                <p><i class="sidemenuicon ion-log-out"></i></p>
+                <p>Logout</p>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="sideMenuButton">
+                <p><i class="sidemenuicon ion-log-in"></i></p>
+                <p>Save changes</p>
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+    </header>
+    <ion-content overflow-scroll="true">
+
+
+
+
+        <section id="registerServiceView">
+
+
+
+
+            <div id="registerService">
+                <div class="container">
+                    <div class="theRegisterService">
+
+                        <div class="coverPhotoInput">
+                            <div class="coverPicOverlay"></div>
+                            <div id="coverPic" class="coverbg" style="background: url('{{coverPic}}') no-repeat 50% 50%; background-size: cover;"></div>
+
+
+                            <label class="coverlabel" for="cover-file">
+
+                                <div class="addphoto">
+                                    <object class="pliusassvg" type="image/svg+xml" data="img/pliusas.svg">Your browser does not support SVG</object>
+                                    <p> Pridėti viršelio nuotrauką</p>
+                                </div>
+                                <input class="inputButton" id="cover-file" type="file" accept="image/*" onchange="loadFile(event)" placeholder="+">
+                            </label>
+
+                        </div>
+
+
+
+
+
+                        <div class="profilePhotoInput">
+
+                            <div id="profilePic" class="coverbg" style="background: url('{{profilePic}}') no-repeat 50% 50%; background-size: cover;"></div>
+                            <label class="proflabel" for="file-input">
+                                <div class="addphotoprofile" id="addphotoprofile">
+                                    <object class="pliusassvgprofile" type="image/svg+xml" data="img/pliusas.svg">Your browser does not support SVG</object>
+                                    <p> Pridėti profilio nuotrauką
+                                    </p>
+                                </div>
+
+                                <input type="file" accept="image/*" id="file-input" onchange="loadProfilePic(event)">
+                            </label>
+
+
+                        </div>
+
+                        <div class="container">
+                            <div class="linijaverslauk row">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+
+                                    <div class="userInformation">
+                                        <div class="userInfoCircle">
+
+                                            <object class="citylogo" type="image/svg+xml" data="img/office.svg">Your browser does not support SVG</object>
+
+                                        </div>
+                                        <p>
+                                            <input type='text' ng-model="city" style="width:50%; height: 10px;border: none;">
+                                        </p>
+
+                                    </div>
+
+                                    <div class="userInformation">
+                                        <div class="userInfoCircle">
+
+                                            <object class="streetlogo" type="image/svg+xml" data="img/street.svg">Your browser does not support SVG</object>
+
+                                        </div>
+                                        <p>
+                                            <input type='text' value="{{theUser.attributes.data.address.street}} {{theUser.attributes.data.address.number}}" style="width:50%; height: 10px;border: none;">
+                                        </p>
+                                    </div>
+
+                                    <div class="userInformation">
+                                        <div class="userInfoCircle">
+
+                                            <object class="phonecalllogo" type="image/svg+xml" data="img/phonecall.svg">Your browser does not support SVG</object>
+
+                                        </div>
+                                        <p>
+                                            <input type='text' value="{{theUser.attributes.data.telNumber}}" style="width:50%; height: 10px;border: none;">
+                                        </p>
+                                    </div>
+
+
+
+                                    <!--
+<p style="float:left;width: 30%;">
+
+
+    Miestas:</p>
+<input type='text' value="{{theUser.attributes.data.address.city}}" style="width:50%; height: 10px;border: none;">
+<br>
+<p style="float:left;width: 30%;">Gatvė:</p>
+<input type='text' value="{{theUser.attributes.data.address.street}} {{theUser.attributes.data.address.number}}" style="width:50%; height: 10px;border: none;">
+<br>
+<p style="float:left;width: 30%;">Telefonas:</p>
+<input type='text' value="{{theUser.attributes.data.telNumber}}" style="width:50%; height: 10px;border: none;">
+-->
+                                </div>
+                                <div class="name2 col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <p>{{theUser.attributes.data.name}} {{theUser.attributes.data.surname}}</p>
+                                </div>
+                                <div class="fltextright floatright col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                    <div class="userInformationRight">
+                                        <div class="userInfoCircle">
+                                            <p>4.4</p>
+                                        </div>
+                                        <p>Įvertinimas</p>
+                                    </div>
+                                    <div class="userInformationRight">
+                                        <div class="userInfoCircle">
+                                            <p>29</p>
+                                        </div>
+                                        <p>Komentarai</p>
+                                    </div>
+                                    <div class="userInformationRight">
+                                        <div class="userInfoCircle">
+
+                                            <object class="favoritelogo" type="image/svg+xml" data="img/favorite.svg">Your browser does not support SVG</object>
+
+                                        </div>
+                                        <p>Favorite</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="container">
+                            <h2> Apie mane</h2>
+                            <div class="about">
+                                <textarea class="apiemanetekstas" ng-model="theUser.attributes.data.about"> </textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 serviceListing">
+
+                                    <h2> Paslaugos</h2>
+
+                                    <div ng-repeat='service in companyServices'>
+                                        <div class="row" ng-repeat='subcat in service.subcategories' ng-if="subcat.doing">
+                                            <div class="service col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="row">
+
+                                                    <div class="servicephoto col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                                        <img class="servicephotoimg" src="img/servicephotos/servicephoto.jpg">
+                                                    </div>
+                                                    <div class="servicename col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                        <p>{{subcat.name}}</p>
+                                                    </div>
+                                                    <div class="servicetime col-lg-3 col-md-3 col-sm-3 col-xs-3">
+
+                                                        <p>
+                                                            <object class="timesvg" type="image/svg+xml" data="img/timesvg.svg">Your browser does not support SVG</object>
+
+                                                            {{subcat.duration*30}}min
+                                                        </p>
+
+                                                    </div>
+                                                    <div class="serviceprice col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                        <p>{{subcat.price}} Eur</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                    <div class="addservice" ng-click='addNewSpecialist()'>
+                                        <object class="pliusassvg" type="image/svg+xml" data="img/pliusas.svg">Your browser does not support SVG</object>
+                                        <p> Pridėti naują specialistą</p>
+                                    </div>
+
+                                </div>
+
+
+
+
+
+
+
+                                <div class="borderleft fltextright col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+
+                                    <h2> Darbo laikas</h2>
+
+                                    <div class="checkboxai">
+                                        <div>
+                                            <ion-checkbox ng-model="workingDays.1.working" style="width: 50%;">
+                                                Pirmadienis
+
+                                            </ion-checkbox>
+
+
+                                            <div ng-if='workingDays.1.working' class="workingDaysLaikas">
+                                                <select class="dvlaikas" ng-model="workingDays.1.hourFrom">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key'>{{time.time}}</option>
+
+                                                </select>
+
+                                                <select class="dvlaikas" ng-model="workingDays.1.hourTo">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key' ng-value='time.time'>{{time.time}}</option>
+
+                                                </select>
+                                            </div>
+
+
+                                        </div>
+                                        <div>
+                                            <ion-checkbox ng-model="workingDays.2.working" style="width: 50%;">
+                                                Antradienis
+
+                                            </ion-checkbox>
+
+                                            <div ng-if='workingDays.2.working' class="workingDaysLaikas">
+                                                <select class="dvlaikas" ng-model="workingDays.2.hourFrom">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key'>{{time.time}}</option>
+
+                                                </select>
+
+
+                                                <select class="dvlaikas" ng-model="workingDays.2.hourTo">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key' ng-value='time.time'>{{time.time}}</option>
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div>
+                                            <ion-checkbox ng-model="workingDays.3.working" style="width: 50%;">
+                                                Trečiadienis
+
+                                            </ion-checkbox>
+
+                                            <div ng-if='workingDays.3.working' class="workingDaysLaikas">
+                                                <select class="dvlaikas" ng-model="workingDays.3.hourFrom">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key'>{{time.time}}</option>
+
+                                                </select>
+
+
+                                                <select class="dvlaikas" ng-model="workingDays.3.hourTo">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key' ng-value='time.time'>{{time.time}}</option>
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div>
+                                            <ion-checkbox ng-model="workingDays.4.working" style="width: 50%;">
+                                                Ketvirtadienis
+
+                                            </ion-checkbox>
+
+                                            <div ng-if='workingDays.4.working' class="workingDaysLaikas">
+                                                <select class="dvlaikas" ng-model="workingDays.4.hourFrom">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key'>{{time.time}}</option>
+
+                                                </select>
+
+
+                                                <select class="dvlaikas" ng-model="workingDays.4.hourTo">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key' ng-value='time.time'>{{time.time}}</option>
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div>
+                                            <ion-checkbox ng-model="workingDays.5.working" style="width: 50%;">
+                                                Penktadienis
+
+                                            </ion-checkbox>
+
+                                            <div ng-if='workingDays.5.working' class="workingDaysLaikas">
+                                                <select class="dvlaikas" ng-model="workingDays.5.hourFrom">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key'>{{time.time}}</option>
+
+                                                </select>
+
+
+                                                <select class="dvlaikas" ng-model="workingDays.5.hourTo">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key' ng-value='time.time'>{{time.time}}</option>
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div>
+                                            <ion-checkbox ng-model="workingDays.6.working" style="width: 50%;">
+                                                Šeštadienis
+
+                                            </ion-checkbox>
+
+                                            <div ng-if='workingDays.6.working' class="workingDaysLaikas">
+                                                <select class="dvlaikas" ng-model="workingDays.6.hourFrom">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key'>{{time.time}}</option>
+
+                                                </select>
+
+
+                                                <select class="dvlaikas" ng-model="workingDays.6.hourTo">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key' ng-value='time.time'>{{time.time}}</option>
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div>
+                                            <ion-checkbox ng-model="workingDays.0.working" style="width: 50%;">
+                                                Sekmadienis
+
+                                            </ion-checkbox>
+                                            <div ng-if='workingDays.0.working' class="workingDaysLaikas">
+                                                <select class="dvlaikas" ng-model="workingDays.0.hourFrom">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key'>{{time.time}}</option>
+
+                                                </select>
+
+
+                                                <select class="dvlaikas" ng-model="workingDays.0.hourTo">
+                                                    <option class="dvoption" ng-repeat='time in times | toArray | orderBy:key' ng-value='time.time'>{{time.time}}</option>
+
+                                                </select>
+                                            </div>
+
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <br>
+                                    <button class="buttonaspilkas" ng-click='registerService(city)'>Registruotis</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                    <form action="/file-upload" class="dropzone" id="my-awesome-dropzone"></form>
+
+                </div>
+            </div>
+            <h2 style="text-align: center">Atlikti darbai</h2>
+            <h1 style="text-align: center"> Galerija</h1>
+            <div class="imageGallery" style="padding-left: 80px;">
+                <div ng-repeat="image in theUser.attributes.ImageGallery" class="galleryImage" style="background-image:url({{image._url}});    background-size: cover;"><i class='ion-close' ng-click='deleteFromGallery(image)'></i></div>
+
+
+            </div>
+            <div class="theFooter">
+                <div class='theFooterBorders'>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <h2>Pagalba</h2>
+                            <p class="numeris">+370 610 00129</p>
+                            <p>pagalba@tylist.lt</p>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <h2></h2>
+                            <p>Įmonė - apie mus</p>
+                            <p>Karjera</p>
+                            <p>Kontaktai</p>
+
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <h2></h2>
+                            <p> D.U.K.</p>
+                            <p>Taisyklės</p>
+                            <p>Privatumo Politika</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <h2>Sekite mus:</h2>
+                            <div class="ikonos">
+                                <p> <i class="ikona ion-social-facebook"></i>
+                                    <i class="ikona ion-social-instagram"></i>
+                                    <i class="ikona ion-social-youtube"></i>
+                                    <i class="ikona ion-social-pinterest"></i>
+                                    <i class="ikona ion-email"></i></p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="theFooterBottom">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <a href="index.html" class="logofooter">
+                            <object type="image/svg+xml" data="img/logo/tylistlogo.svg">Your browser does not support SVG</object>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--
+<footer>
+    <div class="theFooter">
+        <div class='theFooterBorders'>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <h2>Pagalba</h2>
+                    <p class="numeris">+370 610 00129</p>
+                    <p>pagalba@tylist.lt</p>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <h2></h2>
+                    <p>Įmonė - apie mus</p>
+                    <p>Karjera</p>
+                    <p>Kontaktai</p>
+
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <h2></h2>
+                    <p> D.U.K.</p>
+                    <p>Taisyklės</p>
+                    <p>Privatumo Politika</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <h2>Sekite mus:</h2>
+                    <div class="ikonos">
+                        <p> <i class="ikona ion-social-facebook"></i>
+                            <i class="ikona ion-social-instagram"></i>
+                            <i class="ikona ion-social-youtube"></i>
+                            <i class="ikona ion-social-pinterest"></i>
+                            <i class="ikona ion-email"></i></p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="theFooterBottom">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <a href="index.html" class="logofooter">
+                    <object type="image/svg+xml" data="img/logo/tylistlogo.svg">Your browser does not support SVG</object>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</footer>-->
+
+
+
+
+
+
+
+        <script>
+            (function () {
+
+                // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+                if (!String.prototype.trim) {
+                    (function () {
+                        // Make sure we trim BOM and NBSP
+                        var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                        String.prototype.trim = function () {
+                            return this.replace(rtrim, '');
+                        };
+                    })();
+                }
+
+				[].slice.call(document.querySelectorAll('input.input__field')).forEach(function (inputEl) {
+                    // in case the input is already filled..
+                    if (inputEl.value.trim() !== '') {
+                        classie.add(inputEl.parentNode, 'input--filled');
+                    }
+
+                    // events:
+                    inputEl.addEventListener('focus', onInputFocus);
+
+                    inputEl.addEventListener('blur', onInputBlur);
+                });
+
+                function onInputFocus(ev) {
+                    classie.add(ev.target.parentNode, 'input--filled');
+                }
+
+                function onInputBlur(ev) {
+                    if (ev.target.value.trim() === '') {
+                        classie.remove(ev.target.parentNode, 'input--filled');
+                    }
+                }
+            })();
+        </script>
+
+
+    </ion-content>
+
+    <ion-footer>
+
+
+
+    </ion-footer>
+</ion-view>

@@ -1,0 +1,273 @@
+<ion-view title="Pretit" hide-back-button="true" hide-nav-bar="true">
+
+    <ion-content class="homee" overflow-scroll="true" scrollbar-y="true">
+
+
+        <div header></div>
+
+        <section id="home">
+
+
+
+
+
+            <div class="home">
+
+                <div class="homebg">
+                    <div class="homebgoverlay"></div>
+
+                    <div class="theMiddle">
+
+
+                        <div class="homeSearch">
+
+                            <div class="homeSearchNarrow">
+                                <div class="homevirsus col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <h1>Atrask ir užsisakyk<br>
+								<h2>grožio paslaugas internetu</h2>
+											</h1>
+                                    <h3>
+						Visi grožio specialistai ir jų atliekamos paslaugos ten kur esi Tu!</h3>
+                                    <div class="belekas row">
+
+                                        <div class="custompaddinghome col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                            <div class="labelis borderislabel1 borderleftradius" id="serviceHomeBlink">
+
+                                                <label ng-click='openCategorySeach()' class="item item-input item-select">
+                                                    <div ng-if='selectedService' class="input-label">
+                                                        {{selectedService}}
+                                                    </div>
+                                                    <div ng-if='!selectedService' class="input-label">
+                                                        Kategorija
+                                                    </div>
+
+
+
+
+                                                </label>
+                                            </div>
+                                            <div ng-if='openCategorySeachCount' class="categoryDivSearch">
+                                                <div class="list">
+                                                    <a class="item" ng-click='theChangeServ(service.name)' ng-repeat='service in services'>{{service.name}}
+                                    </a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="custompaddinghome col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                            <div class="labelis borderislabel2">
+                                                <label ng-click='openSubCategorySeach()' class="item item-input item-select">
+                                                    <div ng-if="!selectedSubService" class="input-label">
+                                                        Paslauga
+                                                    </div>
+                                                    <div ng-if="selectedSubService" class="input-label">
+                                                        {{selectedSubService}}
+                                                    </div>
+
+                                                </label>
+                                            </div>
+                                            <div ng-if='openSubCategorySeachCount' class="categoryDivSearch">
+                                                <div class="list" ng-if="selectedService==service.name || !selectedService" ng-repeat='service in services'>
+
+                                                    <div class="item item-divider">
+                                                        {{service.name}}
+                                                    </div>
+
+                                                    <a class="item" ng-repeat='sub in service.subcategories' ng-click='theChangeSub(sub.name)'>
+                                        {{sub.name}}
+                                    </a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="custompaddinghome col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                            <div class="labeliss2 borderislabel2">
+                                                <!--                                        <input type="text" >-->
+                                                <!--
+                                        <select id="editable-select" placeholder="MIESTAS">
+                                            <option ng-repeat="city in cityList">{{city}}</option>
+                                        </select>
+
+-->
+
+                                                <select class="js-example-responsive" style="width: 100%">
+                                                    <option value="0">Miestas</option>
+                                                    <option ng-repeat="city in cityList" ng-if="city != 'Pasirinkite miestą'">{{city}}</option>
+
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="custompaddinghome col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                            <div class="labelis borderislabel3 borderrightradius">
+                                                <div class="homeDatePicker">
+                                                    <input ng-change='theChangeDate(dateSearch)' ng-model='dateSearch' id='datepickeris' type="text" placeholder="Data">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="custompaddinghome borderislabel4 col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                            <button class="buttonashomesearch" ng-click='search()'>Ieškoti</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="explainThree">
+                <div class="row nopadding">
+                    <div class="vienasistriju blokelistrys col-lg-4 col-md-4 col-sm-4 col-xs-4 nopadding">
+                        <h1>1. Atrask</h1>
+                        <p>Visos grožio paslaugos ir jas atliekantys grožio meistrai tavo mieste, vienoje vietoje </p>
+                    </div>
+                    <div class="duistriju blokelistrys col-lg-4 col-md-4 col-sm-4 col-xs-4 nopadding">
+                        <h1>2. Registruokis</h1>
+                        <p>Užsisakyk pageidaujamą paslaugą, keliais mygtukų paspaudimais tiesiogiai į specialisto darbo kalendorių </p>
+                    </div>
+                    <div class="trysistriju blokelistrys col-lg-4 col-md-4 col-sm-4 col-xs-4 nopadding">
+                        <h1>3. Apsilankyk</h1>
+                        <p>Atvyk į grožio vizitą ir mėgaukis užsakyta paslauga bei naujuoju savo įvaizdžiu</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+        </section>
+
+
+        <section id="kategorijos">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="kategorija col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="visazas kategorijadiv">
+                            <a ng-click="goToCat('Vizažas')" class="kategorijalink">
+                                <h2>Ieškoti</h2>
+                            </a>
+                            <div class="kategorijaoverlay">
+                            </div>
+                        </div>
+                        <div class="kategorijostagai">
+                            <h1>Vizažas</h1>
+                            <p><strong>#</strong>MAKIAŽAS, <strong>#</strong>VESTUVINISMAKIAŽAS, <strong>#</strong>VAKARINISMAKIAŽAS</p>
+
+                        </div>
+                    </div>
+
+                    <div class="kategorija col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="kirpimas kategorijadiv">
+                            <a ng-click="goToCat('Kirpimas')" class="kategorijalink">
+                                <h2>Ieškoti</h2>
+                            </a>
+                            <div class="kategorijaoverlay">
+                            </div>
+                        </div>
+                        <div class="kategorijostagai">
+                            <h1>Kirpimas</h1>
+                            <p><strong>#</strong>MOTERŲKIRPIMAS, <strong>#</strong>VYRIŠKASKIRPIMAS, <strong>#</strong>PROGINĖŠUKUOSENA</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="secondrow row">
+                    <div class="kategorija col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="manikiuras kategorijadiv">
+                            <a ng-click="goToCat('Manikiūras')" class="kategorijalink">
+                                <h2>Ieškoti</h2>
+                            </a>
+                            <div class="kategorijaoverlay">
+                            </div>
+                        </div>
+                        <div class="kategorijostagai">
+                            <h1>Manikiūras</h1>
+                            <p><strong>#</strong>GELINISLAKAVIMAS, <strong>#</strong>NAGŲDAILĖ, <strong>#</strong>MANIKIŪRAS</p>
+
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="kategorija col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="kosmetologija kategorijadiv">
+                            <a ng-click="goToCat('Kosmetologija')" class="kategorijalink">
+                                <h2>Ieškoti</h2>
+                            </a>
+                            <div class="kategorijaoverlay">
+                            </div>
+                        </div>
+                        <div class="kategorijostagai">
+                            <h1>Kosmetologija</h1>
+                            <p><strong>#</strong>BLAKSTIENŲPRIAUGINIMAS, <strong>#</strong>6DANTAKIAI, <strong>#</strong>DEPILIACIJA</p>
+
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </section>
+
+        <section class="promtitle">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-md-12 col-xs-12">
+                    <h2 class="apppromotitle">Naudokis <object type="image/svg+xml" data="img/logo/pretitlogopilnasorange.svg">Your browser does not support SVG</object> savo išmaniajame telefone arba planšetėje!</h2>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="appaspromas">
+
+            <img src="img/apppromo9999.png">
+
+
+        </section>
+
+        <div footer></div>
+
+
+
+
+
+
+
+
+
+    </ion-content>
+
+
+
+
+</ion-view>
